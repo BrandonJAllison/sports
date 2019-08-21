@@ -1,16 +1,16 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
 
-import Login from './components/Login'
+import NavBar from './components/NavBar'
 import './App.scss'
 
 function App() {
   return (
-    <Switch>
+    <div className='app-wrap'>
 
-      <Route exact path='/' component={Login} />
+      <NavBar />
 
-    </Switch>
+    </div>
+
   )
 }
 
