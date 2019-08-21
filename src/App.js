@@ -1,25 +1,27 @@
 import React from 'react';
-
+import {Link, Route} from"react-router-dom";
 import './App.scss';
+import {NFL, NBA, MLB, NCAA, CFL} from "./components"
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>SportsBook</h1>
+     <header className="navbar">
+      <h1>SportsBook</h1>
         <nav>
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
-          <span>5</span>
-          <span>6</span>
-          <span>7</span>
-          <span>8</span>
+            <Link to="/nfl">NFL</Link>
+            <Link to="/mlb">MLB</Link>
+            <Link to="/ncaa">NCAA</Link>
+            <Link to="/cfl">CFL</Link>
+            <Link to="/nba">NBA</Link>
         </nav>
-      </header>
+     </header>
       <main>
-
+        <Route exact path="/" component={NFL}/>
+        <Route exact path="/nba" component={NBA}/>
+        <Route exact path="/mlb" component={MLB}/>
+        <Route exact path="/ncaa" component={NCAA}/>
+        <Route exact path="/cfl" component={CFL}/>
       </main>
     </div>
   );
