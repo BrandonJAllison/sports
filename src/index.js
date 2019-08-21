@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
+
 import { applyMiddleware, createStore } from 'redux'
 import App from './App'
 import './index.css'
@@ -26,17 +27,17 @@ const onRedirectCallback = appState => {
 const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-    <Auth0Provider
-        domain={config.domain}
-        client_id={config.clientId}
-        redirect_uri={window.location.origin}
-        onRedirectCallback={onRedirectCallback}
-    >
-        <Router>
-            <Provider store={store}>
+    <Router>
+        <Provider store={store}>
+            <Auth0Provider
+                domain={config.domain}
+                client_id={config.clientId}
+                redirect_uri={window.location.origin}
+                onRedirectCallback={onRedirectCallback}
+            >
                 <App />
-            </Provider>
-        </Router>
-    </Auth0Provider>,
+            </Auth0Provider>
+        </Provider>
+    </Router>,
     document.getElementById('root')
 )
