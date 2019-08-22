@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Route } from "react-router-dom";
-
+import { PropBets } from './components/PropBets/PropBets'
 import { NFL, NBA, MLB, NCAA, CFL } from "./components"
 import NavBar from './components/NavBar'
 import './App.scss'
@@ -30,6 +30,9 @@ function App() {
         <Route exact path="/ncaa" component={NCAA} />
         <Route exact path="/cfl" component={CFL} />
       </main>
+      <div>
+        <PropBets />
+      </div>
 
     </div>
 
