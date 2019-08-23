@@ -70,9 +70,9 @@ const PropBets = props => {
 
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                    <NavLink to='/stats'><button>STAT</button></NavLink>
-                    <NavLink to='/headtohead'><button>H2H</button></NavLink>
-                    <NavLink to='/trios'><button>TRIOS</button></NavLink>
+                    <NavLink className='links' activeClass='active' to='/stats'><button>STAT</button></NavLink>
+                    <NavLink className='links' to='/headtohead'><button>H2H</button></NavLink>
+                    <NavLink className='links' to='/trios'><button>TRIOS</button></NavLink>
                 </div>
             </div>
 

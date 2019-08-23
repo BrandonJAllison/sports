@@ -5,11 +5,26 @@ select {
 
 h4 {
     align-self: center;
+    margin-bottom: -1rem;
+    
+}
+
+h2{
+    margin-left: .2rem;
+    margin-bottom: -.2rem;
 }
 
 .selvars {
     display: flex;
     justify-content: center;
+    
+    button{
+        height: 2rem;
+        background: gold;
+        border: .5px solid black;
+        width: 100px;
+        
+    }
 }
 
 .counters {
