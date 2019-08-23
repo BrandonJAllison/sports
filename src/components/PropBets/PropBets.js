@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import InfoModal from './InfoModal'
 import axios from 'axios';
 
 
@@ -6,6 +9,16 @@ import axios from 'axios';
 export const PropBets = props => {
     const [players, setPlayers] = useState()
     const [count, setCount] = useState(0);
+    const [show, setShow] = useState(false)
+
+    const showModal = () => {
+        setShow(!show);
+    };
+
+    const hideModal = () => {
+        setShow(false);
+    };
+
 
     function getPlayers() {
         axios
@@ -27,9 +40,11 @@ export const PropBets = props => {
         return <h1>Loading...</h1>
     } else {
         return (
+
             <div style={{ border: '1px solid black', height: '400px', width: '300px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span>Build Your Bet</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
+                    <InfoModal show={show} handleClose={hideModal} />
+                    <span>Build Your Bet <FontAwesomeIcon onClick={showModal} icon={faInfoCircle} /></span>
                     <span>Betslip</span>
 
                 </div>
@@ -67,6 +82,7 @@ export const PropBets = props => {
                     </button>
 
                     </div>
+
                     <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
                         <p>{count}</p>
                         <p>ODDS</p>
