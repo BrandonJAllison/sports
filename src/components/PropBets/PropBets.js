@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export const PropBets = props => {
     const [players, setPlayers] = useState()
+    const [count, setCount] = useState(0);
 
     function getPlayers() {
         axios
@@ -30,16 +31,31 @@ export const PropBets = props => {
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span>Build Your Bet</span>
                     <span>Betslip</span>
-                    <select>
+                    {/* <select>
                         {playerOptions}
-                    </select>
+                    </select> */}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                     <button>STAT</button>
                     <button>H2H</button>
                     <button>TRIOS</button>
                 </div>
+                <p>will have</p>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <button>AT LEAST</button>
+                    <button>OVER</button>
+                    <button>UNDER</button>
+                </div>
+                <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', marginTop: '25px' }} >
+                    <p style={{ borderBottom: '1px solid black', paddingBottom: '10px' }}>{count}</p>
+                    <button style={{ width: '50%' }} onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}>
+                        -
+                    </button>
+                    <button style={{ width: '50%' }} onClick={() => setCount(count + 1)}>
+                        +
+                    </button>
 
+                </div>
             </div>
         )
 
