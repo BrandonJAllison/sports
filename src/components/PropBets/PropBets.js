@@ -46,11 +46,28 @@ const PropBets = props => {
 
     return (
 
-        <div style={{ border: '1px solid black', height: '600px', width: '350px', display: 'flex', flexDirection: 'column' }}>
-            <div className='upper'>
-                <InfoModal show={show} handleClose={hideModal} />
+        <div style={{
+            border: '1px solid black',
+            height: '600px',
+            width: '350px',
+            display: 'flex',
+            flexDirection: 'column'
+        }}>
+            <div className='upper' id='upper'>
+
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
-                    <span>Build Your Bet <FontAwesomeIcon onMouseEnter={showModal} onMouseLeave={hideModal} icon={faInfoCircle} /></span>
+                    <span>
+                        Build Your Bet
+                    <FontAwesomeIcon
+                            onMouseEnter={showModal}
+                            onMouseLeave={hideModal}
+                            icon={faInfoCircle}
+                        />
+                        <InfoModal
+                            show={show}
+                            handleClose={hideModal}
+                        />
+                    </span>
                     <span>Betslip</span>
 
                 </div>
