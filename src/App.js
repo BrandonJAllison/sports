@@ -1,11 +1,18 @@
-import React from 'react'
-import { Link, Route } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import './App.scss';
+
 import { PropBets } from './components/PropBets/PropBets'
-import { NFL, NBA, MLB, NCAA, CFL } from "./components"
 import NavBar from './components/NavBar'
-import './App.scss'
+import { NFL } from "./components"
 
 function App() {
+
+  // const [result, setResult] = useState([]);
+  const [sport, setSport] = useState("NFL");
+
+
+
   return (
 
     <div className="App">
@@ -15,8 +22,8 @@ function App() {
       <header className="navbar">
         <Link to="/"><h1>SportsBook</h1></Link>
         <nav>
-          <Link to="/nfl">NFL</Link>
-          <Link to="/mlb">MLB</Link>
+          <Link onClick={() => { setSport('nfl') }}>NFL</Link>
+          <Link onClick={() => { setSport('mlb') }}>MLB</Link>
           <Link to="/ncaa">NCAA</Link>
           <Link to="/cfl">CFL</Link>
           <Link to="/nba">NBA</Link>
@@ -24,11 +31,8 @@ function App() {
       </header>
 
       <main>
-        <Route exact path="/NFL" component={NFL} />
-        <Route exact path="/nba" component={NBA} />
-        <Route exact path="/mlb" component={MLB} />
-        <Route exact path="/ncaa" component={NCAA} />
-        <Route exact path="/cfl" component={CFL} />
+        <NFL sport={sport} />
+
       </main>
       <div>
         <PropBets />
