@@ -5,7 +5,7 @@ import './App.scss';
 import PropBets from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
-
+import SideBar from './components/SideBar'
 function App() {
 
   // const [result, setResult] = useState([]);
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
 
       <NavBar />
-
+      <SideBar />
       <header className="navbar">
         <Link to="/"><h1>SportsBook</h1></Link>
         <nav>
