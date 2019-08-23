@@ -6,7 +6,7 @@ const UGameCard= (props) => {
     //This component Takes in props from to display the information for the upcoming games.
     
     return (
-        <div style={{border: "1px solid black", margin: "10px"}}>   
+        <div style={{border: "1px solid black", margin: "10px", maxHeight: "10vw"}}>   
           <div className="top-content" style={{display:"flex"}}>
             <img src={props.gameInfo.imageone} alt=""/> 
             <h3>VERSUS</h3>

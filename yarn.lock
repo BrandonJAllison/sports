@@ -1151,6 +1151,11 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
+"@types/auth0-js@^9.10.6":
+  version "9.10.6"
+  resolved "https://registry.yarnpkg.com/@types/auth0-js/-/auth0-js-9.10.6.tgz#9782ac28ea9cff5a2594b780fd3fd0caa615d1e6"
+  integrity sha512-tPdhjqzQRJOdILFLssr/zrinjNvYsKKrEzS74XK80ZkQJKejjTERbIh3+T5niFKxx3XYPB3140ys8Y4Q2UFwHw==
+
 "@types/babel__core@^7.1.0":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.2.tgz#608c74f55928033fce18b99b213c16be4b3d114f"

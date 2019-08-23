@@ -5,7 +5,7 @@ import './App.scss';
 import PropBets from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
-import SideBar from './components/SideBar'
+import SideBar from './components/sidebar.js'
 function App() {
 
   // const [result, setResult] = useState([]);
@@ -17,16 +17,16 @@ function App() {
 
     <div className="App">
 
-      <NavBar />
-      <SideBar />
+      {/* <NavBar />
+      <SideBar /> */}
       <header className="navbar">
         <Link to="/"><h1>SportsBook</h1></Link>
         <nav>
           <Link onClick={() => { setSport('nfl') }}>NFL</Link>
           <Link onClick={() => { setSport('mlb') }}>MLB</Link>
-          <Link to="/ncaa">NCAA</Link>
-          <Link to="/cfl">CFL</Link>
-          <Link to="/nba">NBA</Link>
+          <Link onClick={() => { setSport('ncaa') }}>NCAA</Link>
+          <Link onClick={() => { setSport('cfl') }}>CFL</Link>
+          <Link onClick={() => { setSport('nba') }}>NBA</Link>
         </nav>
       </header>
 
@@ -36,7 +36,7 @@ function App() {
       </main>
       <div>
 
-        <PropBets />
+        {/* <PropBets /> */}
 
       </div>
 
