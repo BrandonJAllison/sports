@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 import './App.scss';
 
-import { PropBets } from './components/PropBets/PropBets'
+import PropBets from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
 
@@ -35,7 +35,9 @@ function App() {
 
       </main>
       <div>
+
         <PropBets />
+
       </div>
 
     </div>

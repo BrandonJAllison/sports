@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { Switch, Route, BrowserRouter as Router, NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import Stats from './Views/Stats'
+import HeadToHead from './Views/HeadToHead'
+import Trios from './Views/Trios'
 import InfoModal from './InfoModal'
 import axios from 'axios';
 
 
 
-export const PropBets = props => {
+const PropBets = props => {
     const [players, setPlayers] = useState()
-    const [count, setCount] = useState(0);
     const [show, setShow] = useState(false)
 
     const showModal = () => {
@@ -37,62 +40,41 @@ export const PropBets = props => {
         <option key={player.PlayerID}>{player.Name}</option>
     );
 
-    if (!players) {
-        return <h1>Loading...</h1>
-    }
+    // if (!players) {
+    //     return <h1>Loading...</h1>
+    // }
 
     return (
 
-        <div style={{ border: '1px solid black', height: '400px', width: '300px' }}>
-            <InfoModal show={show} handleClose={hideModal} />
-            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
-                <span>Build Your Bet <FontAwesomeIcon onMouseEnter={showModal} onMouseLeave={hideModal} icon={faInfoCircle} /></span>
-                <span>Betslip</span>
-
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                <button>STAT</button>
-                <button>H2H</button>
-                <button>TRIOS</button>
-            </div>
-            <div>
-                <span>Add Player</span>
-                <select style={{ width: '90%', margin: '0 10px' }}>
-                    {playerOptions}
-                </select>
-            </div>
-            <div>
-                <p>Select Statistic</p>
-                <select style={{ width: '90%', margin: '0 10px' }}>
-
-                </select>
-            </div>
-            <p>will have</p>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <button>AT LEAST</button>
-                <button>OVER</button>
-                <button>UNDER</button>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
-                    <p style={{ borderBottom: '1px solid black', paddingBottom: '10px' }}>{count}</p>
-                    <button style={{ width: '50%' }} onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}>
-                        -
-                    </button>
-                    <button style={{ width: '50%' }} onClick={() => setCount(count + 1)}>
-                        +
-                    </button>
+        <div style={{ border: '1px solid black', height: '600px', width: '350px' }}>
+            <div className='upper'>
+                <InfoModal show={show} handleClose={hideModal} />
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
+                    <span>Build Your Bet <FontAwesomeIcon onMouseEnter={showModal} onMouseLeave={hideModal} icon={faInfoCircle} /></span>
+                    <span>Betslip</span>
 
                 </div>
-
-                <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
-                    <p>{count}</p>
-                    <p>ODDS</p>
-
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                    <NavLink to='/prop' ><button>STAT</button></NavLink>
+                    <NavLink to='/headtohead'><button>H2H</button></NavLink>
+                    <NavLink to='/trios'><button>TRIOS</button></NavLink>
                 </div>
             </div>
+
+            <div className='main'>
+
+                <Switch>
+                    <Route exact path='/prop' component={Stats} />
+                    <Route exact path='/headtohead' component={HeadToHead} />
+                    <Route exact path='/trios' component={Trios} />
+                </Switch>
+
+            </div>
+
         </div>
     )
 
 }
+
+export default PropBets
 
