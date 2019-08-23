@@ -1,0 +1,42 @@
+select {
+    width: 90%;
+    margin: 0 10px;
+}
+
+h4 {
+    align-self: center;
+}
+
+.selvars {
+    display: flex;
+    justify-content: center;
+}
+
+.counters {
+    display: flex;
+    justify-content: space-between;
+
+    .count-set {
+        border: 1px solid black;
+        text-align: center;
+        width: 35%;
+        margin: 25px 10px 10px 10px;
+    
+        p {
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+        }
+    
+        button {
+            width: 50%;
+        }
+    }
+    
+    .count-display {
+        border: 1px solid black;
+        text-align: center;
+        width: 35%;
+        margin: 25px 10px 10px 10px;
+    }
+}
+

@@ -18,7 +18,7 @@ function App() {
     <div className="App">
 
       <NavBar />
-      <SideBar />
+      {/* <SideBar /> */}
       <header className="navbar">
         <Link to="/"><h1>SportsBook</h1></Link>
         <nav>
