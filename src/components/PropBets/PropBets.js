@@ -40,9 +40,7 @@ const PropBets = props => {
         <option key={player.PlayerID}>{player.Name}</option>
     );
 
-    // if (!players) {
-    //     return <h1>Loading...</h1>
-    // }
+    // if (!players) return <h1>Loading...</h1>
 
     return (
 
@@ -51,14 +49,14 @@ const PropBets = props => {
             height: '600px',
             width: '350px',
             display: 'flex',
-            flexDirection: 'column'
+            flexDirection: 'column',
+            justifyContent: 'space-between'
         }}>
             <div className='upper' id='upper'>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
                     <span>
-                        Build Your Bet
-                    <FontAwesomeIcon
+                        Build Your Bet <FontAwesomeIcon
                             onMouseEnter={showModal}
                             onMouseLeave={hideModal}
                             icon={faInfoCircle}
@@ -72,7 +70,7 @@ const PropBets = props => {
 
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                    <NavLink to='/props' ><button>STAT</button></NavLink>
+                    <NavLink to='/stats'><button>STAT</button></NavLink>
                     <NavLink to='/headtohead'><button>H2H</button></NavLink>
                     <NavLink to='/trios'><button>TRIOS</button></NavLink>
                 </div>
@@ -81,7 +79,7 @@ const PropBets = props => {
             <div className='main'>
 
                 <Switch>
-                    <Route exact path='/props' component={Stats} />
+                    <Route exact path='/stats' render={props => <Stats playerOptions={playerOptions} />} />
                     <Route exact path='/headtohead' component={HeadToHead} />
                     <Route exact path='/trios' component={Trios} />
                 </Switch>
