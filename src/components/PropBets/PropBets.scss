@@ -1,6 +1,16 @@
 .upper {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-bottom: 15px;
 }
+.lower{
+    display:flex;
+    border: 1px solid green;
+}
+
+.main{
+    border: 1px sold blue;
+}
+
 .links{
 
     color:green;
