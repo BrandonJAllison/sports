@@ -5,7 +5,7 @@ import './App.scss';
 import PropBets from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
-import SideBar from './components/sidebar.js'
+import SideBar from './components/Sidebar.js'
 function App() {
 
   // const [result, setResult] = useState([]);
@@ -36,7 +36,7 @@ function App() {
       </main>
       <div>
 
-        {/* <PropBets /> */}
+        <PropBets />
 
       </div>
 
