@@ -14,6 +14,7 @@ import config from "./auth_config.json"
 
 // A function that routes the user to the right place
 // after login
+
 const onRedirectCallback = appState => {
     window.history.replaceState(
         {},
