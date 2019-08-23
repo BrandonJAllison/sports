@@ -12,7 +12,7 @@ export const PropBets = props => {
     const [show, setShow] = useState(false)
 
     const showModal = () => {
-        setShow(!show);
+        setShow(true);
     };
 
     const hideModal = () => {
@@ -36,65 +36,63 @@ export const PropBets = props => {
     let playerOptions = players && players.map((player) =>
         <option key={player.PlayerID}>{player.Name}</option>
     );
+
     if (!players) {
         return <h1>Loading...</h1>
-    } else {
-        return (
-
-            <div style={{ border: '1px solid black', height: '400px', width: '300px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
-                    <InfoModal show={show} handleClose={hideModal} />
-                    <span>Build Your Bet <FontAwesomeIcon onClick={showModal} icon={faInfoCircle} /></span>
-                    <span>Betslip</span>
-
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                    <button>STAT</button>
-                    <button>H2H</button>
-                    <button>TRIOS</button>
-                </div>
-                <div>
-                    <span>Add Player</span>
-                    <select style={{ width: '90%', margin: '0 10px' }}>
-                        {playerOptions}
-                    </select>
-                </div>
-                <div>
-                    <p>Select Statistic</p>
-                    <select style={{ width: '90%', margin: '0 10px' }}>
-
-                    </select>
-                </div>
-                <p>will have</p>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <button>AT LEAST</button>
-                    <button>OVER</button>
-                    <button>UNDER</button>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
-                        <p style={{ borderBottom: '1px solid black', paddingBottom: '10px' }}>{count}</p>
-                        <button style={{ width: '50%' }} onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}>
-                            -
-                    </button>
-                        <button style={{ width: '50%' }} onClick={() => setCount(count + 1)}>
-                            +
-                    </button>
-
-                    </div>
-
-                    <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
-                        <p>{count}</p>
-                        <p>ODDS</p>
-
-                    </div>
-                </div>
-            </div>
-        )
-
     }
 
+    return (
 
+        <div style={{ border: '1px solid black', height: '400px', width: '300px' }}>
+            <InfoModal show={show} handleClose={hideModal} />
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
+                <span>Build Your Bet <FontAwesomeIcon onMouseEnter={showModal} onMouseLeave={hideModal} icon={faInfoCircle} /></span>
+                <span>Betslip</span>
+
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                <button>STAT</button>
+                <button>H2H</button>
+                <button>TRIOS</button>
+            </div>
+            <div>
+                <span>Add Player</span>
+                <select style={{ width: '90%', margin: '0 10px' }}>
+                    {playerOptions}
+                </select>
+            </div>
+            <div>
+                <p>Select Statistic</p>
+                <select style={{ width: '90%', margin: '0 10px' }}>
+
+                </select>
+            </div>
+            <p>will have</p>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <button>AT LEAST</button>
+                <button>OVER</button>
+                <button>UNDER</button>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
+                    <p style={{ borderBottom: '1px solid black', paddingBottom: '10px' }}>{count}</p>
+                    <button style={{ width: '50%' }} onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}>
+                        -
+                    </button>
+                    <button style={{ width: '50%' }} onClick={() => setCount(count + 1)}>
+                        +
+                    </button>
+
+                </div>
+
+                <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
+                    <p>{count}</p>
+                    <p>ODDS</p>
+
+                </div>
+            </div>
+        </div>
+    )
 
 }
 

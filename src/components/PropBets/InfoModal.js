@@ -5,17 +5,10 @@ import './infomodal.scss'
 
 const Modal = (props) => {
 
-    const showHideClassName = props.show ? "modal display-block" : "modal display-none";
-
     return (
-        <div className={showHideClassName}>
-            <section className="modal-main">
-                <h2>{props.title}</h2>
-                <p style={{ padding: '20px' }}>{props.exp}</p>
-                <button type="button" onClick={props.handleClose}>
-                    close
-                    </button>
-            </section>
+        <div className='modal-main' style={{ display: props.show ? 'block' : 'none' }}>
+            <h2>{props.title}</h2>
+            <p style={{ padding: '20px' }}>{props.exp}Some Bullshit and some other shit</p>
         </div>
     );
 };
