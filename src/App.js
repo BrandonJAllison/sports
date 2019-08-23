@@ -1,27 +1,32 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link, Route} from"react-router-dom";
+import axios from 'axios';
 import './App.scss';
-import {NFL, NBA, MLB, NCAA, CFL} from "./components"
+import {NFL} from "./components"
+import Ticon from "./DEMOSTUFF/Ticon.png"
 
 function App() {
+
+// const [result, setResult] = useState([]);
+const [sport, setSport] = useState("NFL");
+
+
+
   return (
     <div className="App">
      <header className="navbar">
       <Link to="/"><h1>SportsBook</h1></Link>
         <nav>
-            <Link to="/nfl">NFL</Link>
-            <Link to="/mlb">MLB</Link>
+            <Link onClick={() => { setSport('nfl')}}>NFL</Link>
+            <Link onClick={() => { setSport('mlb')}}>MLB</Link>
             <Link to="/ncaa">NCAA</Link>
             <Link to="/cfl">CFL</Link>
             <Link to="/nba">NBA</Link>
         </nav>
      </header>
       <main>
-        <Route exact path="/NFL" component={NFL}/>
-        <Route exact path="/nba" component={NBA}/>
-        <Route exact path="/mlb" component={MLB}/>
-        <Route exact path="/ncaa" component={NCAA}/>
-        <Route exact path="/cfl" component={CFL}/>
+        <NFL sport={sport}/>
+
       </main>
     </div>
   );
