@@ -23,6 +23,7 @@ const PropBetsContainer = styled.button`
     border: 1px solid black;
     padding: 1.5rem;
     cursor: default;
+    min-width: 350px;
 ${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} */}
 `
 
@@ -42,6 +43,7 @@ export const PropBets = props => {
     const [players, setPlayers] = useState()
     const [count, setCount] = useState(0)
     const [show, setShow] = useState(false)
+    const [type, setType] = useState('stats')
 
     const hover = _ => setShow(!show)
 
@@ -90,17 +92,33 @@ export const PropBets = props => {
 
             </PropBetsHeader>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                <Button primary small>STAT</Button>
+                <Button
+                    primary small
+                    onClick={() => setType(1)}
+                >STAT</Button>
                 <Button style={{
                     borderLeft: '1px solid black',
                     borderRight: '1px solid black'
-                }} primary small>H2H</Button>
-                <Button primary small>TRIOS</Button>
+                }} primary small
+                    onClick={() => setType(2)}
+                >H2H</Button>
+                <Button primary small
+                    onClick={() => setType(3)}
+                >TRIOS</Button>
             </div>
             <div>
-                {/* <Stats /> */}
-                {/* <HeadToHead /> */}
-                <Trios />
+                {(() => {
+                    switch (type) {
+                        case 1:
+                            return <Stats />
+                        case 2:
+                            return <HeadToHead />
+                        case 3:
+                            return <Trios />
+                        default:
+                            return <Stats />
+                    }
+                })()}
             </div>
 
 
