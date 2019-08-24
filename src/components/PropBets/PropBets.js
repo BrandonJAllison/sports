@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
+import styled from 'styled-components'
+import { colors, buttonSize } from '../../theme/variables.js'
 
+const Button = styled.button`
+    background: ${props => props.primary ? `${colors.primary}` : `${colors.secondary}`};
+    padding: ${props =>
+        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
+    }
+`
 
 export const PropBets = props => {
     const [players, setPlayers] = useState()
@@ -34,9 +42,9 @@ export const PropBets = props => {
 
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                    <button>STAT</button>
-                    <button>H2H</button>
-                    <button>TRIOS</button>
+                    <Button primary small>STAT</Button>
+                    <Button primary small>H2H</Button>
+                    <Button primary small>TRIOS</Button>
                 </div>
                 <div>
                     <span>Add Player</span>
@@ -52,9 +60,9 @@ export const PropBets = props => {
                 </div>
                 <p>will have</p>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <button>AT LEAST</button>
-                    <button>OVER</button>
-                    <button>UNDER</button>
+                    <Button primary>AT LEAST</Button>
+                    <Button primary>OVER</Button>
+                    <Button primary>UNDER</Button>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >

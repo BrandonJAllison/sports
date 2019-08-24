@@ -6,6 +6,11 @@ import { PropBets } from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
 
+import GlobalStyle from './theme/globalStyle';
+
+import './theme/index.js'
+
+
 function App() {
 
   // const [result, setResult] = useState([]);
@@ -16,7 +21,7 @@ function App() {
   return (
 
     <div className="App">
-
+      <GlobalStyle />
       <NavBar />
 
       <header className="navbar">
@@ -39,7 +44,6 @@ function App() {
       </div>
 
     </div>
-
   )
 }
 
