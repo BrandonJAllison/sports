@@ -15,8 +15,6 @@ const Button = styled.button`
     padding: ${props =>
         props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
     };
-    
-
 `
 const PropBetsContainer = styled.button`
     background: #fff;
@@ -91,7 +89,8 @@ export const PropBets = props => {
                     <Button primary small>TRIOS</Button>
                 </div>
                 <div>
-                    <Stats />
+                    {/* <Stats /> */}
+                    <HeadToHead />
                 </div>
 
 
