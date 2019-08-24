@@ -6,6 +6,7 @@ import Logo from './assets/logo.png'
 import { PropBets } from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
+import CardContainer from './components/CardContainer'
 
 import styled from 'styled-components'
 import GlobalStyle from './theme/globalStyle';
@@ -14,12 +15,14 @@ import { colors, buttonSize } from './theme/variables.js'
 import './theme/index.js'
 
 const NavContainer = styled.div`
+background-color: #fff;
 max-width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  padding: 0 2rem;
+  padding: 1.2rem 2rem;
+  flex-wrap: wrap;
 `
 
 const NavLinks = styled.div`
@@ -78,6 +81,7 @@ function App() {
           </NavRow>
         </NavLinks>
       </NavContainer>
+      <CardContainer />
 
       <main>
         <NFL sport={sport} />
