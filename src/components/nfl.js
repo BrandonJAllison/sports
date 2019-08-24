@@ -3,6 +3,14 @@ import UGameCard from "./upcominggamecard";
 import Ticon from "../DEMOSTUFF/Ticon.png";
 import axios from "axios";
 
+import styled from 'styled-components'
+import { colors, buttonSize } from '../theme/variables'
+
+const Card = styled.div`
+    width: 40%;
+
+`
+
 const NFL = (props) => {
 
     // const [gameInfo, setGameInfo] = useState([]);
@@ -34,30 +42,29 @@ const NFL = (props) => {
     console.log(gameInfo)
     if (props.sport === "nfl") {
         return (
-            <div style={{ display: "flex" }}>
-                <div className="UGameContainer" style={{ background: "grey", width: "90vw", minHeight: "20vw" }}>
-                    <h3 style={{ background: "gold", color: "white", margin: "0", width: "60vw" }}>upcoming {props.sport} Games</h3>
-                    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+            <Card>
+                <div>
+                    <div>
                         {gameInfo.nfl.map(el => <UGameCard gameInfo={el} />)}
                         {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
                     </div>
-                    <div style={{ display: "flex", width: "100%", justifyContent: "center", marginTop: "5%" }}>
+                    <div>
                         <button>View All {props.sport} Games</button>
                     </div>
                 </div>
-            </div>
+            </Card>
         );
     }
     if (props.sport === "mlb") {
         return (
-            <div style={{ display: "flex" }}>
-                <div className="UGameContainer" style={{ background: "grey", width: "90vw", minHeight: "20vw" }}>
-                    <h3 style={{ background: "gold", color: "white", margin: "0", width: "60vw" }}>upcoming {props.sport} Games</h3>
-                    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+            <div>
+                <div>
+                    <h3>upcoming {props.sport} Games</h3>
+                    <div>
                         {gameInfo.mlb.map(el => <UGameCard gameInfo={el} />)}
                         {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
                     </div>
-                    <div style={{ display: "flex", width: "100%", justifyContent: "center", marginTop: "5%" }}>
+                    <div>
                         <button>View All {props.sport} Games</button>
                     </div>
                 </div>
@@ -66,14 +73,14 @@ const NFL = (props) => {
     }
     if (props.sport === "cfl") {
         return (
-            <div style={{ display: "flex" }}>
-                <div className="UGameContainer" style={{ background: "grey", width: "90vw", minHeight: "20vw" }}>
-                    <h3 style={{ background: "gold", color: "white", margin: "0", width: "60vw" }}>upcoming {props.sport} Games</h3>
-                    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+            <div>
+                <div>
+                    <h3>upcoming {props.sport} Games</h3>
+                    <div>
                         {gameInfo.cfl.map(el => <UGameCard gameInfo={el} />)}
                         {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
                     </div>
-                    <div style={{ display: "flex", width: "100%", justifyContent: "center", marginTop: "5%" }}>
+                    <div>
                         <button>View All {props.sport} Games</button>
                     </div>
                 </div>
@@ -82,14 +89,14 @@ const NFL = (props) => {
     }
     if (props.sport === "ncaa") {
         return (
-            <div style={{ display: "flex" }}>
-                <div className="UGameContainer" style={{ background: "grey", width: "90vw", minHeight: "20vw" }}>
-                    <h3 style={{ background: "gold", color: "white", margin: "0", width: "60vw" }}>upcoming {props.sport} Games</h3>
-                    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+            <div>
+                <div>
+                    <h3>upcoming {props.sport} Games</h3>
+                    <div>
                         {gameInfo.ncaa.map(el => <UGameCard gameInfo={el} />)}
                         {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
                     </div>
-                    <div style={{ display: "flex", width: "100%", justifyContent: "center", marginTop: "5%" }}>
+                    <div>
                         <button>View All {props.sport} Games</button>
                     </div>
                 </div>
@@ -98,14 +105,14 @@ const NFL = (props) => {
     }
     if (props.sport === "nba") {
         return (
-            <div style={{ display: "flex" }}>
-                <div className="UGameContainer" style={{ background: "grey", width: "90vw", minHeight: "20vw" }}>
-                    <h3 style={{ background: "gold", color: "white", margin: "0", width: "60vw" }}>upcoming {props.sport} Games</h3>
-                    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+            <div>
+                <div>
+                    <h3>upcoming {props.sport} Games</h3>
+                    <div>
                         {gameInfo.nba.map(el => <UGameCard gameInfo={el} />)}
                         {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
                     </div>
-                    <div style={{ display: "flex", width: "100%", justifyContent: "center", marginTop: "5%" }}>
+                    <div>
                         <button>View All {props.sport} Games</button>
                     </div>
                 </div>
