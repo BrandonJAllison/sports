@@ -1,4 +1,4 @@
-import NFL from "./nfl";
+// import NFL from "./nfl";
 
 
-export {NFL};
+// export {NFL};
