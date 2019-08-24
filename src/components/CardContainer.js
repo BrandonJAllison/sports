@@ -39,7 +39,7 @@ const ContainerContent = styled.div`
     border: 2px solid green;
 `
 
-const CardContainer = (props) => {
+const CardContainer = props => {
 
     return (
         <>

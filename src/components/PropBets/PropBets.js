@@ -9,6 +9,7 @@ import HeadToHead from './Views/HeadToHead'
 import Trios from './Views/Trios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfo } from '@fortawesome/free-solid-svg-icons'
+import InfoModal from './InfoModal'
 
 const Button = styled.button`
     background: ${props => props.primary ? `${colors.primary}` : `${colors.secondary}`};
@@ -21,6 +22,7 @@ const PropBetsContainer = styled.button`
     color: ${colors.darkGrey};
     border: 1px solid black;
     padding: 1.5rem;
+    cursor: default;
 ${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} */}
 `
 
@@ -38,7 +40,10 @@ ${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} *
 
 export const PropBets = props => {
     const [players, setPlayers] = useState()
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0)
+    const [show, setShow] = useState(false)
+
+    const hover = _ => setShow(!show)
 
     function getPlayers() {
         axios
@@ -57,48 +62,48 @@ export const PropBets = props => {
         <option key={player.PlayerID}>{player.Name}</option>
     );
 
-    if (!players) {
-        return (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <img style={{ marginLeft: '5rem' }} src={Logo} alt='Rivers Casino Logo Loading' />
-                <p>RIVERS
-                SPORTSBOOK</p>
-                <Loader
-                    type="ThreeDots"
-                    color="#C5960C"
-                    height="100"
-                    width="100"
-                />
+    // if (!players) {
+    //     return (
+    //         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    //             <img style={{ marginLeft: '5rem' }} src={Logo} alt='Rivers Casino Logo Loading' />
+    //             <p>RIVERS
+    //             SPORTSBOOK</p>
+    //             <Loader
+    //                 type="ThreeDots"
+    //                 color="#C5960C"
+    //                 height="100"
+    //                 width="100"
+    //             />
+    //         </div>
+    //     )
+    // } 
+
+    return (
+        <PropBetsContainer>
+            <PropBetsHeader>
+                <span>Build Your Bet <i onMouseOver={hover} onMouseOut={hover}>
+                    <FontAwesomeIcon icon={faInfo} />
+                    <InfoModal show={show} />
+                </i></span>
+
+                <span>Betslip</span>
+
+            </PropBetsHeader>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                <Button primary small>STAT</Button>
+                <Button style={{
+                    borderLeft: '1px solid black',
+                    borderRight: '1px solid black'
+                }} primary small>H2H</Button>
+                <Button primary small>TRIOS</Button>
             </div>
-        )
-    } else {
-        return (
-            <PropBetsContainer>
-                <PropBetsHeader>
-                    <span>Build Your Bet <FontAwesomeIcon icon={faInfo} /></span>
-
-                    <span>Betslip</span>
-
-                </PropBetsHeader>
-                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                    <Button primary small>STAT</Button>
-                    <Button style={{
-                        borderLeft: '1px solid black',
-                        borderRight: '1px solid black'
-                    }} primary small>H2H</Button>
-                    <Button primary small>TRIOS</Button>
-                </div>
-                <div>
-                    {/* <Stats /> */}
-                    <HeadToHead />
-                </div>
+            <div>
+                <Stats />
+            </div>
 
 
-            </PropBetsContainer>
-        )
+        </PropBetsContainer>
 
-    }
-
-
+    )
 
 }
