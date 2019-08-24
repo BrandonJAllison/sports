@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../theme/variables.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faChartLine, faInfo } from '@fortawesome/free-solid-svg-icons'
 import './Stats.scss'
 
 const Button = styled.button`

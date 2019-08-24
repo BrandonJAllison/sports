@@ -7,6 +7,8 @@ import Logo from '../../assets/logo.png'
 import Stats from './Views/Stats'
 import HeadToHead from './Views/HeadToHead'
 import Trios from './Views/Trios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfo } from '@fortawesome/free-solid-svg-icons'
 
 const Button = styled.button`
     background: ${props => props.primary ? `${colors.primary}` : `${colors.secondary}`};
@@ -56,6 +58,7 @@ export const PropBets = props => {
     let playerOptions = players && players.map((player) =>
         <option key={player.PlayerID}>{player.Name}</option>
     );
+
     if (!players) {
         return (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -74,7 +77,8 @@ export const PropBets = props => {
         return (
             <PropBetsContainer>
                 <PropBetsHeader>
-                    <span>Build Your Bet</span>
+                    <span>Build Your Bet <FontAwesomeIcon icon={faInfo} /></span>
+
                     <span>Betslip</span>
 
                 </PropBetsHeader>
