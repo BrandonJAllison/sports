@@ -75,8 +75,8 @@ function App() {
             <img alt='Logo' style={{ width: '60%' }} src={Logo} />
           </Link>
         </NavRow>
-        <NavLinks>
-          <NavRow>
+        <NavLinks >
+          <NavRow activeStyle={{ textDecoration: 'underline' }}>
             <Link onClick={() => { setSport('nfl') }}>NFL</Link>
             <Link onClick={() => { setSport('mlb') }}>MLB</Link>
             <Link to="/ncaa">NCAA</Link>
