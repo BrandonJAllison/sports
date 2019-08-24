@@ -98,7 +98,8 @@ export const PropBets = props => {
                 <Button primary small>TRIOS</Button>
             </div>
             <div>
-                <Stats />
+                {/* <Stats /> */}
+                <HeadToHead />
             </div>
 
 
