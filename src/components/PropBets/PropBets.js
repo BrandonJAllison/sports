@@ -23,6 +23,23 @@ const Button = styled.button`
     }
 `
 
+const PropBetsContainer = styled.button`
+    background: #fff;
+    color: ${colors.darkGrey};
+    border: 1px solid black
+    padding: 1.5rem;
+${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} */}
+`
+
+const PropBetsHeader = styled.button`
+    background: ${colors.darkGrey}
+    color: #fff;
+    border: 1px solid black;
+    ${'' /* padding: 1.5rem; */}
+    width: 100%;
+${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} */}
+`
+
 export const PropBets = props => {
 >>>>>>> d4a0ecc71672b6eec9d70b4eac27807b265e2962
     const [players, setPlayers] = useState()
@@ -53,6 +70,7 @@ export const PropBets = props => {
     let playerOptions = players && players.map((player) =>
         <option key={player.PlayerID}>{player.Name}</option>
     );
+<<<<<<< HEAD
 
     // if (!players) return <h1>Loading...</h1>
 
@@ -80,9 +98,18 @@ export const PropBets = props => {
                             handleClose={hideModal}
                         />
                     </span>
+=======
+    if (!players) {
+        return <h1>Loading...</h1>
+    } else {
+        return (
+            <PropBetsContainer>
+                <PropBetsHeader>
+                    <span>Build Your Bet</span>
+>>>>>>> 3ebf0d09a341d58eef677882c329292f7df9fe65
                     <span>Betslip</span>
 
-                </div>
+                </PropBetsHeader>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
 <<<<<<< HEAD
                     <NavLink className='links' activeClass='active' to='/stats'><button>STAT</button></NavLink>
@@ -129,7 +156,12 @@ export const PropBets = props => {
                     </div>
 >>>>>>> d4a0ecc71672b6eec9d70b4eac27807b265e2962
                 </div>
+<<<<<<< HEAD
             </div>
+=======
+            </PropBetsContainer>
+        )
+>>>>>>> 3ebf0d09a341d58eef677882c329292f7df9fe65
 
             <div className='main'>
 
