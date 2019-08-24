@@ -6,6 +6,9 @@ import Logo from './assets/logo.png'
 import { PropBets } from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
+
+import SideBar from './components/SideBar'
+
 import CardContainer from './components/CardContainer'
 
 import styled from 'styled-components'
@@ -26,22 +29,18 @@ max-width: 100%;
 `
 
 const NavLinks = styled.div`
-
     a {
       padding-right: 50px;
       font-size: 2rem;
       color: ${colors.darkGrey};
       text-decoration: none;
-
       :hover {
         color: ${colors.primary}
       }
-
       :active {
         color: ${colors.primary}
       }
     }
-
 `
 
 const NavRow = styled.div`
