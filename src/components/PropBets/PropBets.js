@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-
+import Loader from 'react-loader-spinner'
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../theme/variables.js'
-
+import Logo from '../../assets/logo.png'
 const Button = styled.button`
     background: ${props => props.primary ? `${colors.primary}` : `${colors.secondary}`};
     padding: ${props =>
         props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
     }
 `
-
 const PropBetsContainer = styled.button`
     background: #fff;
     color: ${colors.darkGrey};
@@ -49,7 +48,17 @@ export const PropBets = props => {
         <option key={player.PlayerID}>{player.Name}</option>
     );
     if (!players) {
-        return <h1>Loading...</h1>
+        return (
+            <>
+                <img src={Logo} alt='Rivers Casino Logo Loading' />
+                <Loader
+                    type="MutatingDots"
+                    color="#C5960C"
+                    height="100"
+                    width="100"
+                />
+            </>
+        )
     } else {
         return (
             <PropBetsContainer>
