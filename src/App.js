@@ -19,7 +19,7 @@ import './theme/index.js'
 
 const NavContainer = styled.div`
 background-color: #fff;
-max-width: 100%;
+width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
