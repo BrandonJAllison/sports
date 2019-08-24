@@ -1,5 +1,5 @@
 import React from 'react'
-import NFL from './Nfl'
+import NFL from './nfl'
 
 import styled from 'styled-components'
 import { colors } from '../theme/variables'
