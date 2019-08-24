@@ -44,7 +44,7 @@ const CardContainer = () => {
                     <h2>Quick Bets - NFL</h2>
                 </ContainerTitle>
                 <ContainerContent>
-                    <h1> This is the card container.It will hold cards.Cool, right?</h1>
+                    <h1> This is the card container.  It will hold cards.  Cool, right?</h1>
                 </ContainerContent>
             </CardHolder>
         </>

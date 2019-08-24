@@ -4,6 +4,10 @@ import colors from './variables.js'
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,900&display=swap');
 
+    * {
+        box-sizing: border-box;
+    }
+
     html {
         font-size: 67.5%;
     }

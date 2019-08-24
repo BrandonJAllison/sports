@@ -11,6 +11,23 @@ const Button = styled.button`
     }
 `
 
+const PropBetsContainer = styled.button`
+    background: #fff;
+    color: ${colors.darkGrey};
+    border: 1px solid black
+    padding: 1.5rem;
+${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} */}
+`
+
+const PropBetsHeader = styled.button`
+    background: ${colors.darkGrey}
+    color: #fff;
+    border: 1px solid black;
+    ${'' /* padding: 1.5rem; */}
+    width: 100%;
+${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} */}
+`
+
 export const PropBets = props => {
     const [players, setPlayers] = useState()
     const [count, setCount] = useState(0);
@@ -35,12 +52,12 @@ export const PropBets = props => {
         return <h1>Loading...</h1>
     } else {
         return (
-            <div style={{ border: '1px solid black', height: '400px', width: '300px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <PropBetsContainer>
+                <PropBetsHeader>
                     <span>Build Your Bet</span>
                     <span>Betslip</span>
 
-                </div>
+                </PropBetsHeader>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                     <Button primary small>STAT</Button>
                     <Button primary small>H2H</Button>
@@ -81,7 +98,7 @@ export const PropBets = props => {
 
                     </div>
                 </div>
-            </div>
+            </PropBetsContainer>
         )
 
     }

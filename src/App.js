@@ -50,6 +50,12 @@ const NavRow = styled.div`
   align-items: baseline;
 `
 
+const PageContent = styled.div`
+  width: 100%;
+  background: #fff;
+  padding: 3rem 1rem;
+`
+
 
 
 function App() {
@@ -87,9 +93,9 @@ function App() {
         <NFL sport={sport} />
 
       </main>
-      <div>
+      <PageContent>
         <PropBets />
-      </div>
+      </PageContent>
 
     </div>
   )
