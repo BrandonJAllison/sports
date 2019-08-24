@@ -15,7 +15,7 @@ const Button = styled.button`
 const HeadToHead = (props) => {
     return (
         <>
-            <p>This is the head to head component</p>
+
             <div className='playerAdd' style={{ border: '1px solid black', padding: '.2rem', marginTop: '10px', background: '#40484D', display: 'flex', color: 'white', alignItems: 'center', justifyContent: 'center' }}>
                 <FontAwesomeIcon icon={faUser} />
                 <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
@@ -29,6 +29,11 @@ const HeadToHead = (props) => {
             <div className='playerAdd' style={{ border: '1px solid black', padding: '.2rem', marginTop: '10px', background: '#40484D', display: 'flex', color: 'white', alignItems: 'center', justifyContent: 'center' }}>
                 <FontAwesomeIcon icon={faUser} />
                 <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
+            </div>
+            <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
+                <p>0</p>
+                <p>ODDS</p>
+
             </div>
         </>
     )
