@@ -7,18 +7,18 @@ import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
 const Trios = (props) => {
     return (
         <>
-            <p>This is the head to head component</p>
+
             <div className='playerAdd' style={{ border: '1px solid black', padding: '.2rem', marginTop: '10px', background: '#40484D', display: 'flex', color: 'white', alignItems: 'center', justifyContent: 'center' }}>
                 <FontAwesomeIcon icon={faUser} />
                 <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
             </div>
-            <p>This is the head to head component</p>
-            <div className='playerAdd' style={{ border: '1px solid black', padding: '.2rem', marginTop: '10px', background: '#40484D', display: 'flex', color: 'white', alignItems: 'center', justifyContent: 'center' }}>
+
+            <div className='playerAdd' style={{ border: '1px solid black', padding: '.2rem', marginTop: '2px', background: '#40484D', display: 'flex', color: 'white', alignItems: 'center', justifyContent: 'center' }}>
                 <FontAwesomeIcon icon={faUser} />
                 <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
             </div>
-            <p>This is the head to head component</p>
-            <div className='playerAdd' style={{ border: '1px solid black', padding: '.2rem', marginTop: '10px', background: '#40484D', display: 'flex', color: 'white', alignItems: 'center', justifyContent: 'center' }}>
+
+            <div className='playerAdd' style={{ border: '1px solid black', padding: '.2rem', marginTop: '2px', background: '#40484D', display: 'flex', color: 'white', alignItems: 'center', justifyContent: 'center' }}>
                 <FontAwesomeIcon icon={faUser} />
                 <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
             </div>

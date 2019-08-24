@@ -99,7 +99,8 @@ export const PropBets = props => {
             </div>
             <div>
                 {/* <Stats /> */}
-                <HeadToHead />
+                {/* <HeadToHead /> */}
+                <Trios />
             </div>
 
 
