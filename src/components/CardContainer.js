@@ -39,7 +39,6 @@ const CardContainer = props => {
 
     return (
         <>
-
             <CardHolder>
                 <ContainerTitle>
                     <h2>Quick Bets - NFL</h2>
