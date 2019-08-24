@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
             font-size: 2rem;
         }
 
-        h2, a {
+        h2 {
             font-size: 1.8rem;
             color: ${colors.darkGrey};
         }
@@ -26,17 +26,21 @@ const GlobalStyle = createGlobalStyle`
         }
 
         button {
-            color: #fff;
-            padding: 1.02rem 3rem;
             border: 0;
             cursor: pointer;
             font-size: 1.2rem;
             text-transform: uppercase;
+            color: #fff;
         }
 
         button:hover {
             transform: scale(1.03);
             transition: .4s;
+            background: ${props => props.primary ? `${colors.secondary}` : `${colors.primary}`}
+        }
+
+        a {
+            color: ${colors.darkGrey};
         }
     }
 
