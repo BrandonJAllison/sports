@@ -10,7 +10,6 @@ const Button = styled.button`
         props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
     }
 `
-
 const PropBetsContainer = styled.button`
     background: #fff;
     color: ${colors.darkGrey};

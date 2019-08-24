@@ -35,13 +35,15 @@ const GlobalStyle = createGlobalStyle`
             font-size: 1.2rem;
             text-transform: uppercase;
             color: #fff;
-        }
 
-        button:hover {
+            button:hover {
             transform: scale(1.03);
             transition: .4s;
             background: ${props => props.primary ? `${colors.secondary}` : `${colors.primary}`}
         }
+        }
+
+
 
         a {
             color: ${colors.darkGrey};

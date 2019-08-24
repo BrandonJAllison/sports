@@ -7,7 +7,7 @@ import { PropBets } from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
 
-import SideBar from './components/SideBar'
+// import SideBar from './components/Sidebar'
 
 import CardContainer from './components/CardContainer'
 
@@ -60,7 +60,7 @@ const PageContent = styled.div`
 function App() {
 
   // const [result, setResult] = useState([]);
-  const [sport, setSport] = useState("NFL");
+  const [sport, setSport] = useState('nfl');
 
 
 
@@ -86,12 +86,8 @@ function App() {
           </NavRow>
         </NavLinks>
       </NavContainer>
-      <CardContainer />
+      <CardContainer sport={sport} />
 
-      <main>
-        <NFL sport={sport} />
-
-      </main>
       <PageContent>
         <PropBets />
       </PageContent>

@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { UGameCard } from './upcominggamecard'
+import NFL from "./Nfl"
+
 import styled from 'styled-components'
 import { colors } from '../theme/variables'
 
@@ -34,7 +37,7 @@ const ContainerContent = styled.div`
     padding: 2rem 0;
 `
 
-const CardContainer = () => {
+const CardContainer = (props) => {
 
     return (
         <>
@@ -44,7 +47,7 @@ const CardContainer = () => {
                     <h2>Quick Bets - NFL</h2>
                 </ContainerTitle>
                 <ContainerContent>
-                    <h1> This is the card container.  It will hold cards.  Cool, right?</h1>
+                    <NFL sport={props.sport} />
                 </ContainerContent>
             </CardHolder>
         </>
