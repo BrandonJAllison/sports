@@ -35,7 +35,7 @@ const ContainerContent = styled.div`
     padding: 2rem 0;
 `
 
-const CardContainer = (props) => {
+const CardContainer = props => {
 
     return (
         <>
