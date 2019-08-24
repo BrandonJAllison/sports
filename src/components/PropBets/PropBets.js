@@ -13,13 +13,13 @@ const Button = styled.button`
 const PropBetsContainer = styled.button`
     background: #fff;
     color: ${colors.darkGrey};
-    border: 1px solid black
+    border: 1px solid black;
     padding: 1.5rem;
 ${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} */}
 `
 
 const PropBetsHeader = styled.button`
-    background: ${colors.darkGrey}
+    background: ${colors.darkGrey};
     color: #fff;
     border: 1px solid black;
     ${'' /* padding: 1.5rem; */}
@@ -105,4 +105,3 @@ export const PropBets = props => {
 
 
 }
-
