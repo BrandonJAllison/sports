@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../../../theme/variables.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import './Stats.scss'
 
 const Trios = (props) => {
     return (
