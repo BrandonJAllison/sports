@@ -4,11 +4,17 @@ import Loader from 'react-loader-spinner'
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../theme/variables.js'
 import Logo from '../../assets/logo.png'
+import Stats from './Views/Stats'
+import HeadToHead from './Views/HeadToHead'
+import Trios from './Views/Trios'
+
 const Button = styled.button`
     background: ${props => props.primary ? `${colors.primary}` : `${colors.secondary}`};
     padding: ${props =>
         props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
-    }
+    };
+    
+
 `
 const PropBetsContainer = styled.button`
     background: #fff;
@@ -18,12 +24,15 @@ const PropBetsContainer = styled.button`
 ${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} */}
 `
 
-const PropBetsHeader = styled.button`
+const PropBetsHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
     background: ${colors.darkGrey};
     color: #fff;
     border: 1px solid black;
-    ${'' /* padding: 1.5rem; */}
+    padding: 1.5rem; 
     width: 100%;
+    
 ${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} */}
 `
 
@@ -49,15 +58,17 @@ export const PropBets = props => {
     );
     if (!players) {
         return (
-            <>
-                <img src={Logo} alt='Rivers Casino Logo Loading' />
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <img style={{ marginLeft: '5rem' }} src={Logo} alt='Rivers Casino Logo Loading' />
+                <p>RIVERS
+                SPORTSBOOK</p>
                 <Loader
-                    type="MutatingDots"
+                    type="ThreeDots"
                     color="#C5960C"
                     height="100"
                     width="100"
                 />
-            </>
+            </div>
         )
     } else {
         return (
@@ -69,44 +80,17 @@ export const PropBets = props => {
                 </PropBetsHeader>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                     <Button primary small>STAT</Button>
-                    <Button primary small>H2H</Button>
+                    <Button style={{
+                        borderLeft: '1px solid black',
+                        borderRight: '1px solid black'
+                    }} primary small>H2H</Button>
                     <Button primary small>TRIOS</Button>
                 </div>
                 <div>
-                    <span>Add Player</span>
-                    <select style={{ width: '90%', margin: '0 10px' }}>
-                        {playerOptions}
-                    </select>
+                    <Stats />
                 </div>
-                <div>
-                    <p>Select Statistic</p>
-                    <select style={{ width: '90%', margin: '0 10px' }}>
 
-                    </select>
-                </div>
-                <p>will have</p>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button primary>AT LEAST</Button>
-                    <Button primary>OVER</Button>
-                    <Button primary>UNDER</Button>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
-                        <p style={{ borderBottom: '1px solid black', paddingBottom: '10px' }}>{count}</p>
-                        <button style={{ width: '50%' }} onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}>
-                            -
-                    </button>
-                        <button style={{ width: '50%' }} onClick={() => setCount(count + 1)}>
-                            +
-                    </button>
 
-                    </div>
-                    <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
-                        <p>{count}</p>
-                        <p>ODDS</p>
-
-                    </div>
-                </div>
             </PropBetsContainer>
         )
 
