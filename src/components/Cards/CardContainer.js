@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import { UGameCard } '/upcominggamecard'
-import NFL from '../Nfl'
+import NFL from '../nfl'
 // import NFL from './nfl'
 
 import styled from 'styled-components'

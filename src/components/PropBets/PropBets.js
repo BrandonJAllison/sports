@@ -8,7 +8,7 @@ import Stats from './Views/Stats'
 import HeadToHead from './Views/HeadToHead'
 import Trios from './Views/Trios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfo } from '@fortawesome/free-solid-svg-icons'
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import InfoModal from './InfoModal'
 
 const Button = styled.button`
@@ -30,9 +30,10 @@ ${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} *
 const PropBetsHeader = styled.div`
     display: flex;
     justify-content: space-between;
-    background: ${colors.darkGrey};
-    color: #fff;
+    background: ${colors.secondary};
+    color: white;
     border: 1px solid black;
+    border-radius: 5px;
     padding: 1.5rem; 
     width: 100%;
     
@@ -82,8 +83,8 @@ export const PropBets = props => {
     return (
         <PropBetsContainer>
             <PropBetsHeader>
-                <span>Build Your Bet <i onMouseOver={hover} onMouseOut={hover}>
-                    <FontAwesomeIcon icon={faInfo} />
+                <span >Build Your Bet <i onMouseOver={hover} onMouseOut={hover}>
+                    <FontAwesomeIcon size='xs' icon={faQuestionCircle} />
                     <InfoModal show={show} />
                 </i></span>
 

@@ -18,7 +18,9 @@ const Stats = (props) => {
     console.log('player props', props)
     const [count, setCount] = useState(0);
     const [selectedOption, setSelectedOption] = useState(null)
+    const [statType, setStatType] = useState(null)
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
+    const [betSlip, setBetSlip] = useState({})
 
     //This will be ablstracted away when more data is made available through API or other
     const statOptions = [
@@ -34,6 +36,13 @@ const Stats = (props) => {
         { value: 'jerry rice', label: 'Terry Bradshaw' }
     ]
 
+    const statTypeOption = [
+        { value: 'american', label: 'American' },
+        { value: 'decimal', label: 'Decimal' },
+        { value: 'fraction', label: 'Fraction' }
+
+    ]
+
     const handleChange = selectedOption => {
         setSelectedOption({ selectedOption });
         console.log(`Option selected:`, selectedOption);
@@ -41,8 +50,19 @@ const Stats = (props) => {
 
     const handleChangePlayer = playerSelectedOption => {
         setPlayerSelectedOption({ playerSelectedOption });
-        console.log(`Option selected:`, selectedOption);
+        console.log(`Option selected:`, playerSelectedOption);
     };
+
+    const handleStatTypeChange = statType => {
+        setStatType({ statType });
+        console.log(`Option selected:`, statType);
+    };
+
+    const betSlipUpdate = _ => {
+
+        setBetSlip({ count, selectedOption, playerSelectedOption })
+        console.log('Bet Slip', betSlip)
+    }
 
     const clearOptions = _ => {
         setCount(0)
@@ -107,11 +127,11 @@ const Stats = (props) => {
                     <Select
 
                         className='select-stat'
-                        value={selectedOption}
-                        onChange={handleChange}
-                        options={statOptions}
+                        value={statTypeOption}
+                        onChange={handleStatTypeChange}
+                        options={statTypeOption}
                         isSearchable={true}
-                        placeholder={selectedOption}
+                        placeholder={'American'}
 
                     />
 
@@ -119,7 +139,7 @@ const Stats = (props) => {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                 <Button primary style={{ borderRadius: '5px' }} onClick={clearOptions}>Clear</Button>
-                <Button primary style={{ borderRadius: '5px' }}>Send To Betslip</Button>
+                <Button primary style={{ borderRadius: '5px' }} onClick={betSlipUpdate}>Send To Betslip</Button>
             </div>
         </>
 
