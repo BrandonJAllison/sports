@@ -41,7 +41,6 @@ ${'' /* style={{ border: '1px solid black', height: '400px', width: '300px' }} *
 
 export const PropBets = props => {
     const [players, setPlayers] = useState()
-    const [count, setCount] = useState(0)
     const [show, setShow] = useState(false)
     const [type, setType] = useState('stats')
 
@@ -64,21 +63,21 @@ export const PropBets = props => {
         <option key={player.PlayerID}>{player.Name}</option>
     );
 
-    // if (!players) {
-    //     return (
-    //         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    //             <img style={{ marginLeft: '5rem' }} src={Logo} alt='Rivers Casino Logo Loading' />
-    //             <p>RIVERS
-    //             SPORTSBOOK</p>
-    //             <Loader
-    //                 type="ThreeDots"
-    //                 color="#C5960C"
-    //                 height="100"
-    //                 width="100"
-    //             />
-    //         </div>
-    //     )
-    // } 
+    if (!players) {
+        return (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <img style={{ marginLeft: '5rem' }} src={Logo} alt='Rivers Casino Logo Loading' />
+                <p>RIVERS
+                SPORTSBOOK</p>
+                <Loader
+                    type="ThreeDots"
+                    color="#C5960C"
+                    height="100"
+                    width="100"
+                />
+            </div>
+        )
+    }
 
     return (
         <PropBetsContainer>
@@ -93,6 +92,7 @@ export const PropBets = props => {
             </PropBetsHeader>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                 <Button
+                    style={{ borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px', borderRight: '1px solid black' }}
                     primary small
                     onClick={() => setType(1)}
                 >STAT</Button>
@@ -102,7 +102,7 @@ export const PropBets = props => {
                 }} primary small
                     onClick={() => setType(2)}
                 >H2H</Button>
-                <Button primary small
+                <Button style={{ borderTopRightRadius: '5px', borderBottomRightRadius: '5px', borderLeft: '1px solid black' }} primary small
                     onClick={() => setType(3)}
                 >TRIOS</Button>
             </div>

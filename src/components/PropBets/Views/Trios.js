@@ -5,6 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
 import './Stats.scss'
 
+const Button = styled.button`
+    background: ${props => props.primary ? `${colors.primary}` : `${colors.secondary}`};
+    padding: ${props =>
+        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
+    };
+    
+`
+
 const Trios = (props) => {
     return (
         <>
