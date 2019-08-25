@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors } from '../../../theme/variables'
 
 const CountSet = styled.div`
     border: 1px solid black;
@@ -15,7 +16,20 @@ const CountDisplay = styled.div`
     background: whitesmoke;
 `
 
+const Selection = styled.div`
+    border: 1px solid black;
+    padding: .2rem;
+    margin: 2.5px 0;
+    background: ${colors.secondary};
+    display: flex;
+    color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+`
+
 export {
     CountDisplay,
-    CountSet
+    CountSet,
+    Selection,
 }

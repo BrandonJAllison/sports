@@ -5,6 +5,7 @@ import Select from 'react-select'
 
 import { statOptions, playerOptions, statTypeOption } from '../../../assets/dummyData'
 import { StyledButton, Flex, CountSet, CountDisplay } from '../styledComponents'
+import Count from './subComponents/Count'
 
 const Stats = (props) => {
     console.log('player props', props)
@@ -24,9 +25,9 @@ const Stats = (props) => {
         console.log(`Option selected:`, playerSelectedOption)
     }
 
-    const handleStatTypeChange = statType => {
-        setStatType(statType)
-        console.log(`Option selected:`, statType)
+    const handleStatTypeChange = type => {
+        setStatType(type)
+        console.log(`Option selected:`, type)
     }
 
     const betSlipUpdate = _ => {
@@ -76,33 +77,14 @@ const Stats = (props) => {
                 <StyledButton third small primary last>UNDER</StyledButton>
             </div>
 
-            <Flex>
-                <CountSet>
-                    <p>{count}</p>
-                    <StyledButton
-                        onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}
-                        half small >-</StyledButton>
-                    <StyledButton
-                        onClick={() => setCount(count + 1)}
-                        half small >+</StyledButton>
-                </CountSet>
-
-                <CountDisplay>
-                    <p>{count}</p>
-                    <Select
-                        value={statTypeOption}
-                        onChange={handleStatTypeChange}
-                        options={statType}
-                        isSearchable={true}
-                        defaultValue='American'
-                    />
-                </CountDisplay>
-            </Flex>
-
-            <Flex spaceAJ>
-                <StyledButton primary style={{ borderRadius: '5px' }} onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary style={{ borderRadius: '5px' }} onClick={betSlipUpdate}>Send To Betslip</StyledButton>
-            </Flex>
+            <Count
+                count={count}
+                setCount={setCount}
+                statType={statType}
+                handleStatTypeChange={handleStatTypeChange}
+                clearOptions={clearOptions}
+                betSlipUpdate={betSlipUpdate}
+            />
 
         </>
 

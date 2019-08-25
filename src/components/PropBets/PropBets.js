@@ -48,16 +48,17 @@ export const PropBets = _ => {
     // }
 
     return (
+
         <PropBetsContainer>
+
             <PropBetsHeader>
                 <span>Build Your Bet <i onMouseOver={() => setShow(true)} onMouseOut={() => setShow(false)}>
                     <FontAwesomeIcon size='xs' icon={faQuestionCircle} />
                     <InfoModal show={show} />
                 </i></span>
-
                 <span>Betslip</span>
-
             </PropBetsHeader>
+
             <Flex>
                 <StyledButton
                     primary small first
@@ -75,6 +76,7 @@ export const PropBets = _ => {
                     onClick={() => setType(3)}
                 >TRIOS</StyledButton>
             </Flex>
+
             <div>
                 {(() => {
                     switch (type) {
@@ -89,7 +91,6 @@ export const PropBets = _ => {
                     }
                 })()}
             </div>
-
 
         </PropBetsContainer>
 
