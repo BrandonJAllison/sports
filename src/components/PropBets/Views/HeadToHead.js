@@ -1,21 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
-import styled from 'styled-components'
-import { colors, buttonSize } from '../../../theme/variables.js'
-import './Stats.scss'
 
-import './Stats.scss'
-
-const Button = styled.button`
-    background: ${props => props.primary ? `${colors.primary}` : `${colors.secondary}`};
-    padding: ${props =>
-        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
-    };
-    
-`
-
-const HeadToHead = (props) => {
+const HeadToHead = _ => {
     return (
         <>
 

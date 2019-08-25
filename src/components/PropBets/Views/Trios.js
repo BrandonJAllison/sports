@@ -1,20 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
-import { colors, buttonSize } from '../../../theme/variables.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
-import './Stats.scss'
 
-const Button = styled.button`
-    background: ${props => props.primary ? `${colors.primary}` : `${colors.secondary}`};
-    padding: ${props =>
-        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
-    };
-    
-`
+const Trios = props => {
 
-const Trios = (props) => {
     return (
+
         <>
 
             <div className='playerAdd' style={{ border: '1px solid black', padding: '.2rem', marginTop: '10px', background: '#40484D', display: 'flex', color: 'white', alignItems: 'center', justifyContent: 'center' }}>
@@ -42,6 +33,8 @@ const Trios = (props) => {
 
             </div>
         </>
+
     )
+
 }
 export default Trios
