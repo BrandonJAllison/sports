@@ -11,8 +11,8 @@ const CardHolder = styled.div`
     min-height: 36vh;
     margin-top: 22px;
     background: linear-gradient(to bottom, #474F54, #1F262B);
-    ${'' /* display: flex; */}
-    ${'' /* flex-direction: column; */}
+    ${'' /* display: flex;
+    flex-direction: row; */}
     color: #fff;
 `
 

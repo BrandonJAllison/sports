@@ -7,7 +7,7 @@ import { colors, buttonSize } from '../theme/variables'
 
 const Card = styled.div`
   border: 2px solid red;
-  width: 100%;
+  ${'' /* width: 30%; */}
 `
 
 const CardHeader = styled.div`
@@ -18,6 +18,17 @@ const CardHeader = styled.div`
   
   h3 {
     font-size: .8rem;
+  }
+`
+
+const CardContent = styled.div`
+
+`
+
+const Button = styled.button`
+    background: ${props => props.primary ? `${colors.primary}` : `${colors.primary}`};
+    padding: ${props =>
+    props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
   }
 `
 
@@ -35,9 +46,18 @@ const UGameCard = (props) => {
         <img src={props.gameInfo.imagetwo} alt="" />
       </CardHeader>
 
-      <div>
-        {/* <button>PLACE BETS</button> */}
-      </div>
+      <CardContent>
+        <div className='cardContentRow'>
+          <Button primary small>PLACE BETS</Button>
+          <Button primary small>PLACE BETS</Button>
+          <Button primary small>PLACE BETS</Button>
+        </div>
+        <div className='cardContentRow'>
+          <Button primary small>PLACE BETS</Button>
+          <Button primary small>PLACE BETS</Button>
+          <Button primary small>PLACE BETS</Button>
+        </div>
+      </CardContent>
     </Card>
   );
 }
