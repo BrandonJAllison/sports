@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import Ticon from '../../DEMOSTUFF/Ticon.png'
+import Ticon from '../../assets/Ticon.png'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../theme/variables'

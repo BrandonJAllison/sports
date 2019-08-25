@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { UGameCard } from './upcominggamecard'
+// import { UGameCard } '/upcominggamecard'
 import NFL from '../Nfl'
+// import NFL from './nfl'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../theme/variables'
@@ -41,7 +42,7 @@ const ContainerContent = styled.div`
     border: 2px solid green;
 `
 
-const CardContainer = (props) => {
+const CardContainer = props => {
 
     return (
         <>
