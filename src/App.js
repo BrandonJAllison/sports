@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import './App.scss';
 import Logo from './assets/logo.png'
 
 import { PropBets } from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
-import { NFL } from "./components"
+// import { NFL } from "./components/Nfl"
 
 // import SideBar from './components/Sidebar'
 
-import CardContainer from './components/CardContainer'
+import CardContainer from './components/Cards/CardContainer'
 
 import styled from 'styled-components'
 import GlobalStyle from './theme/globalStyle';

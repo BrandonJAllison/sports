@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import UGameCard from "./upcominggamecard";
-import Ticon from "../DEMOSTUFF/Ticon.png";
+import React, { useState, useEffect } from 'react'
+import UGameCard from '../components/Cards/upcominggamecard'
+import Ticon from '../assets/Ticon.png'
 import axios from "axios";
 
 import styled from 'styled-components'
