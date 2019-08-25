@@ -20,12 +20,13 @@ const Stats = (props) => {
     const [selectedOption, setSelectedOption] = useState(null)
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
 
+    //This will be ablstracted away when more data is made available through API or other
     const statOptions = [
         { value: 'touchdowns', label: 'Touchdowns' },
         { value: 'fumbles', label: 'Fumbles' },
         { value: 'catches', label: 'Catches' },
     ];
-
+    //This will be ablstracted away when more data is made available through API or other
     const playerOptions = [
         { value: 'jerry rice', label: 'Jerry Rice' },
         { value: 'jerry rice', label: 'Emmit Smith' },
@@ -42,6 +43,13 @@ const Stats = (props) => {
         setPlayerSelectedOption({ playerSelectedOption });
         console.log(`Option selected:`, selectedOption);
     };
+
+    const clearOptions = _ => {
+        setCount(0)
+        setSelectedOption(null)
+        setPlayerSelectedOption(null)
+
+    }
 
     const stat = <FontAwesomeIcon icon={faChartLine} />
     const player = <FontAwesomeIcon icon={faUser} />
@@ -73,7 +81,7 @@ const Stats = (props) => {
             </div>
 
 
-            <p>will have</p>
+            <p><strong><i>Will Have</i></strong></p>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Button primary style={{ borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px' }}>AT LEAST</Button>
                 <Button style={{
@@ -82,22 +90,36 @@ const Stats = (props) => {
                 }} primary>OVER</Button>
                 <Button primary style={{ borderTopRightRadius: '5px', borderBottomRightRadius: '5px' }}>UNDER</Button>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
-                    <p style={{ borderBottom: '1px solid black', paddingBottom: '10px' }}>{count}</p>
-                    <button style={{ width: '50%' }} onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}>
-                        -
-                    </button>
-                    <button style={{ width: '50%' }} onClick={() => setCount(count + 1)}>
-                        +
-                    </button>
 
-                </div>
-                <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '100px' }}>
+                <div style={{ border: '1px solid black', borderRadius: '5px', textAlign: 'center', width: '40%', margin: '25px 10px 10px 10px', background: 'whitesmoke' }} >
                     <p>{count}</p>
-                    <p>ODDS</p>
+                    <Button small style={{ width: '50%', borderRight: '.5px solid white' }} onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}>
+                        -
+                    </Button>
+                    <Button small style={{ width: '50%', borderLeft: '.5px solid white' }} onClick={() => setCount(count + 1)}>
+                        +
+                    </Button>
 
                 </div>
+                <div style={{ border: '1px solid black', borderRadius: '5px', textAlign: 'center', width: '40%', margin: '25px 10px 10px 10px', background: 'whitesmoke' }} >
+                    <p>{count}</p>
+                    <Select
+
+                        className='select-stat'
+                        value={selectedOption}
+                        onChange={handleChange}
+                        options={statOptions}
+                        isSearchable={true}
+                        placeholder={selectedOption}
+
+                    />
+
+                </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                <Button primary style={{ borderRadius: '5px' }} onClick={clearOptions}>Clear</Button>
+                <Button primary style={{ borderRadius: '5px' }}>Send To Betslip</Button>
             </div>
         </>
 
