@@ -9,7 +9,7 @@ import { NFL } from "./components"
 
 // import SideBar from './components/Sidebar'
 
-import CardContainer from './components/CardContainer'
+import CardContainer from './components/Cards/CardContainer'
 
 import styled from 'styled-components'
 import GlobalStyle from './theme/globalStyle';

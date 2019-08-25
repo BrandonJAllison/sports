@@ -1,10 +1,10 @@
 import React from 'react'
 
 import { UGameCard } from './upcominggamecard'
-import NFL from "./Nfl"
+import NFL from '../Nfl'
 
 import styled from 'styled-components'
-import { colors } from '../theme/variables'
+import { colors, buttonSize } from '../../theme/variables'
 
 const CardHolder = styled.div`
     width: 100%;

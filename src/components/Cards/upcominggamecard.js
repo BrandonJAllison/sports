@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import Ticon from "../DEMOSTUFF/Ticon.png"
+import Ticon from '../../DEMOSTUFF/Ticon.png'
 
 import styled from 'styled-components'
-import { colors, buttonSize } from '../theme/variables'
+import { colors, buttonSize } from '../../theme/variables'
 
 const Card = styled.div`
   border: 2px solid red;

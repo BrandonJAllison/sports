@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import UGameCard from "./upcominggamecard";
+import UGameCard from '../components/Cards/upcominggamecard'
 import Ticon from "../DEMOSTUFF/Ticon.png";
 import axios from "axios";
 
