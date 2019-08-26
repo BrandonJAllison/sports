@@ -81,8 +81,12 @@ const Flex = styled.div`
     margin: 25px 0;
     width: 100%;
 
-    .select-player, .select-stat {
+    .ninety {
         width: 90%;
+    }
+
+    .third {
+        margin: 12.5px 0;
     }
 `
 
