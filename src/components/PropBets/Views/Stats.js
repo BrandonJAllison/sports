@@ -12,25 +12,7 @@ const Stats = props => {
     const [selectedOption, setSelectedOption] = useState(null)
     const [statType, setStatType] = useState(null)
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
-    const [betSlip, setBetSlip] = useState({})
     const [prop, setProp] = useState('AT_LEAST')
-
-    const handleChange = selectedOption => {
-        setSelectedOption(selectedOption)
-        console.log(`Option selected:`, selectedOption)
-    }
-
-    const handleChangePlayer = playerSelectedOption => {
-        setPlayerSelectedOption(playerSelectedOption)
-        console.log(`Option selected:`, playerSelectedOption)
-    }
-
-    const handleStatTypeChange = type => setStatType(type)
-
-    const betSlipUpdate = _ => {
-        setBetSlip({ count, selectedOption, playerSelectedOption })
-        console.log('Bet Slip', betSlip)
-    }
 
     const clearOptions = _ => {
         setCount(0)
@@ -49,7 +31,7 @@ const Stats = props => {
                 <Select
                     className='select-player'
                     value={playerSelectedOption}
-                    onChange={handleChangePlayer}
+                    onChange={(sel) => setPlayerSelectedOption(sel.value)}
                     options={playerOptions}
                     isSearchable={true}
                     placeholder={player}
@@ -91,7 +73,7 @@ const Stats = props => {
                     <p>{count}</p>
                     <Select
                         value={statType}
-                        onChange={handleStatTypeChange}
+                        onChange={(type) => setStatType(type.value)}
                         options={statTypeOption}
                         isSearchable={true}
                         defaultValue={statTypeOption[0].value}
@@ -104,7 +86,7 @@ const Stats = props => {
                 <Select
                     className='select-stat'
                     value={selectedOption}
-                    onChange={handleChange}
+                    onChange={(sel) => setSelectedOption(sel.value)}
                     options={statOptions}
                     isSearchable={true}
                     placeholder={stat}
@@ -113,7 +95,9 @@ const Stats = props => {
 
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary onClick={betSlipUpdate}>Send To Betslip</StyledButton>
+                <StyledButton primary onClick={() => props.setBetSlip({
+                    count, selectedOption, playerSelectedOption, prop
+                })}>Send To Betslip</StyledButton>
             </Flex>
 
         </>

@@ -13,6 +13,9 @@ export const PropBets = _ => {
     const [players, setPlayers] = useState()
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
+    const [betSlip, setBetSlip] = useState({})
+
+    useEffect(() => console.log(betSlip), [betSlip])
 
     // function getPlayers() {
     //     axios
@@ -86,13 +89,13 @@ export const PropBets = _ => {
                 {(() => {
                     switch (type) {
                         case 1:
-                            return <Stats />
+                            return <Stats setBetSlip={setBetSlip} />
                         case 2:
-                            return <HeadToHead />
+                            return <HeadToHead setBetSlip={setBetSlip} />
                         case 3:
-                            return <Trios />
+                            return <Trios setBetSlip={setBetSlip} />
                         default:
-                            return <Stats />
+                            return <Stats setBetSlip={setBetSlip} />
                     }
                 })()}
             </div>

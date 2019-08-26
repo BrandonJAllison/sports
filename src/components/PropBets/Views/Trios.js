@@ -11,14 +11,6 @@ const Trios = props => {
     const [statType, setStatType] = useState(null)
     const [selectedOption, setSelectedOption] = useState(null)
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
-    const [betSlip, setBetSlip] = useState({})
-
-    const handleStatTypeChange = type => setStatType(type)
-
-    const betSlipUpdate = _ => {
-        setBetSlip({ count, selectedOption, playerSelectedOption })
-        console.log('Bet Slip', betSlip)
-    }
 
     const clearOptions = _ => {
         setCount(0)
@@ -54,7 +46,7 @@ const Trios = props => {
                 <p>{count}</p>
                 <Select
                     value={statType}
-                    onChange={handleStatTypeChange}
+                    onChange={(sel) => setSelectedOption(sel.value)}
                     options={statTypeOption}
                     isSearchable={true}
                     defaultValue={statTypeOption[0].value}
@@ -64,7 +56,9 @@ const Trios = props => {
 
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary onClick={betSlipUpdate}>Send To Betslip</StyledButton>
+                <StyledButton primary onClick={() => props.setBetSlip({
+                    count, selectedOption, playerSelectedOption
+                })}>Send To Betslip</StyledButton>
             </Flex>
 
         </>
