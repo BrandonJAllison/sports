@@ -1,46 +1,84 @@
 import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
 import Select from 'react-select'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons'
 
-import { statTypeOption } from '../../../assets/dummyData'
-import { Selection, Descriptor, Flex, StyledButton, CountDisplay } from '../styledComponents'
+import { statTypeOption, playerOptions, statOptions } from '../../../assets/dummyData'
+import { Descriptor, Flex, StyledButton, CountDisplay } from '../styledComponents'
 
 const Trios = props => {
     const [count, setCount] = useState(0)
     const [statType, setStatType] = useState(null)
     const [selectedOption, setSelectedOption] = useState(null)
-    const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
+    const [playerOneSelection, setPlayerOneSelection] = useState(null)
+    const [playerTwoSelection, setPlayerTwoSelection] = useState(null)
+    const [playerThreeSelection, setPlayerThreeSelection] = useState(null)
 
     const clearOptions = _ => {
         setCount(0)
         setSelectedOption(null)
-        setPlayerSelectedOption(null)
+        setPlayerOneSelection(null)
+        setPlayerTwoSelection(null)
+        setPlayerThreeSelection(null)
     }
+
+    const rotate = <FontAwesomeIcon icon={faSyncAlt} />
 
     return (
 
         <>
 
-            <Selection>
-                <FontAwesomeIcon icon={faUser} />
-                <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
-            </Selection>
+            <Flex column>
 
-            <Selection>
-                <FontAwesomeIcon icon={faUser} />
-                <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
-            </Selection>
+                <Select
+                    className='ninety third'
+                    value={playerOneSelection}
+                    onChange={(sel) => setPlayerOneSelection(sel)}
+                    options={playerOptions}
+                    isSearchable={true}
+                />
 
-            <Selection>
-                <FontAwesomeIcon icon={faUser} />
-                <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
-            </Selection>
+                <i onClick={() => {
+                    setPlayerOneSelection(playerTwoSelection)
+                    setPlayerTwoSelection(playerOneSelection)
+                }}>{rotate}</i>
+
+                <Select
+                    className='ninety third'
+                    value={playerTwoSelection}
+                    onChange={(sel) => setPlayerTwoSelection(sel)}
+                    options={playerOptions}
+                    isSearchable={true}
+                />
+
+                <i onClick={() => {
+                    setPlayerTwoSelection(playerThreeSelection)
+                    setPlayerThreeSelection(playerTwoSelection)
+                }}>{rotate}</i>
+
+                <Select
+                    className='ninety third'
+                    value={playerThreeSelection}
+                    onChange={(sel) => setPlayerThreeSelection(sel)}
+                    options={playerOptions}
+                    isSearchable={true}
+                />
+
+            </Flex>
+
             <Descriptor>In order of most</Descriptor>
-            <Selection last>
-                <FontAwesomeIcon icon={faChartLine} />
-                <p style={{ color: 'white', marginLeft: '10px' }}>SELECT STAT</p>
-            </Selection>
+
+            <Flex>
+
+                <Select
+                    className='ninety'
+                    value={selectedOption}
+                    onChange={(sel) => setSelectedOption(sel)}
+                    options={statOptions}
+                    isSearchable={true}
+                />
+
+            </Flex>
 
             <CountDisplay>
                 <p>{count}</p>
@@ -57,7 +95,7 @@ const Trios = props => {
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
                 <StyledButton primary onClick={() => props.setBetSlip({
-                    count, selectedOption, playerSelectedOption
+                    count, selectedOption, playerOneSelection, playerTwoSelection, playerThreeSelection
                 })}>Send To Betslip</StyledButton>
             </Flex>
 
