@@ -43,81 +43,74 @@ const HeadToHead = props => {
     const rotate = <FontAwesomeIcon icon={faSyncAlt} />
 
     return (
-
-        <div style={{ display: 'flex' }}>
-            <div style={{ padding: '1rem', alignSelf: 'center' }}>
-                <p >{rotate}</p>
-            </div>
-            <div>
-                <div style={{ margin: '2rem 0', width: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <Select
-                        className='select-player'
-                        value={playerSelectedOption}
-                        onChange={handleChangePlayer}
-                        options={playerOptions}
-                        isSearchable={true}
-                        placeholder={player}
-                    />
-                </div>
-
-                <Descriptor>Will Have More</Descriptor>
-
-                <div style={{ margin: '2rem 0' }}>
-
-
-                    <Select
-                        className='select-stat'
-                        value={selectedOption}
-                        onChange={handleChange}
-                        options={statOptions}
-                        isSearchable={true}
-                        placeholder={stat}
-                    />
-
-
-                </div>
-
-                <Descriptor> Than</Descriptor>
+        <div>
 
 
 
-                <div style={{ margin: '2rem 0' }}>
-
-                    <Select
-                        className='select-player'
-                        value={playerSelectedOption}
-                        onChange={handleChangePlayer}
-                        options={playerOptions}
-                        isSearchable={true}
-                        placeholder={player}
-                    />
-
-                </div>
+            <div style={{ margin: '2rem 0' }}>
+                <Select
+                    className='ninety'
+                    value={playerSelectedOption}
+                    onChange={handleChangePlayer}
+                    options={playerOptions}
+                    isSearchable={true}
+                    placeholder={player}
+                />
             </div>
 
-            {/* <Flex spaceAJ>
+            <Descriptor>Will Have More</Descriptor>
 
-                <CountDisplay>
-                    <p>{count}</p>
-                    <Select
-                        value={statType}
-                        onChange={handleStatTypeChange}
-                        options={statTypeOption}
-                        isSearchable={true}
-                        defaultValue={statTypeOption[0].value}
-                        placeholder={statTypeOption[0].label}
-                    />
-                </CountDisplay>
-            </Flex> */}
+            <div style={{ margin: '2rem 0' }}>
 
 
-            {/* <Flex spaceAJ>
-                    <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                    <StyledButton primary onClick={betSlipUpdate}>Send To Betslip</StyledButton>
-                </Flex> */}
+                <Select
+                    className='ninety'
+                    value={selectedOption}
+                    onChange={handleChange}
+                    options={statOptions}
+                    isSearchable={true}
+                    placeholder={stat}
+                />
 
+
+            </div>
+
+            <Descriptor> Than</Descriptor>
+
+
+
+            <div style={{ margin: '2rem 0' }}>
+
+                <Select
+                    className='ninety'
+                    value={playerSelectedOption}
+                    onChange={handleChangePlayer}
+                    options={playerOptions}
+                    isSearchable={true}
+                    placeholder={player}
+                />
+
+            </div>
+
+            <CountDisplay>
+                <p>{count}</p>
+                <Select
+                    value={statType}
+                    onChange={(sel) => setStatType(sel)}
+                    options={statTypeOption}
+                    isSearchable={true}
+                    defaultValue={statTypeOption[0].value}
+                    placeholder={statTypeOption[0].label}
+                />
+            </CountDisplay>
+
+            <Flex spaceAJ>
+                <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
+                <StyledButton primary onClick={() => props.setBetSlip({
+                    count, selectedOption, playerSelectedOption, prop
+                })}>Send To Betslip</StyledButton>
+            </Flex>
         </div>
-
     )
 
 }
