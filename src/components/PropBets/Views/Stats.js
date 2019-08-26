@@ -59,6 +59,17 @@ const Stats = (props) => {
 
             <Descriptor>Will Have</Descriptor>
 
+            <div style={{ margin: '2rem 0' }}>
+                <Select
+                    className='select-stat'
+                    value={selectedOption}
+                    onChange={handleChange}
+                    options={statOptions}
+                    isSearchable={true}
+                    placeholder={stat}
+                />
+            </div>
+
             <div>
                 <StyledButton
                     third small primary first
@@ -75,17 +86,6 @@ const Stats = (props) => {
                     active={prop === '-'}
                     onClick={() => setProp('-')}
                 >UNDER</StyledButton>
-            </div>
-
-            <div style={{ margin: '2rem 0' }}>
-                <Select
-                    className='select-stat'
-                    value={selectedOption}
-                    onChange={handleChange}
-                    options={statOptions}
-                    isSearchable={true}
-                    placeholder={stat}
-                />
             </div>
 
             <Count
