@@ -28,8 +28,14 @@ const Selection = styled.div`
     border-radius: 5px;
 `
 
+const Descriptor = styled.h3`
+    color: black;
+    text-transform: uppercase;
+`
+
 export {
     CountDisplay,
     CountSet,
     Selection,
+    Descriptor,
 }

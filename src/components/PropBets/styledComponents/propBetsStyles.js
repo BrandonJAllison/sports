@@ -2,20 +2,24 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../../../theme/variables.js'
 
 const StyledButton = styled.button`
-    background: ${props => {
-        console.log('SB props', props)
+    background: ${
+    props => {
         return props.active ? 'grey' : props.primary ? `${colors.primary}` : `${colors.secondary}`
-    }};
-    padding: ${props =>
-        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
-    };
-    border-radius: ${props =>
+    }}
+    padding: ${
+    props =>
+        props.active ? `${buttonSize.activeSmall}` : props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
+    }
+    border-radius: ${
+    props =>
         props.first ? '5px 0 0 5px' :
             props.last ? '0 5px 5px 0' : '0'
-    };
-    width: ${props =>
+    }
+    width: ${
+    props =>
         props.half ? '50%' : props.third ? '30%' : 'inherit'
-    };
+    }
+    outline: none;
 
     &:hover {
         transform: ${props => props.active && 'none'}
@@ -25,10 +29,10 @@ const StyledButton = styled.button`
 
 const PropBetsContainer = styled.button`
     background: #fff;
-    color: ${ colors.darkGrey};
+    color: ${colors.darkGrey};
     border: 1px solid black;
     padding: 1.5rem;
-    cursor: default ;
+    cursor: default
     min-width: 350px;
 `
 
@@ -36,12 +40,12 @@ const PropBetsHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: ${ colors.secondary};
+    background: ${colors.secondary};
     color: whitesmoke;
     border: 1px solid black;
     border-radius: 5px;
     padding: 1.5rem;
-    width: 100 %;
+    width: 100%;
 `
 
 const Flex = styled.div`
@@ -59,5 +63,5 @@ export {
     StyledButton,
     PropBetsContainer,
     PropBetsHeader,
-    Flex
+    Flex,
 }

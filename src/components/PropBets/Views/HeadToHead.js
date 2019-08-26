@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
 
-import { Selection } from '../styledComponents'
+import { Selection, Descriptor } from '../styledComponents'
 import Count from './subComponents/Count'
 
 const HeadToHead = _ => {
@@ -12,10 +12,7 @@ const HeadToHead = _ => {
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
     const [betSlip, setBetSlip] = useState({})
 
-    const handleStatTypeChange = statType => {
-        setStatType(statType)
-        console.log(`Option selected:`, statType)
-    }
+    const handleStatTypeChange = type => setStatType(type)
 
     const betSlipUpdate = _ => {
         setBetSlip({ count, selectedOption, playerSelectedOption })
@@ -37,14 +34,14 @@ const HeadToHead = _ => {
                 <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
             </Selection>
 
-            <p>Will Have More</p>
+            <Descriptor>Will have more</Descriptor>
 
             <Selection>
                 <FontAwesomeIcon icon={faChartLine} />
                 <p style={{ color: 'white', marginLeft: '10px' }}>SELECT STAT</p>
             </Selection>
 
-            <p>Than</p>
+            <Descriptor>Than</Descriptor>
 
             <Selection>
                 <FontAwesomeIcon icon={faUser} />
