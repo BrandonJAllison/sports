@@ -52,8 +52,13 @@ export const PropBets = _ => {
         <PropBetsContainer>
 
             <PropBetsHeader>
-                <span>Build Your Bet <i onMouseOver={() => setShow(true)} onMouseOut={() => setShow(false)}>
-                    <FontAwesomeIcon size='xs' icon={faQuestionCircle} />
+                <span>Build Your Bet <i
+                    style={{ cursor: 'help' }}
+                    onMouseOver={() => setShow(true)}
+                    onMouseOut={() => setShow(false)}
+                    onClick={() => setShow(!show)}
+                >
+                    <FontAwesomeIcon size='s' icon={faQuestionCircle} />
                     <InfoModal show={show} />
                 </i></span>
                 <span>Betslip</span>

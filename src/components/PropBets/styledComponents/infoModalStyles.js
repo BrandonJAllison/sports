@@ -10,7 +10,8 @@ export default styled.div`
     box-shadow: 0 3px 7px #0000004d;
     z-index: 100;
     margin-top: 10px;
-    font-size: 11px;
+    font-size: 12px;
+    font-style: normal;
 
     &::before {
         content: '';
@@ -19,7 +20,12 @@ export default styled.div`
         transform: rotate(45deg);
         position: absolute;
         top: -.5rem;
-        left: 10.1rem;
+        left: 10.2rem;
         background: whitesmoke;
+    }
+
+    p {
+        color: #777;
+        text-transform: capitalize;
     }
 `

@@ -5,10 +5,10 @@ const statOptions = [
 ]
 
 const playerOptions = [
-    { value: 'jerry rice', label: 'Jerry Rice' },
-    { value: 'jerry rice', label: 'Emmit Smith' },
-    { value: 'jerry rice', label: 'Joe Montana' },
-    { value: 'jerry rice', label: 'Terry Bradshaw' }
+    { value: 'Jerry Rice', label: 'Jerry Rice' },
+    { value: 'Emmit Smith', label: 'Emmit Smith' },
+    { value: 'Joe Montana', label: 'Joe Montana' },
+    { value: 'Terry Bradshaw', label: 'Terry Bradshaw' }
 ]
 
 const statTypeOption = [
