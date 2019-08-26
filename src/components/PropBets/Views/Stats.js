@@ -31,11 +31,11 @@ const Stats = (props) => {
     //This will be ablstracted away when more data is made available through API or other
     const playerOptions = [
         { value: 'jerry rice', label: 'Jerry Rice' },
-        { value: 'jerry rice', label: 'Emmit Smith' },
-        { value: 'jerry rice', label: 'Joe Montana' },
-        { value: 'jerry rice', label: 'Terry Bradshaw' }
+        { value: 'emmit smith', label: 'Emmit Smith' },
+        { value: 'joe montana', label: 'Joe Montana' },
+        { value: 'terry bradshaw', label: 'Terry Bradshaw' }
     ]
-
+    //This will be ablstracted away when more data is made available through API or other
     const statTypeOption = [
         { value: 'american', label: 'American' },
         { value: 'decimal', label: 'Decimal' },
