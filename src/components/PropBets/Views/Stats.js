@@ -1,57 +1,104 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import Select from 'react-select'
 
-import './Stats.scss'
+import { statOptions, playerOptions, statTypeOption } from '../../../assets/dummyData'
+import { StyledButton, Descriptor, Flex, CountDisplay, CountSet } from '../styledComponents'
 
+const Stats = props => {
 
-const Stats = (props) => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0)
+    const [selectedOption, setSelectedOption] = useState(null)
+    const [statType, setStatType] = useState(null)
+    const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
+    const [prop, setProp] = useState('AT_LEAST')
+
+    const clearOptions = _ => {
+        setCount(0)
+        setSelectedOption(null)
+        setPlayerSelectedOption(null)
+    }
+
+    const stat = <FontAwesomeIcon icon={faChartLine} />
+    const player = <FontAwesomeIcon icon={faUser} />
 
     return (
 
         <>
 
-            <div>
-                <h2>Add Player</h2>
-                <select>
-                    {props.playerOptions}
-                </select>
-            </div>
+            <Flex>
+                <Select
+                    className='select-player'
+                    value={playerSelectedOption}
+                    onChange={(sel) => setPlayerSelectedOption(sel)}
+                    options={playerOptions}
+                    isSearchable={true}
+                    placeholder={player}
+                />
+            </Flex>
 
-            <div>
-                <h2>Select Statistic</h2>
-                <select>
+            <Descriptor>Will Have</Descriptor>
 
-                </select>
-            </div>
+            <Flex>
+                <StyledButton
+                    third small primary first
+                    active={prop === 'AT_LEAST'}
+                    onClick={() => setProp('AT_LEAST')}
+                >AT LEAST</StyledButton>
+                <StyledButton
+                    third small primary middle
+                    active={prop === 'OVER'}
+                    onClick={() => setProp('OVER')}
+                >OVER</StyledButton>
+                <StyledButton
+                    third small primary last
+                    active={prop === 'UNDER'}
+                    onClick={() => setProp('UNDER')}
+                >UNDER</StyledButton>
+            </Flex>
 
-            <h4>will have</h4>
-
-            <div className='selvars'>
-                <button>AT LEAST</button>
-                <button>OVER</button>
-                <button>UNDER</button>
-            </div>
-
-            <div className='counters'>
-
-                <div className='count-set'>
+            <Flex spaceAJ>
+                <CountSet>
                     <p>{count}</p>
-                    <button onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}>
-                        -
-                    </button>
-                    <button onClick={() => setCount(count + 1)}>
-                        +
-                    </button>
+                    <StyledButton
+                        onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}
+                        half small middle>-</StyledButton>
+                    <StyledButton
+                        onClick={() => setCount(count + 1)}
+                        half small middle>+</StyledButton>
+                </CountSet>
 
-                </div>
-
-                <div className='count-display'>
-                    <p>ODDS</p>
+                <CountDisplay>
                     <p>{count}</p>
+                    <Select
+                        value={statType}
+                        onChange={(sel) => setStatType(sel)}
+                        options={statTypeOption}
+                        isSearchable={true}
+                        defaultValue={statTypeOption[0].value}
+                        placeholder={statTypeOption[0].label}
+                    />
+                </CountDisplay>
+            </Flex>
 
-                </div>
+            <Flex>
+                <Select
+                    className='select-stat'
+                    value={selectedOption}
+                    onChange={(sel) => setSelectedOption(sel)}
+                    options={statOptions}
+                    isSearchable={true}
+                    placeholder={stat}
+                />
+            </Flex>
 
-            </div>
+            <Flex spaceAJ>
+                <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
+                <StyledButton primary onClick={() => props.setBetSlip({
+                    count, selectedOption, playerSelectedOption, prop
+                })}>Send To Betslip</StyledButton>
+            </Flex>
 
         </>
 

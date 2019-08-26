@@ -9,9 +9,12 @@ const colors = {
 }
 
 const buttonSize = {
+
+    activeSmall: '1rem 1.2rem',
     small: '1.1rem 1.2rem',
     medium: '1.2rem 2.4rem',
     large: '2rem 2.4rem'
+
 }
 
 module.exports = {
