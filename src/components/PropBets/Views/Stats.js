@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
 import Select from 'react-select'
 
-import { statOptions, playerOptions, statTypeOption } from '../../../assets/dummyData'
-import { StyledButton, Flex, CountSet, CountDisplay } from '../styledComponents'
+import { statOptions, playerOptions } from '../../../assets/dummyData'
+import { StyledButton, Descriptor } from '../styledComponents'
+import Count from './subComponents/Count'
 
 const Stats = (props) => {
     console.log('player props', props)
@@ -13,6 +14,7 @@ const Stats = (props) => {
     const [statType, setStatType] = useState(null)
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
     const [betSlip, setBetSlip] = useState({})
+    const [prop, setProp] = useState('~')
 
     const handleChange = selectedOption => {
         setSelectedOption(selectedOption)
@@ -24,10 +26,7 @@ const Stats = (props) => {
         console.log(`Option selected:`, playerSelectedOption)
     }
 
-    const handleStatTypeChange = statType => {
-        setStatType(statType)
-        console.log(`Option selected:`, statType)
-    }
+    const handleStatTypeChange = type => setStatType(type)
 
     const betSlipUpdate = _ => {
         setBetSlip({ count, selectedOption, playerSelectedOption })
@@ -42,6 +41,7 @@ const Stats = (props) => {
 
     const stat = <FontAwesomeIcon icon={faChartLine} />
     const player = <FontAwesomeIcon icon={faUser} />
+
     return (
 
         <>
@@ -57,6 +57,26 @@ const Stats = (props) => {
                 />
             </div>
 
+            <Descriptor>Will Have</Descriptor>
+
+            <div>
+                <StyledButton
+                    third small primary first
+                    active={prop === '~'}
+                    onClick={() => setProp('~')}
+                >AT LEAST</StyledButton>
+                <StyledButton
+                    third small primary
+                    active={prop === '+'}
+                    onClick={() => setProp('+')}
+                >OVER</StyledButton>
+                <StyledButton
+                    third small primary last
+                    active={prop === '-'}
+                    onClick={() => setProp('-')}
+                >UNDER</StyledButton>
+            </div>
+
             <div style={{ margin: '2rem 0' }}>
                 <Select
                     className='select-stat'
@@ -68,41 +88,14 @@ const Stats = (props) => {
                 />
             </div>
 
-            <p><strong><i>Will Have</i></strong></p>
-
-            <div>
-                <StyledButton third small primary first>AT LEAST</StyledButton>
-                <StyledButton third small primary>OVER</StyledButton>
-                <StyledButton third small primary last>UNDER</StyledButton>
-            </div>
-
-            <Flex>
-                <CountSet>
-                    <p>{count}</p>
-                    <StyledButton
-                        onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}
-                        half small >-</StyledButton>
-                    <StyledButton
-                        onClick={() => setCount(count + 1)}
-                        half small >+</StyledButton>
-                </CountSet>
-
-                <CountDisplay>
-                    <p>{count}</p>
-                    <Select
-                        value={statTypeOption}
-                        onChange={handleStatTypeChange}
-                        options={statType}
-                        isSearchable={true}
-                        defaultValue='American'
-                    />
-                </CountDisplay>
-            </Flex>
-
-            <Flex spaceAJ>
-                <StyledButton primary style={{ borderRadius: '5px' }} onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary style={{ borderRadius: '5px' }} onClick={betSlipUpdate}>Send To Betslip</StyledButton>
-            </Flex>
+            <Count
+                count={count}
+                setCount={setCount}
+                statType={statType}
+                handleStatTypeChange={handleStatTypeChange}
+                clearOptions={clearOptions}
+                betSlipUpdate={betSlipUpdate}
+            />
 
         </>
 
