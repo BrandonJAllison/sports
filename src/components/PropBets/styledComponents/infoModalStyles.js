@@ -20,7 +20,7 @@ export default styled.div`
         transform: rotate(45deg);
         position: absolute;
         top: -.5rem;
-        left: 10.2rem;
+        left: 9.6rem;
         background: whitesmoke;
     }
 

@@ -7,11 +7,15 @@ import { statOptions, playerOptions, statTypeOption } from '../../../assets/dumm
 import { StyledButton, Descriptor, Flex, CountDisplay, CountSet } from '../styledComponents'
 
 const HeadToHead = props => {
+<<<<<<< HEAD
     console.log('player props', props)
+=======
+>>>>>>> a8952f4fc9357bb9d79ba04c04e5a68ab45b74f5
     const [count, setCount] = useState(0)
     const [selectedOption, setSelectedOption] = useState(null)
     const [statType, setStatType] = useState(null)
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
+<<<<<<< HEAD
     const [betSlip, setBetSlip] = useState({})
     const [prop, setProp] = useState('AT_LEAST')
 
@@ -31,6 +35,8 @@ const HeadToHead = props => {
         setBetSlip({ count, selectedOption, playerSelectedOption })
         console.log('Bet Slip', betSlip)
     }
+=======
+>>>>>>> a8952f4fc9357bb9d79ba04c04e5a68ab45b74f5
 
     const clearOptions = _ => {
         setCount(0)
@@ -44,6 +50,7 @@ const HeadToHead = props => {
 
     return (
 
+<<<<<<< HEAD
         <div style={{ display: 'flex' }}>
             <div style={{ padding: '1rem', alignSelf: 'center' }}>
                 <p >{rotate}</p>
@@ -117,6 +124,49 @@ const HeadToHead = props => {
                 </Flex> */}
 
         </div>
+=======
+        <>
+
+            <Selection>
+                <FontAwesomeIcon icon={faUser} />
+                <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
+            </Selection>
+
+            <Descriptor>Will have more</Descriptor>
+
+            <Selection>
+                <FontAwesomeIcon icon={faChartLine} />
+                <p style={{ color: 'white', marginLeft: '10px' }}>SELECT STAT</p>
+            </Selection>
+
+            <Descriptor>Than</Descriptor>
+
+            <Selection>
+                <FontAwesomeIcon icon={faUser} />
+                <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
+            </Selection>
+
+            <CountDisplay>
+                <p>{count}</p>
+                <Select
+                    value={statType}
+                    onChange={(sel) => setStatType(sel)}
+                    options={statTypeOption}
+                    isSearchable={true}
+                    defaultValue={statTypeOption[0].value}
+                    placeholder={statTypeOption[0].label}
+                />
+            </CountDisplay>
+
+            <Flex spaceAJ>
+                <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
+                <StyledButton primary onClick={() => props.setBetSlip({
+                    count, selectedOption, playerSelectedOption
+                })}>Send To Betslip</StyledButton>
+            </Flex>
+
+        </>
+>>>>>>> a8952f4fc9357bb9d79ba04c04e5a68ab45b74f5
 
     )
 

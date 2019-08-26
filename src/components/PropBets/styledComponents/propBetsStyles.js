@@ -18,28 +18,30 @@ const StyledButton = styled.button`
     props =>
         props.first ? '5px 0 0 5px' :
             props.last ? '0 5px 5px 0' :
-                '0'
+                props.middle ? '0' :
+                    '5px'
     }
     width: ${
     props =>
         props.half ? '50%' :
-            props.third ? '30%' : 'inherit'
+            props.third ? '30%' : 'max-width'
     }
     outline: none;
 
     &:hover {
-        transform: ${props => props.active && 'none'}
-        cursor: ${props => props.active && 'default'}
+        transform: ${props => props.active ? 'none' : 'scale(1.03)'};
+        cursor: ${props => props.active ? 'default' : 'pointer'};
+        transition: .4s;
     }
 `
 
-const PropBetsContainer = styled.button`
+const PropBetsContainer = styled.div`
     background: #fff;
     color: ${colors.darkGrey};
     border: 1px solid black;
     padding: 1.5rem;
     cursor: default
-    min-width: 350px;
+    max-width: 350px;
 `
 
 const PropBetsHeader = styled.div`
@@ -52,6 +54,7 @@ const PropBetsHeader = styled.div`
     border-radius: 5px;
     padding: 1.5rem;
     width: 100%;
+    font-size: 1.5rem;
 `
 
 const Flex = styled.div`
@@ -76,6 +79,11 @@ const Flex = styled.div`
     };
     flex-direction: ${props => props.column ? 'column' : 'row'};
     margin: 25px 0;
+    width: 100%;
+
+    .select-player, .select-stat {
+        width: 90%;
+    }
 `
 
 export {
