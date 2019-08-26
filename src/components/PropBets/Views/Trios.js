@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Select from 'react-select'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons'
 
 import { statTypeOption, playerOptions, statOptions } from '../../../assets/dummyData'
 import { Descriptor, Flex, StyledButton, CountDisplay } from '../styledComponents'
@@ -20,6 +22,8 @@ const Trios = props => {
         setPlayerThreeSelection(null)
     }
 
+    const rotate = <FontAwesomeIcon icon={faSyncAlt} />
+
     return (
 
         <>
@@ -34,6 +38,11 @@ const Trios = props => {
                     isSearchable={true}
                 />
 
+                <i onClick={() => {
+                    setPlayerOneSelection(playerTwoSelection)
+                    setPlayerTwoSelection(playerOneSelection)
+                }}>{rotate}</i>
+
                 <Select
                     className='ninety third'
                     value={playerTwoSelection}
@@ -41,6 +50,11 @@ const Trios = props => {
                     options={playerOptions}
                     isSearchable={true}
                 />
+
+                <i onClick={() => {
+                    setPlayerTwoSelection(playerThreeSelection)
+                    setPlayerThreeSelection(playerTwoSelection)
+                }}>{rotate}</i>
 
                 <Select
                     className='ninety third'
