@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ModalMain } from '../styledComponents'
+import { ModalMain } from './styledComponents'
 
 const Modal = props => {
 
