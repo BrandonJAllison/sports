@@ -14,7 +14,7 @@ const Stats = (props) => {
     const [statType, setStatType] = useState(null)
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
     const [betSlip, setBetSlip] = useState({})
-    const [prop, setProp] = useState('~')
+    const [prop, setProp] = useState('AT_LEAST')
 
     const handleChange = selectedOption => {
         setSelectedOption(selectedOption)
@@ -73,18 +73,18 @@ const Stats = (props) => {
             <div>
                 <StyledButton
                     third small primary first
-                    active={prop === '~'}
-                    onClick={() => setProp('~')}
+                    active={prop === 'AT_LEAST'}
+                    onClick={() => setProp('AT_LEAST')}
                 >AT LEAST</StyledButton>
                 <StyledButton
                     third small primary
-                    active={prop === '+'}
-                    onClick={() => setProp('+')}
+                    active={prop === 'OVER'}
+                    onClick={() => setProp('OVER')}
                 >OVER</StyledButton>
                 <StyledButton
                     third small primary last
-                    active={prop === '-'}
-                    onClick={() => setProp('-')}
+                    active={prop === 'UNDER'}
+                    onClick={() => setProp('UNDER')}
                 >UNDER</StyledButton>
             </div>
 

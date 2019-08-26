@@ -58,7 +58,7 @@ export const PropBets = _ => {
                     onMouseOut={() => setShow(false)}
                     onClick={() => setShow(!show)}
                 >
-                    <FontAwesomeIcon size='s' icon={faQuestionCircle} />
+                    <FontAwesomeIcon size='xs' icon={faQuestionCircle} />
                     <InfoModal show={show} />
                 </i></span>
                 <span>Betslip</span>
