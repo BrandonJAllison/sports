@@ -7,7 +7,7 @@ import { PropBets } from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
 
-import SideBar from './components/SideBar'
+import SideBar from './components/sidebar'
 
 import CardContainer from './components/CardContainer'
 
