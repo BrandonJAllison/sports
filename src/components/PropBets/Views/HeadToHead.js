@@ -45,7 +45,7 @@ const HeadToHead = props => {
                 <p>{count}</p>
                 <Select
                     value={statType}
-                    onChange={(sel) => setSelectedOption(sel.value)}
+                    onChange={(sel) => setStatType(sel)}
                     options={statTypeOption}
                     isSearchable={true}
                     defaultValue={statTypeOption[0].value}

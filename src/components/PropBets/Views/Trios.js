@@ -37,7 +37,7 @@ const Trios = props => {
                 <p style={{ color: 'white', marginLeft: '10px' }}>SELECT PLAYER</p>
             </Selection>
             <Descriptor>In order of most</Descriptor>
-            <Selection>
+            <Selection last>
                 <FontAwesomeIcon icon={faChartLine} />
                 <p style={{ color: 'white', marginLeft: '10px' }}>SELECT STAT</p>
             </Selection>
@@ -46,7 +46,7 @@ const Trios = props => {
                 <p>{count}</p>
                 <Select
                     value={statType}
-                    onChange={(sel) => setSelectedOption(sel.value)}
+                    onChange={(sel) => setStatType(sel)}
                     options={statTypeOption}
                     isSearchable={true}
                     defaultValue={statTypeOption[0].value}

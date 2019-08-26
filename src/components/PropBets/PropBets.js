@@ -3,19 +3,22 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import Loader from 'react-loader-spinner'
+import { connect } from 'react-redux'
 
+import { confirmBet } from '../../actions'
 import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './styledComponents'
 import Logo from '../../assets/logo.png'
 import { Stats, HeadToHead, Trios } from './Views'
 import InfoModal from './InfoModal'
 
-export const PropBets = _ => {
+const PropBets = props => {
+
     const [players, setPlayers] = useState()
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
     const [betSlip, setBetSlip] = useState({})
 
-    useEffect(() => console.log(betSlip), [betSlip])
+    useEffect(() => { props.confirmBet(betSlip) }, [betSlip])
 
     // function getPlayers() {
     //     axios
@@ -61,7 +64,7 @@ export const PropBets = _ => {
                     onMouseOut={() => setShow(false)}
                     onClick={() => setShow(!show)}
                 >
-                    <FontAwesomeIcon size='s' icon={faQuestionCircle} />
+                    <FontAwesomeIcon size='sm' icon={faQuestionCircle} />
                     <InfoModal show={show} />
                 </i></span>
                 <span>Betslip</span>
@@ -74,7 +77,7 @@ export const PropBets = _ => {
                     onClick={() => setType(1)}
                 >STAT</StyledButton>
                 <StyledButton
-                    primary small
+                    primary small middle
                     active={type === 2}
                     onClick={() => setType(2)}
                 >H2H</StyledButton>
@@ -85,7 +88,7 @@ export const PropBets = _ => {
                 >TRIOS</StyledButton>
             </Flex>
 
-            <div>
+            <Flex column>
                 {(() => {
                     switch (type) {
                         case 1:
@@ -98,10 +101,14 @@ export const PropBets = _ => {
                             return <Stats setBetSlip={setBetSlip} />
                     }
                 })()}
-            </div>
+            </Flex>
 
         </PropBetsContainer>
 
     )
 
 }
+
+const mapStateToProps = state => ({ ...state })
+
+export default connect(mapStateToProps, { confirmBet })(PropBets)

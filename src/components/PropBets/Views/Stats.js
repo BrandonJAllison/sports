@@ -7,7 +7,7 @@ import { statOptions, playerOptions, statTypeOption } from '../../../assets/dumm
 import { StyledButton, Descriptor, Flex, CountDisplay, CountSet } from '../styledComponents'
 
 const Stats = props => {
-    console.log('player props', props)
+
     const [count, setCount] = useState(0)
     const [selectedOption, setSelectedOption] = useState(null)
     const [statType, setStatType] = useState(null)
@@ -27,27 +27,27 @@ const Stats = props => {
 
         <>
 
-            <div style={{ margin: '2rem 0' }}>
+            <Flex>
                 <Select
                     className='select-player'
                     value={playerSelectedOption}
-                    onChange={(sel) => setPlayerSelectedOption(sel.value)}
+                    onChange={(sel) => setPlayerSelectedOption(sel)}
                     options={playerOptions}
                     isSearchable={true}
                     placeholder={player}
                 />
-            </div>
+            </Flex>
 
             <Descriptor>Will Have</Descriptor>
 
-            <div>
+            <Flex>
                 <StyledButton
                     third small primary first
                     active={prop === 'AT_LEAST'}
                     onClick={() => setProp('AT_LEAST')}
                 >AT LEAST</StyledButton>
                 <StyledButton
-                    third small primary
+                    third small primary middle
                     active={prop === 'OVER'}
                     onClick={() => setProp('OVER')}
                 >OVER</StyledButton>
@@ -56,24 +56,24 @@ const Stats = props => {
                     active={prop === 'UNDER'}
                     onClick={() => setProp('UNDER')}
                 >UNDER</StyledButton>
-            </div>
+            </Flex>
 
             <Flex spaceAJ>
                 <CountSet>
                     <p>{count}</p>
                     <StyledButton
                         onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}
-                        half small>-</StyledButton>
+                        half small middle>-</StyledButton>
                     <StyledButton
                         onClick={() => setCount(count + 1)}
-                        half small>+</StyledButton>
+                        half small middle>+</StyledButton>
                 </CountSet>
 
                 <CountDisplay>
                     <p>{count}</p>
                     <Select
                         value={statType}
-                        onChange={(type) => setStatType(type.value)}
+                        onChange={(sel) => setStatType(sel)}
                         options={statTypeOption}
                         isSearchable={true}
                         defaultValue={statTypeOption[0].value}
@@ -82,16 +82,16 @@ const Stats = props => {
                 </CountDisplay>
             </Flex>
 
-            <div style={{ margin: '2rem 0' }}>
+            <Flex>
                 <Select
                     className='select-stat'
                     value={selectedOption}
-                    onChange={(sel) => setSelectedOption(sel.value)}
+                    onChange={(sel) => setSelectedOption(sel)}
                     options={statOptions}
                     isSearchable={true}
                     placeholder={stat}
                 />
-            </div>
+            </Flex>
 
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
