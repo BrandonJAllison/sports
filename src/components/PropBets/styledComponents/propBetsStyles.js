@@ -3,21 +3,27 @@ import { colors, buttonSize } from '../../../theme/variables.js'
 
 const StyledButton = styled.button`
     background: ${
-    props => {
-        return props.active ? 'grey' : props.primary ? `${colors.primary}` : `${colors.secondary}`
-    }}
+    props =>
+        props.active ? 'grey' :
+            props.primary ? `${colors.primary}` :
+                `${colors.secondary}`
+    }
     padding: ${
     props =>
-        props.active ? `${buttonSize.activeSmall}` : props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
+        props.active ? `${buttonSize.activeSmall}` :
+            props.small ? `${buttonSize.small}` :
+                `${buttonSize.medium}`
     }
     border-radius: ${
     props =>
         props.first ? '5px 0 0 5px' :
-            props.last ? '0 5px 5px 0' : '0'
+            props.last ? '0 5px 5px 0' :
+                '0'
     }
     width: ${
     props =>
-        props.half ? '50%' : props.third ? '30%' : 'inherit'
+        props.half ? '50%' :
+            props.third ? '30%' : 'inherit'
     }
     outline: none;
 
@@ -50,12 +56,25 @@ const PropBetsHeader = styled.div`
 
 const Flex = styled.div`
     display: flex;
-    justify-content: ${props =>
-        props.spaceAJ ? 'space-around' : props.spaceBJ ? 'space-between' : props.spaceEJ ? 'space-evenly' : props.startJ ? 'flex-start' : props.endJ ? 'flex-end' : 'center'
+    justify-content: ${
+    props =>
+        props.spaceAJ ? 'space-around' :
+            props.spaceBJ ? 'space-between' :
+                props.spaceEJ ? 'space-evenly' :
+                    props.startJ ? 'flex-start' :
+                        props.endJ ? 'flex-end' :
+                            'center'
     };
-    align-items: ${props =>
-        props.spaceAA ? 'space-around' : props.spaceBA ? 'space-between' : props.spaceEA ? 'space-evenly' : props.startA ? 'flex-start' : props.endA ? 'flex-end' : 'center'
+    align-items: ${
+    props =>
+        props.spaceAA ? 'space-around' :
+            props.spaceBA ? 'space-between' :
+                props.spaceEA ? 'space-evenly' :
+                    props.startA ? 'flex-start' :
+                        props.endA ? 'flex-end' :
+                            'center'
     };
+    flex-direction: ${props => props.column ? 'column' : 'row'};
     margin: 25px 0;
 `
 
