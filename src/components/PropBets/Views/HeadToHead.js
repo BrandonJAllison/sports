@@ -6,19 +6,11 @@ import Select from 'react-select'
 import { statTypeOption } from '../../../assets/dummyData'
 import { Selection, Descriptor, Flex, StyledButton, CountDisplay } from '../styledComponents'
 
-const HeadToHead = _ => {
+const HeadToHead = props => {
     const [count, setCount] = useState(0)
     const [statType, setStatType] = useState(null)
     const [selectedOption, setSelectedOption] = useState(null)
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
-    const [betSlip, setBetSlip] = useState({})
-
-    const handleStatTypeChange = type => setStatType(type)
-
-    const betSlipUpdate = _ => {
-        setBetSlip({ count, selectedOption, playerSelectedOption })
-        console.log('Bet Slip', betSlip)
-    }
 
     const clearOptions = _ => {
         setCount(0)
@@ -53,7 +45,7 @@ const HeadToHead = _ => {
                 <p>{count}</p>
                 <Select
                     value={statType}
-                    onChange={handleStatTypeChange}
+                    onChange={(sel) => setStatType(sel)}
                     options={statTypeOption}
                     isSearchable={true}
                     defaultValue={statTypeOption[0].value}
@@ -63,7 +55,9 @@ const HeadToHead = _ => {
 
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary onClick={betSlipUpdate}>Send To Betslip</StyledButton>
+                <StyledButton primary onClick={() => props.setBetSlip({
+                    count, selectedOption, playerSelectedOption
+                })}>Send To Betslip</StyledButton>
             </Flex>
 
         </>

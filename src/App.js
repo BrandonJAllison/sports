@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Logo from './assets/logo.png'
 
-import { PropBets } from './components/PropBets/PropBets'
+import PropBets from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 // import { NFL } from "./components/Nfl"
 
@@ -74,10 +74,10 @@ function App() {
             <img alt='Logo' style={{ width: '60%' }} src={Logo} />
           </Link>
         </NavRow>
-        <NavLinks >
+        <NavLinks>
           <NavRow activeStyle={{ textDecoration: 'underline' }}>
-            <Link onClick={() => { setSport('nfl') }}>NFL</Link>
-            <Link onClick={() => { setSport('mlb') }}>MLB</Link>
+            <Link to='/nfl' onClick={() => { setSport('nfl') }}>NFL</Link>
+            <Link to='/mlb' onClick={() => { setSport('mlb') }}>MLB</Link>
             <Link to="/ncaa">NCAA</Link>
             <Link to="/cfl">CFL</Link>
             <Link to="/nba">NBA</Link>

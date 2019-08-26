@@ -45,7 +45,7 @@ const NFL = (props) => {
             <Card>
                 <div>
                     <div>
-                        {gameInfo.nfl.map(el => <UGameCard gameInfo={el} />)}
+                        {gameInfo.nfl.map((el, id) => <UGameCard key={id * Math.random()} gameInfo={el} />)}
                         {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
                     </div>
                     <div>

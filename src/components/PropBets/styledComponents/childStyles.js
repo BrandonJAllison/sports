@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { colors } from '../../../theme/variables'
 
 const CountSet = styled.div`
+    text-align: center;
+    font-size: 1.5rem;
     border: 1px solid black;
     border-bottom: none;
     width: 40%;
@@ -10,6 +12,8 @@ const CountSet = styled.div`
 `
 
 const CountDisplay = styled.div`
+    text-align: center;
+    font-size: 1.5rem;
     border: 1px solid black;
     width: 40%;
     border-radius: 5px;
@@ -19,13 +23,14 @@ const CountDisplay = styled.div`
 const Selection = styled.div`
     border: 1px solid black;
     padding: .2rem;
-    margin: 2.5px 0;
+    margin: ${props => props.last ? '2.5px 0 25px 0' : '2.5px 0'};
     background: ${colors.secondary};
     display: flex;
     color: whitesmoke;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
+    width: 100%;
 `
 
 const Descriptor = styled.h3`
