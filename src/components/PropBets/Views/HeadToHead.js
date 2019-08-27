@@ -8,7 +8,7 @@ import { StyledButton, Descriptor, Flex, CountDisplay, CountSet } from '../style
 
 const HeadToHead = props => {
     const [count, setCount] = useState(0)
-    const [statType, setStatType] = useState(null)
+    const [statType, setStatType] = useState(statTypeOption[0])
     const [selectedOption, setSelectedOption] = useState(null)
     const [playerOneSelection, setPlayerOneSelection] = useState(null)
     const [playerTwoSelection, setPlayerTwoSelection] = useState(null)
@@ -80,17 +80,18 @@ const HeadToHead = props => {
                     onChange={(sel) => setStatType(sel)}
                     options={statTypeOption}
                     isSearchable={true}
-                    defaultValue={statTypeOption[0].value}
-                    placeholder={statTypeOption[0].label}
                 />
             </CountDisplay>
 
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary onClick={() => props.setBetSlip({
-                    count, selectedOption, playerOneSelection, playerTwoSelection,
-                    playerCount: 2
-                })}>Send To Betslip</StyledButton>
+                <StyledButton primary onClick={() => {
+                    props.setBetSlip({
+                        count, selectedOption, playerOneSelection, playerTwoSelection,
+                        playerCount: 2
+                    })
+                    clearOptions()
+                }}>Send To Betslip</StyledButton>
             </Flex>
 
         </>
