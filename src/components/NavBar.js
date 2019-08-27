@@ -12,14 +12,14 @@ const Button = styled.button`
 `
 
 
-const NavBar = () => {
+const NavBar = _ => {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0()
 
     return (
         <div>
             {!isAuthenticated && (
                 <Button primary medium
-                    onClick={() =>
+                    onClick={_ =>
                         loginWithRedirect({})
                     }
                 >
@@ -27,7 +27,7 @@ const NavBar = () => {
         </Button>
             )}
 
-            {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+            {isAuthenticated && <button onClick={_ => logout()}>Log out</button>}
         </div>
     )
 }
