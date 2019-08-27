@@ -14,13 +14,13 @@ const StyledButton = styled.button`
             props.small ? `${buttonSize.small}` :
                 `${buttonSize.medium}`
     }
-    border-radius: ${
+    ${'' /* border-radius: ${
     props =>
         props.first ? '5px 0 0 5px' :
             props.last ? '0 5px 5px 0' :
                 props.middle ? '0' :
                     '5px'
-    }
+    } */}
     width: ${
     props =>
         props.half ? '50%' :

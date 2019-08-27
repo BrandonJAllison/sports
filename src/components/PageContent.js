@@ -6,7 +6,8 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../theme/variables'
 
 const PageContentContainer = styled.div`
-  min-width: 78%;
+  max-width: 1500px;
+  margin: 0 auto;
   background: #fff;
   padding: 3rem 1rem;
   display:flex;
@@ -19,13 +20,14 @@ const Sidebar = styled.div`
   padding: 3rem 1rem;
   display:flex;
   border: 2px solid magenta;
+  margin: 0 .5rem;
 `
 const Content = styled.div`
   background: lightGrey;
   padding: 3rem 1rem;
   display:flex;
   flex-grow: 2;
-  max-width: 900px;
+  max-width: 1200px;
 `
 
 const BetBuilder = styled.div`
