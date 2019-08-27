@@ -6,7 +6,7 @@ import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux'
 
 import { confirmBet } from '../../actions'
-import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './styledComponents'
+import { PropBetsContainer, PropBetsHeader, StyledButton, Flex, BetCount } from './styledComponents'
 import Logo from '../../assets/logo.png'
 import { Stats, HeadToHead, Trios } from './Views'
 import InfoModal from './InfoModal'
@@ -72,7 +72,7 @@ const PropBets = props => {
                     <FontAwesomeIcon size='sm' icon={faQuestionCircle} />
                     <InfoModal show={show} />
                 </i></span>
-                <span><span style={{ fontSize: '10px', color: 'red', marginLeft: '5px' }}>{slipCount}</span>Betslip</span>
+                <span><BetCount>{slipCount}</BetCount>Betslip</span>
             </PropBetsHeader>
 
             <Flex>

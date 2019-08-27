@@ -38,9 +38,17 @@ const Descriptor = styled.h3`
     text-transform: uppercase;
 `
 
+const BetCount = styled.span`
+font-size: 10px;
+color: red;
+margin-right: 5px;
+color:${colors.primary};
+`
+
 export {
     CountDisplay,
     CountSet,
     Selection,
     Descriptor,
+    BetCount
 }
