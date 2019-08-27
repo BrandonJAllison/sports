@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import Logo from './assets/logo.png'
 
 
 import PropBets from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
-// import { NFL } from "./components/Nfl"
+import  NFL  from "./components/nfl.js"
 
 // import SideBar from './components/Sidebar'
 
@@ -93,7 +93,7 @@ function App() {
 
         </NavLinks>
       </NavContainer>
-      <CardContainer sport={sport} />
+        <CardContainer />
 
       <PageContent>
         <PropBets />
