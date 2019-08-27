@@ -10,7 +10,7 @@ const StyledButton = styled.button`
     }
     padding: ${
     props =>
-        props.active ? `${buttonSize.activeSmall}` :
+        props.active ? `${buttonSize.active.small}` :
             props.small ? `${buttonSize.small}` :
                 `${buttonSize.medium}`
     }
@@ -41,7 +41,7 @@ const PropBetsContainer = styled.div`
     border: 1px solid black;
     padding: 1.5rem;
     cursor: default
-    max-width: 350px;
+    min-width: 350px;
 `
 
 const PropBetsHeader = styled.div`

@@ -12,21 +12,19 @@ import { Stats, HeadToHead, Trios } from './Views'
 import InfoModal from './InfoModal'
 
 const PropBets = props => {
-    console.log(props)
-console.log(props.confirmedBets)
+
+    // console.log(props)
+    console.log(props.confirmedBets)
     const [players, setPlayers] = useState()
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
-    const [betSlip, setBetSlip] = useState({})
-    
-    
-    
+    const [betSlip, setBetSlip] = useState()
 
-    useEffect(() => { 
-        props.confirmBet(betSlip) 
-        }
-        , [betSlip])
+    useEffect(() => {
+        betSlip && props.confirmBet(betSlip)
+    }, [betSlip])
 
+    const slipCount = props.confirmedBets.length
     // function getPlayers() {
     //     axios
     //         .get(`https://api.sportsdata.io/v3/nfl/scores/json/Players?key=719ffa8e2fe5427a88dad8c81a92fb29`)
@@ -74,7 +72,7 @@ console.log(props.confirmedBets)
                     <FontAwesomeIcon size='sm' icon={faQuestionCircle} />
                     <InfoModal show={show} />
                 </i></span>
-                <span>Betslip</span>
+                <span><span style={{ fontSize: '10px', color: 'red', marginLeft: '5px' }}>{slipCount}</span>Betslip</span>
             </PropBetsHeader>
 
             <Flex>

@@ -39,7 +39,7 @@ const NFL = (props) => {
             <>
                 {gameInfo.nfl.map(el => <UGameCard gameInfo={el} />)}
                 {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
-                <button>View All {props.sport} Games</button>
+                {/* <button>View All {props.sport} Games</button> */}
             </>
         );
     }

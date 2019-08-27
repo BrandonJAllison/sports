@@ -10,7 +10,11 @@ const colors = {
 
 const buttonSize = {
 
-    activeSmall: '1rem 1.2rem',
+    active: {
+        small: '1rem 1.2rem',
+        medium: '1.1rem 2.4rem',
+        large: '1.8rem 2.4rem'
+    },
     small: '1.1rem 1.2rem',
     medium: '1.2rem 2.4rem',
     large: '2rem 2.4rem'

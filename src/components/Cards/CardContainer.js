@@ -6,14 +6,18 @@ import NFL from "../nfl"
 import styled from 'styled-components'
 import { colors } from '../../theme/variables'
 
+
+
 const CardHolder = styled.div`
-    width: 100%;
+    max-width: 100%;
     min-height: 36vh;
     margin-top: 22px;
     background: linear-gradient(to bottom, #474F54, #1F262B);
-    ${'' /* display: flex;
-    flex-direction: row; */}
     color: #fff;
+`
+
+const Card = styled.div`
+    max-width: 100%;
 `
 
 const ContainerTitle = styled.div`
@@ -33,8 +37,9 @@ const ContainerTitle = styled.div`
 const ContainerContent = styled.div`
     margin: 0 auto;
     display: flex;
-    min-width: 100%;
+    ${'' /* min-width: 100%; */}
     justify-content: space-around;
+    flex-wrap: wrap;
     padding: 2rem 0;
     border: 2px solid green;
 `
@@ -45,12 +50,14 @@ const CardContainer = (props) => {
         <>
 
             <CardHolder>
-                <ContainerTitle>
-                    <h2>Quick Bets - NFL</h2>
-                </ContainerTitle>
-                <ContainerContent >
-                    <NFL sport={props.sport} />
-                </ContainerContent>
+                <Card>
+                    <ContainerTitle>
+                        <h2>Quick Bets - NFL</h2>
+                    </ContainerTitle>
+                    <ContainerContent>
+                        <NFL sport={props.sport} />
+                    </ContainerContent>
+                </Card>
             </CardHolder>
         </>
     )

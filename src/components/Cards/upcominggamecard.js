@@ -21,6 +21,13 @@ const CardHeader = styled.div`
 `
 
 const CardContent = styled.div`
+
+  .cardContentRow {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 2px;
+  }
+
 `
 
 const Button = styled.button`
