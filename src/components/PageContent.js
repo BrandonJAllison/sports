@@ -6,32 +6,34 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../theme/variables'
 
 const PageContentContainer = styled.div`
-  ${'' /* width: 100%; */}
+  min-width: 78%;
   background: #fff;
   padding: 3rem 1rem;
   display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `
 
 const Sidebar = styled.div`
-  width: 28%;
   background: #fff;
   padding: 3rem 1rem;
   display:flex;
-`
-
-const BetBuilder = styled.div`
-  width: 28%;
-  background: #fff;
-  padding: 3rem 1rem;
-  display:flex;
+  border: 2px solid magenta;
 `
 const Content = styled.div`
-  width: 68%;
   background: lightGrey;
   padding: 3rem 1rem;
   display:flex;
+  flex-grow: 2;
+  max-width: 900px;
 `
 
+const BetBuilder = styled.div`
+  background: #fff;
+  padding: 3rem 1rem;
+  display:flex;
+  justify-content: center;
+`
 
 
 
