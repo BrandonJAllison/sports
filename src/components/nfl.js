@@ -6,9 +6,9 @@ import axios from "axios";
 import styled from 'styled-components'
 import { colors, buttonSize } from '../theme/variables'
 
-const Card = styled.div`
-    width: 40%;
-`
+// const Card = styled.div`
+//     width: 40%;
+// `
 
 const NFL = (props) => {
 
@@ -40,7 +40,7 @@ const NFL = (props) => {
     console.log(gameInfo)
     if (props.sport === "nfl") {
         return (
-            <Card>
+            <div>
                 <div>
                     <div>
                         {gameInfo.nfl.map(el => <UGameCard gameInfo={el} />)}
@@ -50,7 +50,7 @@ const NFL = (props) => {
                         <button>View All {props.sport} Games</button>
                     </div>
                 </div>
-            </Card>
+            </div>
         );
     }
     if (props.sport === "mlb") {
