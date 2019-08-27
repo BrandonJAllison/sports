@@ -8,6 +8,7 @@ import { colors, buttonSize } from '../theme/variables'
 
 const Card = styled.div`
     width: 40%;
+    display:flex;
 `
 
 const NFL = (props) => {
@@ -42,15 +43,17 @@ const NFL = (props) => {
     if (props.sport === "nfl") {
         return (
             <Card>
-                <div>
-                    <div>
-                        {gameInfo.nfl.map(el => <UGameCard gameInfo={el} />)}
-                        {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
-                    </div>
-                    <div>
-                        <button>View All {props.sport} Games</button>
-                    </div>
+
+                <div >
+
+                    {gameInfo.nfl.map(el => <UGameCard gameInfo={el} />)}
+                    {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
+
                 </div>
+                <div>
+                    <button>View All {props.sport} Games</button>
+                </div>
+
             </Card>
         );
     }

@@ -49,7 +49,7 @@ const CardContainer = (props) => {
                 <ContainerTitle>
                     <h2>Quick Bets - NFL</h2>
                 </ContainerTitle>
-                <ContainerContent>
+                <ContainerContent >
                     <NFL sport={props.sport} />
                 </ContainerContent>
             </CardHolder>
