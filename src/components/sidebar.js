@@ -39,10 +39,9 @@ class SideBar extends React.Component {
         docked={this.state.sidebarDocked}
         onSetOpen={this.onSetSidebarOpen}
       >
-        <b>Main content</b>
       </Sidebar>
     );
-  }
+  }git 
 }
 
 export default SideBar
