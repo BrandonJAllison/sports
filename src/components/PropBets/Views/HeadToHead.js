@@ -19,7 +19,6 @@ const HeadToHead = props => {
         setSelectedOption(null)
         setPlayerOneSelection(null)
         setPlayerTwoSelection(null)
-
     }
 
     const rotate = <FontAwesomeIcon icon={faSyncAlt} />
@@ -27,18 +26,20 @@ const HeadToHead = props => {
     const stat = <FontAwesomeIcon icon={faChartLine} />
 
     return (
+
         <>
 
             <Flex column>
 
                 <Select
-                    className='ninety third'
+                    className='ninety'
                     placeholder={player}
                     value={playerOneSelection}
                     onChange={(sel) => setPlayerOneSelection(sel)}
                     options={playerOptions}
                     isSearchable={true}
                 />
+
                 <Flex >
                     <i style={{ marginRight: '2rem' }} onClick={() => {
                         setPlayerOneSelection(playerTwoSelection)
@@ -49,13 +50,14 @@ const HeadToHead = props => {
                 </Flex>
 
                 <Select
-                    className='ninety third'
+                    className='ninety'
                     placeholder={player}
                     value={playerTwoSelection}
                     onChange={(sel) => setPlayerTwoSelection(sel)}
                     options={playerOptions}
                     isSearchable={true}
                 />
+
             </Flex>
 
             <Flex>
@@ -91,6 +93,7 @@ const HeadToHead = props => {
             </Flex>
 
         </>
+
     )
 
 }

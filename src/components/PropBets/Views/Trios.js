@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Select from 'react-select'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSyncAlt } from '@fortawesome/free-solid-svg-icons'
+import { faSyncAlt, faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
 
 import { statTypeOption, playerOptions, statOptions } from '../../../assets/dummyData'
 import { Descriptor, Flex, StyledButton, CountDisplay } from '../styledComponents'
@@ -23,6 +23,8 @@ const Trios = props => {
     }
 
     const rotate = <FontAwesomeIcon icon={faSyncAlt} />
+    const player = <FontAwesomeIcon icon={faUser} />
+    const stat = <FontAwesomeIcon icon={faChartLine} />
 
     return (
 
@@ -36,6 +38,7 @@ const Trios = props => {
                     onChange={(sel) => setPlayerOneSelection(sel)}
                     options={playerOptions}
                     isSearchable={true}
+                    placeholder={player}
                 />
 
                 <i onClick={() => {
@@ -49,6 +52,7 @@ const Trios = props => {
                     onChange={(sel) => setPlayerTwoSelection(sel)}
                     options={playerOptions}
                     isSearchable={true}
+                    placeholder={player}
                 />
 
                 <i onClick={() => {
@@ -62,6 +66,7 @@ const Trios = props => {
                     onChange={(sel) => setPlayerThreeSelection(sel)}
                     options={playerOptions}
                     isSearchable={true}
+                    placeholder={player}
                 />
 
             </Flex>
@@ -76,6 +81,7 @@ const Trios = props => {
                     onChange={(sel) => setSelectedOption(sel)}
                     options={statOptions}
                     isSearchable={true}
+                    placeholder={stat}
                 />
 
             </Flex>
