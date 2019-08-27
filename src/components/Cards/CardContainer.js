@@ -13,8 +13,6 @@ const CardHolder = styled.div`
     min-height: 36vh;
     margin-top: 22px;
     background: linear-gradient(to bottom, #474F54, #1F262B);
-    ${'' /* display: flex;
-    flex-direction: row; */}
     color: #fff;
 `
 
@@ -39,8 +37,9 @@ const ContainerTitle = styled.div`
 const ContainerContent = styled.div`
     margin: 0 auto;
     display: flex;
-    min-width: 100%;
+    ${'' /* min-width: 100%; */}
     justify-content: space-around;
+    flex-wrap: wrap;
     padding: 2rem 0;
     border: 2px solid green;
 `
