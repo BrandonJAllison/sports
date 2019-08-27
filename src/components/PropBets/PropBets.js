@@ -13,12 +13,16 @@ import InfoModal from './InfoModal'
 
 const PropBets = props => {
 
+    // console.log(props)
+    // console.log(props.confirmedBets)
     const [players, setPlayers] = useState()
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
-    const [betSlip, setBetSlip] = useState({})
+    const [betSlip, setBetSlip] = useState()
 
-    useEffect(() => { props.confirmBet(betSlip) }, [betSlip])
+    useEffect(() => {
+        betSlip && props.confirmBet(betSlip)
+    }, [betSlip])
 
     // function getPlayers() {
     //     axios
