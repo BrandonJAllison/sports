@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import UGameCard from '../components/Cards/upcominggamecard'
+import UGameCard from './Cards/upcominggamecard'
 import Ticon from '../assets/Ticon.png'
 import axios from "axios";
 
@@ -12,15 +12,18 @@ const Card = styled.div`
 
 `
 const BotButton = styled.button`
-    
+
 `
+
 
 const NFL = (props) => {
     
     
     const [gameInfo, setGameInfo] = useState([]);
     const [viewAll, setViewAll] = useState(true);
-    // USE THIS TO GET THE GAMES INFO, WHO IS PLAYING AND WHAT TIME THEY ARE PLAYING
+
+
+    //USE THIS TO GET THE GAMES INFO, WHO IS PLAYING AND WHAT TIME THEY ARE PLAYING
 
     useEffect(() => {
         const getInfo = () => {
@@ -39,6 +42,8 @@ const NFL = (props) => {
 
     }, [props.sport]);
 
+      
+      
     // const gameInfo = {nfl: [{imageone: Ticon, imagetwo: Ticon, date:"NOV 2", time: "7:25 PST"}, {imageone: Ticon, imagetwo: Ticon, date:"NOV 2", time: "7:25 PST"}, {imageone: Ticon, imagetwo: Ticon, date:"NOV 2", time: "7:25 PST"}],
     //                   mlb: [], nba: [], ncaa: [], cfl: []};
     const expand = () => {
@@ -58,7 +63,6 @@ const NFL = (props) => {
         }
     }
     console.log(gameInfo)
-
     if (props.sport === "nfl") {
         return (
             <div style={{ display: "flex" }}>
@@ -82,7 +86,7 @@ const NFL = (props) => {
                 <div className="UGameContainer" style={{ background: "grey", width: "90vw", minHeight: "20vw" }}>
                     <h3 style={{ background: "gold", color: "white", margin: "0", width: "60vw" }}>Upcoming Games - {props.sport.toUpperCase()}</h3>
                     <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
-                        {gameInfo.mlb.map(el => <UGameCard gameInfo={el} />)}
+                        {/* {gameInfo.mlb.map(el => <UGameCard gameInfo={el} />)} */}
                         {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
                     </div>
                     <div style={{display:"flex", justifyContent:"center"}}>
@@ -145,3 +149,4 @@ const NFL = (props) => {
 }
 
 export default NFL;
+
