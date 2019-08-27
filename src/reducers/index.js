@@ -1,5 +1,5 @@
-import { CONFIRM_BET } from "../actions";
-import { objectTypeSpreadProperty } from "@babel/types";
+import { CONFIRM_BET ,DELETE_BET} from "../actions";
+
 
 const initialState = {
     bet: {},
@@ -21,6 +21,18 @@ export default (state = initialState, action) => {
                  
                 })
             }
+        case DELETE_BET:
+        console.log(' in reducer', action.payload)
+        return{
+            ...state ,
+            confirmedBets : state.confirmedBets.filter( (item, index) =>{
+                console.log(item)
+               if(index !== action.payload.id){
+                   return item
+               }
+            
+            })
+        }
             
         default:
             return state
