@@ -81,8 +81,17 @@ const Flex = styled.div`
     margin: 25px 0;
     width: 100%;
 
-    .select-player, .select-stat {
-        width: 90%;
+    .ninety { width: 90%; }
+
+    .third { margin: 12.5px 0; }
+
+    i { 
+        cursor: pointer; 
+
+        &:hover {
+            transform: scale(1.3);
+            transition: .3s;
+        }    
     }
 `
 

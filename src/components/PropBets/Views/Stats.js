@@ -29,7 +29,7 @@ const Stats = props => {
 
             <Flex>
                 <Select
-                    className='select-player'
+                    className='ninety'
                     value={playerSelectedOption}
                     onChange={(sel) => setPlayerSelectedOption(sel)}
                     options={playerOptions}
@@ -84,7 +84,7 @@ const Stats = props => {
 
             <Flex>
                 <Select
-                    className='select-stat'
+                    className='ninety'
                     value={selectedOption}
                     onChange={(sel) => setSelectedOption(sel)}
                     options={statOptions}

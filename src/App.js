@@ -59,7 +59,9 @@ const PageContent = styled.div`
 function App() {
 
   // const [result, setResult] = useState([]);
-  const [sport, setSport] = useState('nfl');
+  const [sport, setSport] = useState("NFL");
+
+
 
 
 
