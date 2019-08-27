@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import UGameCard from '../components/Cards/upcominggamecard'
+import UGameCard from './Cards/upcominggamecard'
 import Ticon from '../assets/Ticon.png'
 import axios from "axios";
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../theme/variables'
-
-const Card = styled.div`
-    width: 40%;
-    display:flex;
-`
 
 const NFL = (props) => {
 
@@ -38,23 +33,14 @@ const NFL = (props) => {
         mlb: [], nba: [], ncaa: [], cfl: []
     };
 
-
     console.log(gameInfo)
     if (props.sport === "nfl") {
         return (
-            <Card>
-
-                <div >
-
-                    {gameInfo.nfl.map(el => <UGameCard gameInfo={el} />)}
-                    {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
-
-                </div>
-                <div>
-                    <button>View All {props.sport} Games</button>
-                </div>
-
-            </Card>
+            <>
+                {gameInfo.nfl.map(el => <UGameCard gameInfo={el} />)}
+                {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
+                <button>View All {props.sport} Games</button>
+            </>
         );
     }
     if (props.sport === "mlb") {

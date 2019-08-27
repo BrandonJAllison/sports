@@ -6,8 +6,7 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../../theme/variables'
 
 const Card = styled.div`
-  border: 2px solid red;
-  ${'' /* width: 30%; */}
+    width: 30%;
 `
 
 const CardHeader = styled.div`
