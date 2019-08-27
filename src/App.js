@@ -23,16 +23,23 @@ const NavContainer = styled.div`
 background-color: #fff;
 width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: baseline;
   flex-direction: row;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  flex-wrap: wrap;
+  padding: 0 2rem;
+  padding-bottom: 1.4rem;
 `
 
 const NavLinks = styled.div`
+display: flex;
+justify-content: space-between;
+width: 80%;
+align-items: flex-end;
+flex-wrap: wrap;
+${'' /* border: 2px solid purple; */}
+      ${'' /* align-items: flex-start; */}
     a {
-      padding-right: 50px;
+      flex-wrap: wrap;
+      padding-right: 3rem;
       font-size: 2rem;
       color: ${colors.darkGrey};
       text-decoration: none;
@@ -48,6 +55,7 @@ const NavLinks = styled.div`
 const NavRow = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: baseline;
 `
 
@@ -57,17 +65,10 @@ const PageContent = styled.div`
   padding: 3rem 1rem;
   display:flex;
 `
-
-
-
 function App() {
 
   // const [result, setResult] = useState([]);
   const [sport, setSport] = useState("NFL");
-
-
-
-
 
   return (
 
@@ -87,8 +88,12 @@ function App() {
             <Link to="/ncaa">NCAA</Link>
             <Link to="/cfl">CFL</Link>
             <Link to="/nba">NBA</Link>
+
+          </NavRow>
+          <NavRow>
             <NavBar />
           </NavRow>
+
         </NavLinks>
       </NavContainer>
       <CardContainer sport={sport} />

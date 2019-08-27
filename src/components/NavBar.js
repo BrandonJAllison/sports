@@ -16,7 +16,7 @@ const NavBar = _ => {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0()
 
     return (
-        <div>
+        <>
             {!isAuthenticated && (
                 <Button primary medium
                     onClick={_ =>
@@ -28,7 +28,7 @@ const NavBar = _ => {
             )}
 
             {isAuthenticated && <button onClick={_ => logout()}>Log out</button>}
-        </div>
+        </>
     )
 }
 

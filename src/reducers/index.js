@@ -1,6 +1,5 @@
 import { CONFIRM_BET ,DELETE_BET} from "../actions";
 
-
 const initialState = {
     bet: {},
     confirmedBets : [],
@@ -21,6 +20,7 @@ export default (state = initialState, action) => {
                  
                 })
             }
+        
         case DELETE_BET:
         console.log(' in reducer', action.payload)
         return{

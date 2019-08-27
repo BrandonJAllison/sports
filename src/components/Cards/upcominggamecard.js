@@ -6,8 +6,7 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../../theme/variables'
 
 const Card = styled.div`
-  border: 2px solid red;
-  ${'' /* width: 30%; */}
+    width: 30%;
 `
 
 const CardHeader = styled.div`
@@ -22,6 +21,13 @@ const CardHeader = styled.div`
 `
 
 const CardContent = styled.div`
+
+  .cardContentRow {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 2px;
+  }
+
 `
 
 const Button = styled.button`
