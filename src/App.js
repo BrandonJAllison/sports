@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Logo from './assets/logo.png'
 
+
 import PropBets from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 // import { NFL } from "./components/Nfl"
