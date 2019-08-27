@@ -8,6 +8,7 @@ import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './compone
 import NavBar from './components/NavBar'
 import BetSlip from './components/betSlip'
 // import { NFL } from "./components/Nfl"
+import PageContent from './components/PageContent'
 
 // import SideBar from './components/Sidebar'
 
@@ -59,12 +60,6 @@ const NavRow = styled.div`
   align-items: baseline;
 `
 
-const PageContent = styled.div`
-  width: 100%;
-  background: #fff;
-  padding: 3rem 1rem;
-  display:flex;
-`
 function App() {
 
   // const [result, setResult] = useState([]);
@@ -98,16 +93,16 @@ function App() {
       </NavContainer>
       <CardContainer sport={sport} />
 
-      <PageContent>
-      <PropBets />
-      <BetSlip/> 
-      </PageContent>
-        
-        
-        
-        
-      
-      
+      <PageContent />
+
+      <BetSlip />
+
+
+
+
+
+
+
     </div>
   )
 }
