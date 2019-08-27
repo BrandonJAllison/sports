@@ -37,7 +37,6 @@ const NFL = (props) => {
         mlb: [], nba: [], ncaa: [], cfl: []
     };
 
-
     console.log(gameInfo)
     if (props.sport === "nfl") {
         return (
