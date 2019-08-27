@@ -1,8 +1,10 @@
-import { CONFIRM_BET, DELETE_BET } from "../actions"
+import { CONFIRM_BET, DELETE_BET, TEAM_DATA_SUCCESS, TEAM_DATA_FAILURE } from "../actions"
 
 const initialState = {
     bet: {},
     confirmedBets: [],
+    nflTeamData: [],
+    error: null
 }
 
 export default (state = initialState, action) => {
@@ -31,6 +33,18 @@ export default (state = initialState, action) => {
                     }
 
                 })
+            }
+
+        case TEAM_DATA_SUCCESS:
+            console.log(action.payload)
+            return {
+                ...state,
+                nflTeamData: action.payload
+            }
+        case TEAM_DATA_FAILURE:
+            console.log(action.payload)
+            return {
+                error: action.payload
             }
 
         default:

@@ -5,7 +5,7 @@ import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux'
 
-import { confirmBet } from '../../actions'
+import { confirmBet, teamData } from '../../actions'
 import { PropBetsContainer, PropBetsHeader, StyledButton, Flex, BetCount } from './styledComponents'
 import Logo from '../../assets/logo.png'
 import { Stats, HeadToHead, Trios } from './Views'
@@ -22,9 +22,15 @@ const PropBets = props => {
 
     useEffect(() => {
         betSlip && props.confirmBet(betSlip)
+        props.teamData()
     }, [betSlip])
 
+
+
     const slipCount = props.confirmedBets.length
+
+
+
     // function getPlayers() {
     //     axios
     //         .get(`https://api.sportsdata.io/v3/nfl/scores/json/Players?key=719ffa8e2fe5427a88dad8c81a92fb29`)
@@ -116,4 +122,4 @@ const PropBets = props => {
 
 const mapStateToProps = state => ({ ...state })
 
-export default connect(mapStateToProps, { confirmBet })(PropBets)
+export default connect(mapStateToProps, { confirmBet, teamData })(PropBets)
