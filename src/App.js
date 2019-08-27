@@ -100,7 +100,7 @@ function App() {
 
       <PageContent>
         <PropBets />
-        {/* <BetSlip/>  */}
+        <BetSlip />
       </PageContent>
 
 

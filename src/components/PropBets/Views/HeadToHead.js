@@ -4,7 +4,7 @@ import { faUser, faChartLine, faSyncAlt } from '@fortawesome/free-solid-svg-icon
 import Select from 'react-select'
 
 import { statOptions, playerOptions, statTypeOption } from '../../../assets/dummyData'
-import { StyledButton, Descriptor, Flex, CountDisplay, CountSet } from '../styledComponents'
+import { StyledButton, Descriptor, Flex, CountDisplay } from '../styledComponents'
 
 const HeadToHead = props => {
     const [count, setCount] = useState(0)

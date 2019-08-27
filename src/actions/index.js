@@ -1,5 +1,10 @@
 import axios from 'axios'
 
+import urls from '../assets/urls'
+const { CFL, NBA, NCAA, NFL, MLB } = urls
+
+console.log({ CFL, NBA, NCAA, NFL, MLB })
+
 export const FETCH_DATA_START = 'FETCH_DATA_START'
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
 export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE'
