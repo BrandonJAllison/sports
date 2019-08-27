@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link, Router } from "react-router-dom";
+import { Link, Router, Route } from "react-router-dom";
 import './App.scss';
-
+import Footer from "./components/footer.js"
 import PropBets from './components/PropBets/PropBets'
 import NavBar from './components/NavBar'
 import { NFL } from "./components"
 import SideBar from './components/sidebar.js'
+import About from "./components/about.js"
+
 function App() {
 
   // const [result, setResult] = useState([]);
@@ -32,10 +34,13 @@ function App() {
         </nav>
       </header>
 
-      <main>
+      <main style={{minHeight:"100vw"}}>
         <NFL sport={sport} />
-
+        <Route path="/info/about" component={About} />
       </main>
+      <footer>
+        <Footer />
+      </footer>
       <div>
 
         {/* <PropBets /> */}
