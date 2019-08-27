@@ -8,7 +8,6 @@ import { colors, buttonSize } from '../theme/variables'
 
 const Card = styled.div`
     width: 40%;
-
 `
 
 const NFL = (props) => {
@@ -38,14 +37,13 @@ const NFL = (props) => {
         mlb: [], nba: [], ncaa: [], cfl: []
     };
 
-
     console.log(gameInfo)
     if (props.sport === "nfl") {
         return (
             <Card>
                 <div>
                     <div>
-                        {gameInfo.nfl.map((el, id) => <UGameCard key={id * Math.random()} gameInfo={el} />)}
+                        {gameInfo.nfl.map(el => <UGameCard gameInfo={el} />)}
                         {/* { gameInfo.map(el => <UGameCard gameInfo={el}/>)} */}
                     </div>
                     <div>

@@ -1,11 +1,10 @@
 import React from 'react'
 
-// import { UGameCard } '/upcominggamecard'
-import NFL from '../nfl'
-// import NFL from './nfl'
+import { UGameCard } from './upcominggamecard'
+import NFL from "../nfl"
 
 import styled from 'styled-components'
-import { colors, buttonSize } from '../../theme/variables'
+import { colors } from '../../theme/variables'
 
 const CardHolder = styled.div`
     width: 100%;
@@ -24,7 +23,6 @@ const ContainerTitle = styled.div`
     max-height: 28px;
     display: flex;
     align-items: center;
-
     h2 {
         font-size: 1.4rem;
         padding-left: 1.2rem;
@@ -42,7 +40,7 @@ const ContainerContent = styled.div`
     border: 2px solid green;
 `
 
-const CardContainer = props => {
+const CardContainer = (props) => {
 
     return (
         <>

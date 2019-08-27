@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Logo from './assets/logo.png'
 
+
 import PropBets from './components/PropBets/PropBets'
 import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './components/PropBets/styledComponents/'
 import NavBar from './components/NavBar'
@@ -62,7 +63,9 @@ const PageContent = styled.div`
 function App() {
 
   // const [result, setResult] = useState([]);
-  const [sport, setSport] = useState('nfl');
+  const [sport, setSport] = useState("NFL");
+
+
 
 
 
