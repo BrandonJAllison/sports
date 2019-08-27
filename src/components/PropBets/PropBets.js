@@ -12,13 +12,20 @@ import { Stats, HeadToHead, Trios } from './Views'
 import InfoModal from './InfoModal'
 
 const PropBets = props => {
-
+    console.log(props)
+console.log(props.confirmedBets)
     const [players, setPlayers] = useState()
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
     const [betSlip, setBetSlip] = useState({})
+    
+    
+    
 
-    useEffect(() => { props.confirmBet(betSlip) }, [betSlip])
+    useEffect(() => { 
+        props.confirmBet(betSlip) 
+        }
+        , [betSlip])
 
     // function getPlayers() {
     //     axios

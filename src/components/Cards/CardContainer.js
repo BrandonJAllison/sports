@@ -40,8 +40,7 @@ const ContainerContent = styled.div`
     margin: 0 auto;
     display: flex;
     min-width: 100%;
-    flex-direction: row;
-    justify-content: space-between; 
+    justify-content: space-around;
     padding: 2rem 0;
     border: 2px solid green;
 `
