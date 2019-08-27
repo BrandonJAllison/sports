@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import Logo from './assets/logo.png'
 
 
@@ -7,8 +7,6 @@ import PropBets from './components/PropBets/PropBets'
 import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './components/PropBets/styledComponents/'
 import NavBar from './components/NavBar'
 import BetSlip from './components/betSlip'
-// import { NFL } from "./components/Nfl"
-
 // import SideBar from './components/Sidebar'
 
 import CardContainer from './components/Cards/CardContainer'
@@ -96,7 +94,7 @@ function App() {
 
         </NavLinks>
       </NavContainer>
-      <CardContainer sport={sport} />
+      <CardContainer />
 
       <PageContent>
         <PropBets />

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link, Route } from "react-router-dom";
 import { UGameCard } from './upcominggamecard'
 import NFL from "../nfl"
 
@@ -55,7 +55,7 @@ const CardContainer = (props) => {
                         <h2>Quick Bets - NFL</h2>
                     </ContainerTitle>
                     <ContainerContent>
-                        <NFL sport={props.sport} />
+                        <Route exact path="/nfl" component={NFL} />
                     </ContainerContent>
                 </Card>
             </CardHolder>
