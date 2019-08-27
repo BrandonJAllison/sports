@@ -7,90 +7,69 @@ import { statOptions, playerOptions, statTypeOption } from '../../../assets/dumm
 import { StyledButton, Descriptor, Flex, CountDisplay, CountSet } from '../styledComponents'
 
 const HeadToHead = props => {
-    console.log('player props', props)
     const [count, setCount] = useState(0)
-    const [selectedOption, setSelectedOption] = useState(null)
     const [statType, setStatType] = useState(null)
-    const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
-    const [betSlip, setBetSlip] = useState({})
-    const [prop, setProp] = useState('AT_LEAST')
+    const [selectedOption, setSelectedOption] = useState(null)
+    const [playerOneSelection, setPlayerOneSelection] = useState(null)
+    const [playerTwoSelection, setPlayerTwoSelection] = useState(null)
 
-    const handleChange = selectedOption => {
-        setSelectedOption(selectedOption)
-        console.log(`Option selected:`, selectedOption)
-    }
-
-    const handleChangePlayer = playerSelectedOption => {
-        setPlayerSelectedOption(playerSelectedOption)
-        console.log(`Option selected:`, playerSelectedOption)
-    }
-
-    const handleStatTypeChange = type => setStatType(type)
-
-    const betSlipUpdate = _ => {
-        setBetSlip({ count, selectedOption, playerSelectedOption })
-        console.log('Bet Slip', betSlip)
-    }
 
     const clearOptions = _ => {
         setCount(0)
         setSelectedOption(null)
-        setPlayerSelectedOption(null)
+        setPlayerOneSelection(null)
+        setPlayerTwoSelection(null)
+
     }
 
-    const stat = <FontAwesomeIcon icon={faChartLine} />
-    const player = <FontAwesomeIcon icon={faUser} />
     const rotate = <FontAwesomeIcon icon={faSyncAlt} />
+    const player = <FontAwesomeIcon icon={faUser} />
+    const stat = <FontAwesomeIcon icon={faChartLine} />
 
     return (
-        <div>
+        <>
 
+            <Flex column>
 
-
-            <div style={{ margin: '2rem 0' }}>
                 <Select
-                    className='ninety'
-                    value={playerSelectedOption}
-                    onChange={handleChangePlayer}
+                    className='ninety third'
+                    placeholder={player}
+                    value={playerOneSelection}
+                    onChange={(sel) => setPlayerOneSelection(sel)}
                     options={playerOptions}
                     isSearchable={true}
-                    placeholder={player}
                 />
-            </div>
+                <Flex >
+                    <i style={{ marginRight: '2rem' }} onClick={() => {
+                        setPlayerOneSelection(playerTwoSelection)
+                        setPlayerTwoSelection(playerOneSelection)
 
-            <Descriptor>Will Have More</Descriptor>
+                    }}>{rotate}</i>
+                    <Descriptor>Will have more than</Descriptor>
+                </Flex>
 
-            <div style={{ margin: '2rem 0' }}>
+                <Select
+                    className='ninety third'
+                    placeholder={player}
+                    value={playerTwoSelection}
+                    onChange={(sel) => setPlayerTwoSelection(sel)}
+                    options={playerOptions}
+                    isSearchable={true}
+                />
+            </Flex>
 
+            <Flex>
 
                 <Select
                     className='ninety'
+                    placeholder={stat}
                     value={selectedOption}
-                    onChange={handleChange}
+                    onChange={(sel) => setSelectedOption(sel)}
                     options={statOptions}
                     isSearchable={true}
-                    placeholder={stat}
                 />
 
-
-            </div>
-
-            <Descriptor> Than</Descriptor>
-
-
-
-            <div style={{ margin: '2rem 0' }}>
-
-                <Select
-                    className='ninety'
-                    value={playerSelectedOption}
-                    onChange={handleChangePlayer}
-                    options={playerOptions}
-                    isSearchable={true}
-                    placeholder={player}
-                />
-
-            </div>
+            </Flex>
 
             <CountDisplay>
                 <p>{count}</p>
@@ -107,10 +86,11 @@ const HeadToHead = props => {
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
                 <StyledButton primary onClick={() => props.setBetSlip({
-                    count, selectedOption, playerSelectedOption, prop
+                    count, selectedOption, playerOneSelection, playerTwoSelection
                 })}>Send To Betslip</StyledButton>
             </Flex>
-        </div>
+
+        </>
     )
 
 }
