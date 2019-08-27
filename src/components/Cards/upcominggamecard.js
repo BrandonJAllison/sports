@@ -22,7 +22,6 @@ const CardHeader = styled.div`
 `
 
 const CardContent = styled.div`
-
 `
 
 const Button = styled.button`
