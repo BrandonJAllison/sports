@@ -1,102 +1,114 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route, NavLink } from 'react-router-dom'
+import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
-import Stats from './Views/Stats'
-import HeadToHead from './Views/HeadToHead'
-import Trios from './Views/Trios'
-import InfoModal from './InfoModal'
-import axios from 'axios';
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+import Loader from 'react-loader-spinner'
+import { connect } from 'react-redux'
 
-import './PropBets.scss'
+import { confirmBet } from '../../actions'
+import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './styledComponents'
+import Logo from '../../assets/logo.png'
+import { Stats, HeadToHead, Trios } from './Views'
+import InfoModal from './InfoModal'
 
 const PropBets = props => {
+
     const [players, setPlayers] = useState()
     const [show, setShow] = useState(false)
+    const [type, setType] = useState(1)
+    const [betSlip, setBetSlip] = useState({})
 
-    const showModal = () => {
-        setShow(true);
-    };
+    useEffect(() => { props.confirmBet(betSlip) }, [betSlip])
 
-    const hideModal = () => {
-        setShow(false);
-    };
+    // function getPlayers() {
+    //     axios
+    //         .get(`https://api.sportsdata.io/v3/nfl/scores/json/Players?key=719ffa8e2fe5427a88dad8c81a92fb29`)
+    //         .then(response => {
+    //             console.log('player data', response.data)
+    //             setPlayers(response.data)
+    //         })
+    // }
 
+    // useEffect(() => {
+    //     getPlayers()
+    // }, [])
 
-    function getPlayers() {
-        axios
-            .get(`https://api.sportsdata.io/v3/nfl/scores/json/Players?key=719ffa8e2fe5427a88dad8c81a92fb29`)
-            .then(response => {
-                console.log('player data', response.data)
-                setPlayers(response.data)
-            })
-    }
-
-    useEffect(() => {
-        getPlayers()
-    }, []);
-
-    let playerOptions = players && players.map((player) =>
-        <option key={player.PlayerID}>{player.Name}</option>
-    );
+    // let playerOptions = players && players.map((player) =>
+    //     <option key={player.PlayerID}>{player.Name}</option>
+    // )
 
     // if (!players) {
-    //     return <h1>Loading...</h1>
+    //     return (
+    //         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    //             <img style={{ marginLeft: '5rem' }} src={Logo} alt='Rivers Casino Logo Loading' />
+    //             <p>RIVERS
+    //             SPORTSBOOK</p>
+    //             <Loader
+    //                 type="ThreeDots"
+    //                 color="#C5960C"
+    //                 height="100"
+    //                 width="100"
+    //             />
+    //         </div>
+    //     )
     // }
 
     return (
 
-        <div style={{
-            border: '1px solid black',
-            height: '600px',
-            width: '350px',
-            display: 'flex',
-            flexDirection: 'column'
-        }}>
-            <div className='upper' id='upper'>
+        <PropBetsContainer>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
-                    <span>
-                        Build Your Bet
-                    <FontAwesomeIcon
-                            onMouseEnter={showModal}
-                            onMouseLeave={hideModal}
-                            icon={faInfoCircle}
-                        />
-                        <InfoModal
-                            show={show}
-                            handleClose={hideModal}
-                        />
-                    </span>
-                    <span>Betslip</span>
+            <PropBetsHeader>
+                <span>Build Your Bet <i
+                    style={{ cursor: 'help' }}
+                    onMouseOver={() => setShow(true)}
+                    onMouseOut={() => setShow(false)}
+                    onClick={() => setShow(!show)}
+                >
+                    <FontAwesomeIcon size='sm' icon={faQuestionCircle} />
+                    <InfoModal show={show} />
+                </i></span>
+                <span>Betslip</span>
+            </PropBetsHeader>
 
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                    <NavLink to='/props' ><button>STAT</button></NavLink>
-                    <NavLink to='/headtohead'><button>H2H</button></NavLink>
-                    <NavLink to='/trios'><button>TRIOS</button></NavLink>
-                </div>
-            </div>
+            <Flex>
+                <StyledButton
+                    primary small first
+                    active={type === 1}
+                    onClick={() => setType(1)}
+                >STAT</StyledButton>
+                <StyledButton
+                    primary small middle
+                    active={type === 2}
+                    onClick={() => setType(2)}
+                >H2H</StyledButton>
+                <StyledButton
+                    primary small last
+                    active={type === 3}
+                    onClick={() => setType(3)}
+                >TRIOS</StyledButton>
+            </Flex>
 
-            <div className='main'>
+            <Flex column>
+                {(() => {
+                    switch (type) {
+                        case 1:
+                            return <Stats setBetSlip={setBetSlip} />
+                        case 2:
+                            return <HeadToHead setBetSlip={setBetSlip} />
+                        case 3:
+                            return <Trios setBetSlip={setBetSlip} />
+                        default:
+                            return <Stats setBetSlip={setBetSlip} />
+                    }
+                })()}
+            </Flex>
 
-                <Switch>
-                    <Route exact path='/props' component={Stats} />
-                    <Route exact path='/headtohead' component={HeadToHead} />
-                    <Route exact path='/trios' component={Trios} />
-                </Switch>
+        </PropBetsContainer>
 
-            </div>
-
-            <div className='lower'>
-                <p>Clear</p>
-                <button>Add To Betslip</button>
-            </div>
-
-        </div>
     )
 
 }
 
-export default PropBets
+const mapStateToProps = state => ({ ...state })
 
+export default connect(mapStateToProps, { confirmBet })(PropBets)
