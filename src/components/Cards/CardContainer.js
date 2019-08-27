@@ -1,16 +1,19 @@
 import React from 'react'
-import NFL from './Nfl'
+
+// import { UGameCard } '/upcominggamecard'
+import NFL from '../Nfl'
+// import NFL from './nfl'
 
 import styled from 'styled-components'
-import { colors } from '../theme/variables'
+import { colors, buttonSize } from '../../theme/variables'
 
 const CardHolder = styled.div`
     width: 100%;
-    height: 36vh;
+    min-height: 36vh;
     margin-top: 22px;
     background: linear-gradient(to bottom, #474F54, #1F262B);
-    display: flex;
-    flex-direction: column;
+    ${'' /* display: flex;
+    flex-direction: row; */}
     color: #fff;
 `
 
@@ -18,7 +21,7 @@ const ContainerTitle = styled.div`
     background-color: ${colors.primary};
     color: #fff;
     width: 60%;
-    ${'' /* max-height: 36px; */}
+    max-height: 28px;
     display: flex;
     align-items: center;
 
@@ -30,9 +33,13 @@ const ContainerTitle = styled.div`
 `
 
 const ContainerContent = styled.div`
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    min-width: 100%;
+    flex-direction: row;
+    justify-content: space-between; 
     padding: 2rem 0;
+    border: 2px solid green;
 `
 
 const CardContainer = props => {

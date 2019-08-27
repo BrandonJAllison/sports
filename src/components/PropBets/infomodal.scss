@@ -1,11 +1,12 @@
 .modal-main {
-  position: absolute;
+  position: fixed;
   background: whitesmoke;
+  color: black;
   height: max-content;
-  top: 9.3rem;
   width: 15%;
   padding: 10px;
   box-shadow: 0 3px 7px #0000004d;
+  z-index: 100;
 
   p{
     width: 100%;
@@ -20,7 +21,7 @@
     transform: rotate(45deg);
     position: absolute;
     top: -.5rem;
-    left: 6.5rem;
+    left: 9.9rem;
     background: whitesmoke;
   }
 
