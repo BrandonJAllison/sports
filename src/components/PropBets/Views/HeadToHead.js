@@ -88,7 +88,8 @@ const HeadToHead = props => {
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
                 <StyledButton primary onClick={() => props.setBetSlip({
-                    count, selectedOption, playerOneSelection, playerTwoSelection
+                    count, selectedOption, playerOneSelection, playerTwoSelection,
+                    playerCount: 2
                 })}>Send To Betslip</StyledButton>
             </Flex>
 
