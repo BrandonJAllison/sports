@@ -1,104 +1,105 @@
 import React, { useState } from 'react'
-import Select from 'react-select';
-import styled from 'styled-components'
-import { colors, buttonSize } from '../../../theme/variables.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faChartLine } from '@fortawesome/free-solid-svg-icons'
-import './Stats.scss'
+import Select from 'react-select'
 
-const Button = styled.button`
-    background: ${props => props.primary ? `${colors.primary}` : `${colors.secondary}`};
-    padding: ${props =>
-        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
-    };
-    
-`
+import { statOptions, playerOptions, statTypeOption } from '../../../assets/dummyData'
+import { StyledButton, Descriptor, Flex, CountDisplay, CountSet } from '../styledComponents'
 
-const Stats = (props) => {
-    console.log('player props', props)
-    const [count, setCount] = useState(0);
+const Stats = props => {
+
+    const [count, setCount] = useState(0)
     const [selectedOption, setSelectedOption] = useState(null)
+    const [statType, setStatType] = useState(null)
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
+    const [prop, setProp] = useState('AT_LEAST')
 
-    const statOptions = [
-        { value: 'touchdowns', label: 'Touchdowns' },
-        { value: 'fumbles', label: 'Fumbles' },
-        { value: 'catches', label: 'Catches' },
-    ];
-
-    const playerOptions = [
-        { value: 'jerry rice', label: 'Jerry Rice' },
-        { value: 'jerry rice', label: 'Emmit Smith' },
-        { value: 'jerry rice', label: 'Joe Montana' },
-        { value: 'jerry rice', label: 'Terry Bradshaw' }
-    ]
-
-    const handleChange = selectedOption => {
-        setSelectedOption({ selectedOption });
-        console.log(`Option selected:`, selectedOption);
-    };
-
-    const handleChangePlayer = playerSelectedOption => {
-        setPlayerSelectedOption({ playerSelectedOption });
-        console.log(`Option selected:`, selectedOption);
-    };
+    const clearOptions = _ => {
+        setCount(0)
+        setSelectedOption(null)
+        setPlayerSelectedOption(null)
+    }
 
     const stat = <FontAwesomeIcon icon={faChartLine} />
     const player = <FontAwesomeIcon icon={faUser} />
+
     return (
 
         <>
 
-            <div className='select'>
+            <Flex>
                 <Select
-                    className='select-player'
+                    className='ninety'
                     value={playerSelectedOption}
-                    onChange={handleChangePlayer}
+                    onChange={(sel) => setPlayerSelectedOption(sel)}
                     options={playerOptions}
                     isSearchable={true}
                     placeholder={player}
-
                 />
-            </div>
-            <div className='select'>
+            </Flex>
+
+            <Descriptor>Will Have</Descriptor>
+
+            <Flex>
+                <StyledButton
+                    third small primary first
+                    active={prop === 'AT_LEAST'}
+                    onClick={() => setProp('AT_LEAST')}
+                >AT LEAST</StyledButton>
+                <StyledButton
+                    third small primary middle
+                    active={prop === 'OVER'}
+                    onClick={() => setProp('OVER')}
+                >OVER</StyledButton>
+                <StyledButton
+                    third small primary last
+                    active={prop === 'UNDER'}
+                    onClick={() => setProp('UNDER')}
+                >UNDER</StyledButton>
+            </Flex>
+
+            <Flex spaceAJ>
+                <CountSet>
+                    <p>{count}</p>
+                    <StyledButton
+                        onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}
+                        half small middle>-</StyledButton>
+                    <StyledButton
+                        onClick={() => setCount(count + 1)}
+                        half small middle>+</StyledButton>
+                </CountSet>
+
+                <CountDisplay>
+                    <p>{count}</p>
+                    <Select
+                        value={statType}
+                        onChange={(sel) => setStatType(sel)}
+                        options={statTypeOption}
+                        isSearchable={true}
+                        defaultValue={statTypeOption[0].value}
+                        placeholder={statTypeOption[0].label}
+                    />
+                </CountDisplay>
+            </Flex>
+
+            <Flex>
                 <Select
-                    className='select-stat'
+                    className='ninety'
                     value={selectedOption}
-                    onChange={handleChange}
+                    onChange={(sel) => setSelectedOption(sel)}
                     options={statOptions}
                     isSearchable={true}
                     placeholder={stat}
-
                 />
-            </div>
+            </Flex>
 
+            <Flex spaceAJ>
+                <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
+                <StyledButton primary onClick={() => props.setBetSlip({
+                    count, selectedOption, playerSelectedOption, prop
+                })}>Send To Betslip</StyledButton>
+            </Flex>
 
-            <p>will have</p>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Button primary style={{ borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px' }}>AT LEAST</Button>
-                <Button style={{
-                    borderLeft: '1px solid black',
-                    borderRight: '1px solid black'
-                }} primary>OVER</Button>
-                <Button primary style={{ borderTopRightRadius: '5px', borderBottomRightRadius: '5px' }}>UNDER</Button>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
-                    <p style={{ borderBottom: '1px solid black', paddingBottom: '10px' }}>{count}</p>
-                    <button style={{ width: '50%' }} onClick={() => count > 0 ? setCount(count - 1) : setCount(0)}>
-                        -
-                    </button>
-                    <button style={{ width: '50%' }} onClick={() => setCount(count + 1)}>
-                        +
-                    </button>
-
-                </div>
-                <div style={{ border: '1px solid black', textAlign: 'center', width: '35%', margin: '25px 10px 10px 10px' }} >
-                    <p>{count}</p>
-                    <p>ODDS</p>
-
-                </div>
-            </div>
         </>
 
     )
