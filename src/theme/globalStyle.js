@@ -2,10 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 import colors from './variables.js'
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,900&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
     * {
         box-sizing: border-box;
+
     }
 
     html {
@@ -40,7 +41,8 @@ const GlobalStyle = createGlobalStyle`
             transform: scale(1.03);
             transition: .4s;
             background: ${props => props.primary ? `${colors.secondary}` : `${colors.primary}`}
-        }
+            }
+
         }
 
 
