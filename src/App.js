@@ -4,8 +4,11 @@ import Logo from './assets/logo.png'
 
 
 import PropBets from './components/PropBets/PropBets'
+import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './components/PropBets/styledComponents/'
 import NavBar from './components/NavBar'
 import  NFL  from "./components/nfl.js"
+import BetSlip from './components/betSlip'
+// import { NFL } from "./components/Nfl"
 
 // import SideBar from './components/Sidebar'
 
@@ -61,6 +64,7 @@ const PageContent = styled.div`
   width: 100%;
   background: #fff;
   padding: 3rem 1rem;
+  display:flex;
 `
 function App() {
 
@@ -96,9 +100,15 @@ function App() {
         <CardContainer />
 
       <PageContent>
-        <PropBets />
+      <PropBets />
+      <BetSlip/> 
       </PageContent>
-
+        
+        
+        
+        
+      
+      
     </div>
   )
 }
