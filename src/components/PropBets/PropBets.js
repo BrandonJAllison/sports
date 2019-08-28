@@ -11,6 +11,7 @@ import Logo from '../../assets/logo.png'
 import { Stats, HeadToHead, Trios } from './Views'
 import InfoModal from './InfoModal'
 
+
 const PropBets = props => {
 
     // console.log(props)
@@ -56,6 +57,7 @@ const PropBets = props => {
     //         </div>
     //     )
     // }
+    
 
     return (
 
@@ -71,7 +73,7 @@ const PropBets = props => {
                     <FontAwesomeIcon size='sm' icon={faQuestionCircle} />
                     <InfoModal show={show} />
                 </i></span>
-                <span>Betslip</span>
+                <StyledButton>Betslip</StyledButton>
             </PropBetsHeader>
 
             <Flex>

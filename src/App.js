@@ -69,6 +69,15 @@ function App() {
 
   // const [result, setResult] = useState([]);
   const [sport, setSport] = useState("NFL");
+  const Box = styled.div`
+  display: inline-block;
+  background: pink;
+  width: 200px;
+  height: 200px;
+  transition: transform 300ms ease-in-out;
+`
+
+  
 
   return (
 
@@ -99,8 +108,8 @@ function App() {
       <CardContainer sport={sport} />
 
       <PageContent>
-      <PropBets />
-      <BetSlip/> 
+      <PropBets/>
+      <BetSlip  className='slip'/> 
       </PageContent>
         
         
