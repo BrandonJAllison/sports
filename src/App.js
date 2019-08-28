@@ -7,8 +7,11 @@ import PropBets from './components/PropBets/PropBets'
 import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './components/PropBets/styledComponents/'
 import NavBar from './components/NavBar'
 import BetSlip from './components/betSlip'
+// import { NFL } from "./components/Nfl"
 import PageContent from './components/PageContent'
 import Favorites from './components/Favorites/Favorites'
+
+// import SideBar from './components/Sidebar'
 
 import CardContainer from './components/Cards/CardContainer'
 
@@ -70,6 +73,7 @@ const NavRow = styled.div`
   align-items: baseline;
 `
 
+
 function App() {
 
   // const [result, setResult] = useState([]);
@@ -108,13 +112,6 @@ function App() {
 
         <BetSlip />
       </PageContainer>
-
-
-
-
-
-
-
     </div>
   )
 }

@@ -44,5 +44,3 @@ export const teamData = _ => dispatch => {
 export const confirmBet = bet => ({ type: CONFIRM_BET, payload: bet })
 
 export const deleteBet = (bet, id) => ({ type: DELETE_BET, payload: { bet, id } })
-
-
