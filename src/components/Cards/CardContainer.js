@@ -41,7 +41,6 @@ const ContainerContent = styled.div`
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 2rem 0;
-    border: 2px solid green;
 `
 
 const CardContainer = (props) => {

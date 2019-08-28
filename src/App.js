@@ -9,6 +9,7 @@ import NavBar from './components/NavBar'
 import BetSlip from './components/betSlip'
 // import { NFL } from "./components/Nfl"
 import PageContent from './components/PageContent'
+import Favorites from './components/Favorites/Favorites'
 
 // import SideBar from './components/Sidebar'
 
@@ -105,7 +106,7 @@ function App() {
           </NavLinks>
         </NavContainer>
         <CardContainer sport={sport} />
-
+        <Favorites />
         <PageContent />
 
         <BetSlip />
