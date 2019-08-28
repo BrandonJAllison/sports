@@ -7,18 +7,23 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../theme/variables'
 import { set } from 'es-cookie';
 
+const Container = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
 const Card = styled.div`
-    width: 40%;
-
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 `
-const BotButton = styled.button`
-
-`
-
 
 const NCAA = () => {
-    
-    
+
+
     const [gameInfo, setGameInfo] = useState([]);
     const [viewAll, setViewAll] = useState(false);
 
@@ -28,7 +33,7 @@ const NCAA = () => {
     useEffect(() => {
         const getInfo = () => {
             axios
-                .get('http://demo0337722.mockable.io/NCAA')
+                .get('https://demo0337722.mockable.io/NCAA')
                 .then(response => {
                     setGameInfo(response.data);
 
@@ -42,8 +47,8 @@ const NCAA = () => {
 
     }, []);
 
-      
-      
+
+
     // const gameInfo = {nfl: [{imageone: Ticon, imagetwo: Ticon, date:"NOV 2", time: "7:25 PST"}, {imageone: Ticon, imagetwo: Ticon, date:"NOV 2", time: "7:25 PST"}, {imageone: Ticon, imagetwo: Ticon, date:"NOV 2", time: "7:25 PST"}],
     //                   mlb: [], nba: [], ncaa: [], cfl: []};
     const expand = () => {
@@ -55,37 +60,32 @@ const NCAA = () => {
     }
 
     const toggle = () => {
-    if (gameInfo.length !==0) {
-        if (viewAll) {
-            
-            return (gameInfo.ncaa.map(el => <UGameCard gameInfo={el} />))
+        if (gameInfo.length !== 0) {
+            if (viewAll) {
+
+                return (gameInfo.ncaa.map(el => <UGameCard gameInfo={el} />))
+            } else {
+
+                return (gameInfo.ncaa.slice(0, 3).map(el => <UGameCard gameInfo={el} />));
+            }
         } else {
-           
-            return (gameInfo.ncaa.slice(0, 3).map(el => <UGameCard gameInfo={el} />));
-        }
-    } else{
 
             return <div>loading</div>
         }
     }
-    
-    
-        return (
-            <div style={{ display: "flex" }}>
-                <div className="UGameContainer" style={{ background: "grey", minWidth: "90vw", minHeight: "20vw"}}>
-                    
-                    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center", flexWrap:"hidden" }}>
-                        {toggle()}
-                        
-                    </div>
-                    <div style={{display:"flex", justifyContent:"center"}}>
-                        <BotButton onClick={()=> {setViewAll(!viewAll)}}>View {expand()} NCAA Games</BotButton>
-                    </div>
-                </div>
-            </div>
 
-        );
-    }
+    return (
+
+        <Container>
+            <Card>
+                {toggle()}
+            </Card>
+            <button onClick={() => setViewAll(!viewAll)}>View {expand()} Games</button>
+        </Container>
+
+    )
+
+}
 
 
 
