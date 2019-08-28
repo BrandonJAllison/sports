@@ -10,7 +10,7 @@ const StyledButton = styled.button`
     }
     padding: ${
     props =>
-        props.active ? `${buttonSize.activeSmall}` :
+        props.active ? `${buttonSize.active.small}` :
             props.small ? `${buttonSize.small}` :
                 `${buttonSize.medium}`
     }
@@ -94,6 +94,8 @@ const Flex = styled.div`
         }    
     }
 `
+
+
 
 export {
     StyledButton,

@@ -1,6 +1,6 @@
 import ModalMain from './infoModalStyles'
 import { StyledButton, PropBetsContainer, PropBetsHeader, Flex } from './propBetsStyles'
-import { CountDisplay, CountSet, Selection, Descriptor } from './childStyles'
+import { CountDisplay, CountSet, Selection, Descriptor, BetCount } from './childStyles'
 
 export {
     ModalMain,
@@ -11,5 +11,6 @@ export {
     CountSet,
     CountDisplay,
     Selection,
+    BetCount,
     Descriptor,
 }

@@ -5,8 +5,8 @@ import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux'
 
-import { confirmBet } from '../../actions'
-import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './styledComponents'
+import { confirmBet, teamData } from '../../actions'
+import { PropBetsContainer, PropBetsHeader, StyledButton, Flex, BetCount } from './styledComponents'
 import Logo from '../../assets/logo.png'
 import { Stats, HeadToHead, Trios } from './Views'
 import InfoModal from './InfoModal'
@@ -14,7 +14,7 @@ import InfoModal from './InfoModal'
 const PropBets = props => {
 
     // console.log(props)
-    // console.log(props.confirmedBets)
+    console.log(props.confirmedBets)
     const [players, setPlayers] = useState()
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
@@ -22,7 +22,14 @@ const PropBets = props => {
 
     useEffect(() => {
         betSlip && props.confirmBet(betSlip)
+        props.teamData()
     }, [betSlip])
+
+
+
+    const slipCount = props.confirmedBets.length
+
+
 
     // function getPlayers() {
     //     axios
@@ -71,7 +78,7 @@ const PropBets = props => {
                     <FontAwesomeIcon size='sm' icon={faQuestionCircle} />
                     <InfoModal show={show} />
                 </i></span>
-                <span>Betslip</span>
+                <span><BetCount>{slipCount}</BetCount>Betslip</span>
             </PropBetsHeader>
 
             <Flex>
@@ -115,4 +122,4 @@ const PropBets = props => {
 
 const mapStateToProps = state => ({ ...state })
 
-export default connect(mapStateToProps, { confirmBet })(PropBets)
+export default connect(mapStateToProps, { confirmBet, teamData })(PropBets)
