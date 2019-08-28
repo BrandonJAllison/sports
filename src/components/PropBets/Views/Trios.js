@@ -21,6 +21,13 @@ const Trios = props => {
         setPlayerTwoSelection(null)
         setPlayerThreeSelection(null)
     }
+    const displayBetSlip = () =>{
+        const container =  document.getElementById('wrap')
+         if (container.className.length !== 0 ){
+            container.classList.toggle('wrapper')
+         }
+      
+    }
 
     const rotate = <FontAwesomeIcon icon={faSyncAlt} />
     const player = <FontAwesomeIcon icon={faUser} />
@@ -114,6 +121,7 @@ const Trios = props => {
                             playerCount: 3
                         })
                         clearOptions()
+                        displayBetSlip()
                     }}>Send To Betslip</StyledButton>
             </Flex>
 

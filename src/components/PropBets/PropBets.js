@@ -11,6 +11,7 @@ import Logo from '../../assets/logo.png'
 import { Stats, HeadToHead, Trios } from './Views'
 import InfoModal from './InfoModal'
 
+
 const PropBets = props => {
 
     // console.log(props)
@@ -19,11 +20,13 @@ const PropBets = props => {
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
     const [betSlip, setBetSlip] = useState()
+    
 
     useEffect(() => {
         betSlip && props.confirmBet(betSlip)
         props.teamData()
-    }, [betSlip])
+       
+    }, [betSlip,])
 
 
 
@@ -63,6 +66,7 @@ const PropBets = props => {
     //         </div>
     //     )
     // }
+    
 
     return (
 
