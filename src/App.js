@@ -87,7 +87,7 @@ function App() {
         <NavContainer>
           <NavRow>
             <Link to="/">
-              <img alt='Logo' style={{ width: '60%' }} src={Logo} />
+              <img alt='Logo' style={{ width: '60%', marginTop: '20px' }} src={Logo} />
             </Link>
           </NavRow>
           <NavLinks>
