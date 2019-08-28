@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Route } from "react-router-dom";
 import Logo from './assets/logo.png'
-
-
-import PropBets from './components/PropBets/PropBets'
-import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './components/PropBets/styledComponents/'
+import SideBar from './components/sidebar'
 import NavBar from './components/NavBar'
 import BetSlip from './components/betSlip'
 import PageContent from './components/PageContent'
@@ -69,42 +66,43 @@ const NavRow = styled.div`
 function App() {
 
   return (
+    <div style={{ overflow: 'auto' }}>
+      <SideBar />
+      <PageContainer>
+        <GlobalStyle />
 
-    <PageContainer>
-      <GlobalStyle />
-
-      <NavContainer>
-
-        <NavRow>
-          <Link to="/">
-            <img alt='Logo' style={{ width: '60%' }} src={Logo} />
-          </Link>
-        </NavRow>
-
-        <NavLinks>
-          <NavRow activeStyle={{ textDecoration: 'underline' }}>
-            <Link to='/nfl'>NFL</Link>
-            <Link to='/mlb'>MLB</Link>
-            <Link to="/ncaa">NCAA</Link>
-            <Link to="/cfl">CFL</Link>
-            <Link to="/nba">NBA</Link>
-          </NavRow>
+        <NavContainer>
 
           <NavRow>
-            <NavBar />
+            <Link to="/">
+              <img alt='Logo' style={{ width: '60%' }} src={Logo} />
+            </Link>
           </NavRow>
-        </NavLinks>
 
-      </NavContainer>
+          <NavLinks>
+            <NavRow activeStyle={{ textDecoration: 'underline' }}>
+              <Link to='/nfl'>NFL</Link>
+              <Link to='/mlb'>MLB</Link>
+              <Link to="/ncaa">NCAA</Link>
+              <Link to="/cfl">CFL</Link>
+              <Link to="/nba">NBA</Link>
+            </NavRow>
 
-      <CardContainer />
-      <Favorites />
-      <PageContent />
-      <div id= 'wrap' className = 'wrapper'>
-      <BetSlip />
-      </div>
-    </PageContainer>
+            <NavRow>
+              <NavBar />
+            </NavRow>
+          </NavLinks>
 
+        </NavContainer>
+
+        <CardContainer />
+        <Favorites />
+        <PageContent />
+        <div id='wrap' className='wrapper'>
+          <BetSlip />
+        </div>
+      </PageContainer>
+    </div>
   )
 }
 
