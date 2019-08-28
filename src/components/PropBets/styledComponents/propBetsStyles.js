@@ -14,13 +14,13 @@ const StyledButton = styled.button`
             props.small ? `${buttonSize.small}` :
                 `${buttonSize.medium}`
     }
-    border-radius: ${
+    ${'' /* border-radius: ${
     props =>
         props.first ? '5px 0 0 5px' :
             props.last ? '0 5px 5px 0' :
                 props.middle ? '0' :
                     '5px'
-    }
+    } */}
     width: ${
     props =>
         props.half ? '50%' :
@@ -40,8 +40,8 @@ const PropBetsContainer = styled.div`
     color: ${colors.darkGrey};
     border: 1px solid black;
     padding: 1.5rem;
-    cursor: default
-    min-width: 350px;
+    cursor: default;
+    min-width: 420px;
 `
 
 const PropBetsHeader = styled.div`

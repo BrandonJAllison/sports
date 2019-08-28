@@ -8,6 +8,8 @@ import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './compone
 import NavBar from './components/NavBar'
 import BetSlip from './components/betSlip'
 // import { NFL } from "./components/Nfl"
+import PageContent from './components/PageContent'
+import Favorites from './components/Favorites/Favorites'
 
 // import SideBar from './components/Sidebar'
 
@@ -18,6 +20,18 @@ import GlobalStyle from './theme/globalStyle';
 import { colors, buttonSize } from './theme/variables.js'
 
 import './theme/index.js'
+
+const PageContainer = styled.div`
+background-color: #fff;
+max-width: 1320px;
+margin: 0 auto;
+margin-top: 20px;
+  ${'' /* display: flex;
+  justify-content: baseline;
+  flex-direction: row;
+  padding: 0 2rem;
+  padding-bottom: 1.4rem; */}
+`
 
 const NavContainer = styled.div`
 background-color: #fff;
@@ -59,12 +73,6 @@ const NavRow = styled.div`
   align-items: baseline;
 `
 
-const PageContent = styled.div`
-  width: 100%;
-  background: #fff;
-  padding: 3rem 1rem;
-  display:flex;
-`
 function App() {
 
   // const [result, setResult] = useState([]);
@@ -75,39 +83,41 @@ function App() {
     <div className="App">
       <GlobalStyle />
 
-      <NavContainer>
-        <NavRow>
-          <Link to="/">
-            <img alt='Logo' style={{ width: '60%' }} src={Logo} />
-          </Link>
-        </NavRow>
-        <NavLinks>
-          <NavRow activeStyle={{ textDecoration: 'underline' }}>
-            <Link to='/nfl' onClick={() => { setSport('nfl') }}>NFL</Link>
-            <Link to='/mlb' onClick={() => { setSport('mlb') }}>MLB</Link>
-            <Link to="/ncaa">NCAA</Link>
-            <Link to="/cfl">CFL</Link>
-            <Link to="/nba">NBA</Link>
-
-          </NavRow>
+      <PageContainer>
+        <NavContainer>
           <NavRow>
-            <NavBar />
+            <Link to="/">
+              <img alt='Logo' style={{ width: '60%' }} src={Logo} />
+            </Link>
           </NavRow>
+          <NavLinks>
+            <NavRow activeStyle={{ textDecoration: 'underline' }}>
+              <Link to='/nfl' onClick={() => { setSport('nfl') }}>NFL</Link>
+              <Link to='/mlb' onClick={() => { setSport('mlb') }}>MLB</Link>
+              <Link to="/ncaa">NCAA</Link>
+              <Link to="/cfl">CFL</Link>
+              <Link to="/nba">NBA</Link>
 
-        </NavLinks>
-      </NavContainer>
-      <CardContainer sport={sport} />
+            </NavRow>
+            <NavRow>
+              <NavBar />
+            </NavRow>
 
-      <PageContent>
-      <PropBets />
-      <BetSlip/> 
-      </PageContent>
-        
-        
-        
-        
-      
-      
+          </NavLinks>
+        </NavContainer>
+        <CardContainer sport={sport} />
+        <Favorites />
+        <PageContent />
+
+        <BetSlip />
+      </PageContainer>
+
+
+
+
+
+
+
     </div>
   )
 }
