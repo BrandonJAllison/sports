@@ -85,20 +85,7 @@ function App() {
       <GlobalStyle />
 
       <NavContainer>
-        <NavRow>
-          <Link to="/">
-            <img alt='Logo' style={{ width: '60%' }} src={Logo} />
-          </Link>
-        </NavRow>
-        <NavLinks>
-          <NavRow activeStyle={{ textDecoration: 'underline' }}>
-            <Link to='/nfl'>NFL</Link>
-            <Link to='/mlb'>MLB</Link>
-            <Link to="/ncaa">NCAA</Link>
-            <Link to="/cfl">CFL</Link>
-            <Link to="/nba">NBA</Link>
-
-          </NavRow>
+       
           <NavRow>
             <Link to="/">
               <img alt='Logo' style={{ width: '60%' }} src={Logo} />
@@ -124,16 +111,21 @@ function App() {
         <PageContent />
 
         <BetSlip />
-      </PageContainer>
+      
 
-        </NavLinks>
-      </NavContainer>
-        <CardContainer />
 
-      <PageContent>
-      <PropBets />
-      <BetSlip/> 
-      </PageContent>
+
+
+
+
+
+ 
+        
+        
+        
+        
+      
+      
     </div>
   )
 }
