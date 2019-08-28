@@ -7,14 +7,21 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../theme/variables'
 import { set } from 'es-cookie';
 
+const Container = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
 const Card = styled.div`
-    width: 40%;
-`
-const BotButton = styled.button`
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 `
 
-
-const NFL = () => {
+const NFL = props => {
 
 
     const [gameInfo, setGameInfo] = useState([]);
@@ -67,21 +74,17 @@ const NFL = () => {
         }
     }
 
-
     return (
-        <div>
-            <div>
-                <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center", flexWrap: "hidden" }}>
-                    {toggle()}
-                    {/* { gameInfo.nfl.map(el => <UGameCard gameInfo={el}/>)} */}
-                </div>
-                <div>
-                    <BotButton onClick={() => { setViewAll(!viewAll) }}>View {expand()} NFL Games</BotButton>
-                </div>
-            </div>
-        </div>
 
-    );
+        <Container>
+            <Card>
+                {toggle()}
+            </Card>
+            <button onClick={() => setViewAll(!viewAll)}>View {expand()} Games</button>
+        </Container>
+
+    )
+
 }
 
 // if (props.sport === "mlb") {
@@ -149,6 +152,7 @@ const NFL = () => {
 //     );
 // }
 // else { return null }
+
 
 
 

@@ -39,6 +39,7 @@ const Trios = props => {
                     options={playerOptions}
                     isSearchable={true}
                     placeholder={player}
+
                 />
 
                 <i onClick={() => {
@@ -53,6 +54,7 @@ const Trios = props => {
                     options={playerOptions}
                     isSearchable={true}
                     placeholder={player}
+
                 />
 
                 <i onClick={() => {
@@ -67,6 +69,7 @@ const Trios = props => {
                     options={playerOptions}
                     isSearchable={true}
                     placeholder={player}
+
                 />
 
             </Flex>
@@ -82,6 +85,7 @@ const Trios = props => {
                     options={statOptions}
                     isSearchable={true}
                     placeholder={stat}
+
                 />
 
             </Flex>
@@ -93,18 +97,24 @@ const Trios = props => {
                     onChange={(sel) => setStatType(sel)}
                     options={statTypeOption}
                     isSearchable={true}
+
                 />
             </CountDisplay>
 
             <Flex spaceAJ>
-                <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary onClick={() => {
-                    props.setBetSlip({
-                        count, selectedOption, playerOneSelection, playerTwoSelection, playerThreeSelection,
-                        playerCount: 3
-                    })
-                    clearOptions()
-                }}>Send To Betslip</StyledButton>
+                <StyledButton
+                    primary active={!selectedOption && !playerOneSelection && !playerTwoSelection && !playerThreeSelection}
+                    onClick={clearOptions}>Clear</StyledButton>
+                <StyledButton
+                    primary active={!selectedOption || !playerOneSelection || !playerTwoSelection || !playerThreeSelection}
+                    disabled={!selectedOption || !playerOneSelection || !playerTwoSelection || !playerThreeSelection}
+                    onClick={() => {
+                        props.setBetSlip({
+                            count, selectedOption, playerOneSelection, playerTwoSelection, playerThreeSelection,
+                            playerCount: 3
+                        })
+                        clearOptions()
+                    }}>Send To Betslip</StyledButton>
             </Flex>
 
         </>

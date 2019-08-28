@@ -19,20 +19,15 @@ import { colors, buttonSize } from './theme/variables.js'
 import './theme/index.js'
 
 const PageContainer = styled.div`
-background-color: #fff;
-max-width: 1320px;
-margin: 0 auto;
-margin-top: 20px;
-  ${'' /* display: flex;
-  justify-content: baseline;
-  flex-direction: row;
-  padding: 0 2rem;
-  padding-bottom: 1.4rem; */}
+  background-color: #fff;
+  max-width: 1320px;
+  margin: 0 auto;
+  margin-top: 20px;
 `
 
 const NavContainer = styled.div`
-background-color: #fff;
-width: 100%;
+  background-color: #fff;
+  width: 100%;
   display: flex;
   justify-content: baseline;
   flex-direction: row;
@@ -70,52 +65,44 @@ const NavRow = styled.div`
   align-items: baseline;
 `
 
-// const PageContent = styled.div`
-//   width: 100%;
-//   background: #fff;
-//   padding: 3rem 1rem;
-//   display:flex;
-// `
-
 function App() {
-
-  // const [result, setResult] = useState([]);
-  const [sport, setSport] = useState("NFL");
 
   return (
 
-    <div className="App">
+    <PageContainer>
       <GlobalStyle />
 
-      <PageContainer>
-        <NavContainer>
-          <NavRow>
-            <Link to="/">
-              <img alt='Logo' style={{ width: '60%', marginTop: '20px' }} src={Logo} />
-            </Link>
+      <NavContainer>
+
+        <NavRow>
+          <Link to="/">
+            <img alt='Logo' style={{ width: '60%' }} src={Logo} />
+          </Link>
+        </NavRow>
+
+        <NavLinks>
+          <NavRow activeStyle={{ textDecoration: 'underline' }}>
+            <Link to='/nfl'>NFL</Link>
+            <Link to='/mlb'>MLB</Link>
+            <Link to="/ncaa">NCAA</Link>
+            <Link to="/cfl">CFL</Link>
+            <Link to="/nba">NBA</Link>
           </NavRow>
-          <NavLinks>
-            <NavRow activeStyle={{ textDecoration: 'underline' }}>
-              <Link to='/nfl' onClick={() => { setSport('nfl') }}>NFL</Link>
-              <Link to='/mlb' onClick={() => { setSport('mlb') }}>MLB</Link>
-              <Link to="/ncaa">NCAA</Link>
-              <Link to="/cfl">CFL</Link>
-              <Link to="/nba">NBA</Link>
 
-            </NavRow>
-            <NavRow>
-              <NavBar />
-            </NavRow>
+          <NavRow>
+            <NavBar />
+          </NavRow>
+        </NavLinks>
 
-          </NavLinks>
-        </NavContainer>
-        <CardContainer sport={sport} />
-        <Favorites />
-        <PageContent />
+      </NavContainer>
 
-        <BetSlip />
-      </PageContainer>
-    </div>
+      <CardContainer />
+      <Favorites />
+      <PageContent />
+
+      <BetSlip />
+    </PageContainer>
+
   )
 }
 
