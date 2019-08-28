@@ -10,7 +10,7 @@ const Stats = props => {
 
     const [count, setCount] = useState(0)
     const [selectedOption, setSelectedOption] = useState(null)
-    const [statType, setStatType] = useState(null)
+    const [statType, setStatType] = useState(statTypeOption[0])
     const [playerSelectedOption, setPlayerSelectedOption] = useState(null)
     const [prop, setProp] = useState('AT_LEAST')
 
@@ -70,7 +70,12 @@ const Stats = props => {
                 </CountSet>
 
                 <CountDisplay>
-                    <p>{count}</p>
+                    <p>{
+                        statType.value === 'american' ?
+                            count * 200 : statType.value === 'decimal' ?
+                                count * 2 :
+                                `${count}/1`
+                    }</p>
                     <Select
                         value={statType}
                         onChange={(sel) => setStatType(sel)}
@@ -106,4 +111,5 @@ const Stats = props => {
     )
 
 }
+
 export default Stats

@@ -6,7 +6,6 @@ import Logo from './assets/logo.png'
 import PropBets from './components/PropBets/PropBets'
 import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './components/PropBets/styledComponents/'
 import NavBar from './components/NavBar'
-import  NFL  from "./components/nfl.js"
 import BetSlip from './components/betSlip'
 // import { NFL } from "./components/Nfl"
 import PageContent from './components/PageContent'
@@ -84,21 +83,8 @@ function App() {
     <div className="App">
       <GlobalStyle />
 
-      <NavContainer>
-        <NavRow>
-          <Link to="/">
-            <img alt='Logo' style={{ width: '60%' }} src={Logo} />
-          </Link>
-        </NavRow>
-        <NavLinks>
-          <NavRow activeStyle={{ textDecoration: 'underline' }}>
-            <Link to='/nfl'>NFL</Link>
-            <Link to='/mlb'>MLB</Link>
-            <Link to="/ncaa">NCAA</Link>
-            <Link to="/cfl">CFL</Link>
-            <Link to="/nba">NBA</Link>
-
-          </NavRow>
+      <PageContainer>
+        <NavContainer>
           <NavRow>
             <Link to="/">
               <img alt='Logo' style={{ width: '60%' }} src={Logo} />
@@ -126,14 +112,12 @@ function App() {
         <BetSlip />
       </PageContainer>
 
-        </NavLinks>
-      </NavContainer>
-        <CardContainer />
 
-      <PageContent>
-      <PropBets />
-      <BetSlip/> 
-      </PageContent>
+
+
+
+
+
     </div>
   )
 }
