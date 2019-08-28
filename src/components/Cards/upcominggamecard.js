@@ -7,25 +7,30 @@ import { colors, buttonSize } from '../../theme/variables'
 
 const Card = styled.div`
     width: 30%;
+    background: ${colors.secondary};
+    margin-bottom: 40px;
 `
 
 const CardHeader = styled.div`
-  border: 2px solid purple;
   display: flex;
   justify-content: space-between;
   text-align: center;
-  
+  background: ${colors.darkGrey};
+  padding: .5rem;
+
   h3 {
     font-size: .8rem;
   }
 `
 
 const CardContent = styled.div`
+  padding: 1.2rem .5rem;
 
   .cardContentRow {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 5px 2px;
+
   }
 
 `
