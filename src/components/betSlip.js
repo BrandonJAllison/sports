@@ -13,7 +13,7 @@ const  betSlip =  (props) => {
            
            <PropBetsHeader>BetSlip</PropBetsHeader>
             <BetList bet={props.confirmedBets} delete={props.deleteBet}/>
-            <QrCode bet={props.confirmedBets}/>
+            { props.confirmedBets.length === 0 ? <p> Please Place Bet </p> : <QrCode bet={props.confirmedBets}/>}
             </PropBetsContainer>
         
     )
