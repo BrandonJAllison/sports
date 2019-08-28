@@ -1,7 +1,11 @@
 import React from 'react'
-
+import { Link, Route } from "react-router-dom";
 import { UGameCard } from './upcominggamecard'
-import NFL from "../nfl"
+import NFL from "../nfl";
+import MLB from "../mlb";
+import NCAA from "../ncaa";
+import CFL from "../cfl";
+import NBA from "../nba";
 
 import styled from 'styled-components'
 import { colors } from '../../theme/variables'
@@ -56,7 +60,11 @@ const CardContainer = (props) => {
                         <h2>Quick Bets - NFL</h2>
                     </ContainerTitle>
                     <ContainerContent>
-                        <NFL sport={props.sport} />
+                        <Route exact path="/nfl" component={NFL} />
+                        <Route exact path="/mlb" component={MLB} />
+                        <Route exact path="/ncaa" component={NCAA} />
+                        <Route exact path="/cfl" component={CFL} />
+                        <Route exact path="/nba" component={NBA} />
                     </ContainerContent>
                 </Card>
             </CardHolder>
