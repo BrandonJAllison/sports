@@ -38,7 +38,7 @@ const StyledButton = styled.button`
 const PropBetsContainer = styled.div`
     background: #fff;
     color: ${colors.darkGrey};
-    border: 1px solid black;
+    border: 1px solid ${colors.lightGrey};
     padding: 1.5rem;
     cursor: default;
     min-width: 420px;

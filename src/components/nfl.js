@@ -21,6 +21,13 @@ const Card = styled.div`
     justify-content: space-around;
 `
 
+const Button = styled.button`
+    background: ${props => props.primary ? `${colors.primary}` : `${colors.primary}`};
+    padding: ${props =>
+        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
+    }
+`
+
 const NFL = props => {
 
 
@@ -80,7 +87,7 @@ const NFL = props => {
             <Card>
                 {toggle()}
             </Card>
-            <button onClick={() => setViewAll(!viewAll)}>View {expand()} Games</button>
+            <Button primary small onClick={() => setViewAll(!viewAll)}>View {expand()} Games</Button>
         </Container>
 
     )
