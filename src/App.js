@@ -15,6 +15,7 @@ import CardContainer from './components/Cards/CardContainer'
 import styled from 'styled-components'
 import GlobalStyle from './theme/globalStyle';
 import { colors, buttonSize } from './theme/variables.js'
+import './index.css'
 
 import './theme/index.js'
 
@@ -99,8 +100,9 @@ function App() {
       <CardContainer />
       <Favorites />
       <PageContent />
-
+      <div id= 'wrap' className = 'wrapper'>
       <BetSlip />
+      </div>
     </PageContainer>
 
   )
