@@ -80,8 +80,8 @@ function App() {
         </NavRow>
         <NavLinks>
           <NavRow activeStyle={{ textDecoration: 'underline' }}>
-            <Link to='/nfl' onClick={() => { setSport('nfl') }}>NFL</Link>
-            <Link to='/mlb' onClick={() => { setSport('mlb') }}>MLB</Link>
+            <Link to='/nfl'>NFL</Link>
+            <Link to='/mlb'>MLB</Link>
             <Link to="/ncaa">NCAA</Link>
             <Link to="/cfl">CFL</Link>
             <Link to="/nba">NBA</Link>
