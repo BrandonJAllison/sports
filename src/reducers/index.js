@@ -1,3 +1,4 @@
+
 import { CONFIRM_BET, DELETE_BET } from "../actions"
 
 const initialState = {
@@ -32,7 +33,6 @@ export default (state = initialState, action) => {
 
                 })
             }
-
         default:
             return state
     }
