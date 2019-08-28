@@ -38,6 +38,7 @@ const HeadToHead = props => {
                     onChange={(sel) => setPlayerOneSelection(sel)}
                     options={playerOptions}
                     isSearchable={true}
+
                 />
 
                 <Flex >
@@ -56,6 +57,7 @@ const HeadToHead = props => {
                     onChange={(sel) => setPlayerTwoSelection(sel)}
                     options={playerOptions}
                     isSearchable={true}
+
                 />
 
             </Flex>
@@ -69,6 +71,7 @@ const HeadToHead = props => {
                     onChange={(sel) => setSelectedOption(sel)}
                     options={statOptions}
                     isSearchable={true}
+
                 />
 
             </Flex>
@@ -80,12 +83,13 @@ const HeadToHead = props => {
                     onChange={(sel) => setStatType(sel)}
                     options={statTypeOption}
                     isSearchable={true}
+
                 />
             </CountDisplay>
 
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary onClick={() => {
+                <StyledButton primary disabled={!selectedOption || !playerOneSelection || !playerTwoSelection} onClick={() => {
                     props.setBetSlip({
                         count, selectedOption, playerOneSelection, playerTwoSelection,
                         playerCount: 2

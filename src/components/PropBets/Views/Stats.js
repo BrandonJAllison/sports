@@ -35,6 +35,7 @@ const Stats = props => {
                     options={playerOptions}
                     isSearchable={true}
                     placeholder={player}
+
                 />
             </Flex>
 
@@ -81,6 +82,7 @@ const Stats = props => {
                         onChange={(sel) => setStatType(sel)}
                         options={statTypeOption}
                         isSearchable={true}
+                        required={true}
                     />
                 </CountDisplay>
             </Flex>
@@ -98,7 +100,7 @@ const Stats = props => {
 
             <Flex spaceAJ>
                 <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary onClick={() => {
+                <StyledButton primary disabled={!selectedOption || !playerSelectedOption} onClick={() => {
                     props.setBetSlip({
                         count, selectedOption, playerSelectedOption, prop,
                         playerCount: 1
