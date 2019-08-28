@@ -20,11 +20,13 @@ const PropBets = props => {
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
     const [betSlip, setBetSlip] = useState()
+    
 
     useEffect(() => {
         betSlip && props.confirmBet(betSlip)
         props.teamData()
-    }, [betSlip])
+       
+    }, [betSlip,])
 
 
 

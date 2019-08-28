@@ -1,20 +1,19 @@
 import React from 'react'
 import { PropBetsContainer, PropBetsHeader, StyledButton, Flex } from './PropBets/styledComponents/'
 import BetList from './betList'
+import QrCode from './QrCode'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
 import {deleteBet} from '../actions/index'
-const List = styled.div`
-border: 1px solid red;
-`
+
 const  betSlip =  (props) => {
     
     return (
             <PropBetsContainer>
-           <List>
+           
            <PropBetsHeader>BetSlip</PropBetsHeader>
             <BetList bet={props.confirmedBets} delete={props.deleteBet}/>
-            </List>
+            <QrCode bet={props.confirmedBets}/>
             </PropBetsContainer>
         
     )

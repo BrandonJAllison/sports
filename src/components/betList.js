@@ -6,8 +6,8 @@ border: 1px solid red;
 `
 export default function betList(props) {
     return (
-        <List>
+        <div>
            {props.bet && props.bet.map( (bet ,index )=> <Bet bet={bet} key={index} id={index} delete={props.delete}/>)} 
-        </List>
+        </div>
     )
 }
