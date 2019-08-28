@@ -102,14 +102,19 @@ const Trios = props => {
             </CountDisplay>
 
             <Flex spaceAJ>
-                <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary disabled={!selectedOption || !playerOneSelection || !playerTwoSelection || !playerThreeSelection} onClick={() => {
-                    props.setBetSlip({
-                        count, selectedOption, playerOneSelection, playerTwoSelection, playerThreeSelection,
-                        playerCount: 3
-                    })
-                    clearOptions()
-                }}>Send To Betslip</StyledButton>
+                <StyledButton
+                    primary active={!selectedOption && !playerOneSelection && !playerTwoSelection && !playerThreeSelection}
+                    onClick={clearOptions}>Clear</StyledButton>
+                <StyledButton
+                    primary active={!selectedOption || !playerOneSelection || !playerTwoSelection || !playerThreeSelection}
+                    disabled={!selectedOption || !playerOneSelection || !playerTwoSelection || !playerThreeSelection}
+                    onClick={() => {
+                        props.setBetSlip({
+                            count, selectedOption, playerOneSelection, playerTwoSelection, playerThreeSelection,
+                            playerCount: 3
+                        })
+                        clearOptions()
+                    }}>Send To Betslip</StyledButton>
             </Flex>
 
         </>

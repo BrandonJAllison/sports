@@ -74,7 +74,6 @@ const NFL = props => {
         }
     }
 
-
     return (
 
         <Container>
@@ -84,7 +83,8 @@ const NFL = props => {
             <button onClick={() => setViewAll(!viewAll)}>View {expand()} Games</button>
         </Container>
 
-    );
+    )
+
 }
 
 // if (props.sport === "mlb") {

@@ -88,14 +88,19 @@ const HeadToHead = props => {
             </CountDisplay>
 
             <Flex spaceAJ>
-                <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary disabled={!selectedOption || !playerOneSelection || !playerTwoSelection} onClick={() => {
-                    props.setBetSlip({
-                        count, selectedOption, playerOneSelection, playerTwoSelection,
-                        playerCount: 2
-                    })
-                    clearOptions()
-                }}>Send To Betslip</StyledButton>
+                <StyledButton
+                    primary active={!selectedOption && !playerOneSelection && !playerTwoSelection}
+                    onClick={clearOptions}>Clear</StyledButton>
+                <StyledButton
+                    primary active={!selectedOption || !playerOneSelection || !playerTwoSelection}
+                    disabled={!selectedOption || !playerOneSelection || !playerTwoSelection}
+                    onClick={() => {
+                        props.setBetSlip({
+                            count, selectedOption, playerOneSelection, playerTwoSelection,
+                            playerCount: 2
+                        })
+                        clearOptions()
+                    }}>Send To Betslip</StyledButton>
             </Flex>
 
         </>

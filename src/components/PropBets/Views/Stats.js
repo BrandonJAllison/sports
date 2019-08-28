@@ -99,14 +99,18 @@ const Stats = props => {
             </Flex>
 
             <Flex spaceAJ>
-                <StyledButton primary onClick={clearOptions}>Clear</StyledButton>
-                <StyledButton primary disabled={!selectedOption || !playerSelectedOption} onClick={() => {
-                    props.setBetSlip({
-                        count, selectedOption, playerSelectedOption, prop,
-                        playerCount: 1
-                    })
-                    clearOptions()
-                }}>Send To Betslip</StyledButton>
+                <StyledButton primary active={!count && !selectedOption && !playerSelectedOption} onClick={clearOptions}>Clear</StyledButton>
+                <StyledButton
+                    primary active={!selectedOption || !playerSelectedOption || !count}
+                    disabled={!selectedOption || !playerSelectedOption}
+                    onClick={() => {
+                        props.setBetSlip({
+                            count, selectedOption, playerSelectedOption, prop,
+                            playerCount: 1
+                        })
+                        clearOptions()
+                    }
+                    }>Send To Betslip</StyledButton>
             </Flex>
 
         </>
