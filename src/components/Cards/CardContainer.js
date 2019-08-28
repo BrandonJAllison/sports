@@ -1,7 +1,11 @@
 import React from 'react'
-
+import { Link, Route } from "react-router-dom";
 import { UGameCard } from './upcominggamecard'
-import NFL from "../nfl"
+import NFL from "../nfl";
+import MLB from "../mlb";
+import NCAA from "../ncaa";
+import CFL from "../cfl";
+import NBA from "../nba";
 
 import styled from 'styled-components'
 import { colors } from '../../theme/variables'
@@ -10,8 +14,8 @@ import { colors } from '../../theme/variables'
 
 const CardHolder = styled.div`
     max-width: 100%;
-    min-height: 36vh;
-    margin-top: 22px;
+    ${'' /* min-height: 36vh; */}
+    ${'' /* margin-top: 22px; */}
     background: linear-gradient(to bottom, #474F54, #1F262B);
     color: #fff;
 `
@@ -27,6 +31,8 @@ const ContainerTitle = styled.div`
     max-height: 28px;
     display: flex;
     align-items: center;
+    margin-bottom: 40px;
+
     h2 {
         font-size: 1.4rem;
         padding-left: 1.2rem;
@@ -41,7 +47,6 @@ const ContainerContent = styled.div`
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 2rem 0;
-    border: 2px solid green;
 `
 
 const CardContainer = (props) => {
@@ -55,7 +60,11 @@ const CardContainer = (props) => {
                         <h2>Quick Bets - NFL</h2>
                     </ContainerTitle>
                     <ContainerContent>
-                        <NFL sport={props.sport} />
+                        <Route exact path="/nfl" component={NFL} />
+                        <Route exact path="/mlb" component={MLB} />
+                        <Route exact path="/ncaa" component={NCAA} />
+                        <Route exact path="/cfl" component={CFL} />
+                        <Route exact path="/nba" component={NBA} />
                     </ContainerContent>
                 </Card>
             </CardHolder>
