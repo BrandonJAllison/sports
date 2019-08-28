@@ -34,7 +34,6 @@ export default (state = initialState, action) => {
 
                 })
             }
-
         case TEAM_DATA_SUCCESS:
             console.log(action.payload)
             return {
@@ -46,7 +45,6 @@ export default (state = initialState, action) => {
             return {
                 error: action.payload
             }
-
         default:
             return state
     }

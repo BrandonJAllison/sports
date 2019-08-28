@@ -70,6 +70,13 @@ const NavRow = styled.div`
   align-items: baseline;
 `
 
+const PageContent = styled.div`
+  width: 100%;
+  background: #fff;
+  padding: 3rem 1rem;
+  display:flex;
+`
+
 function App() {
 
   // const [result, setResult] = useState([]);
@@ -108,13 +115,6 @@ function App() {
 
         <BetSlip />
       </PageContainer>
-
-
-
-
-
-
-
     </div>
   )
 }
