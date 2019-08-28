@@ -8,6 +8,7 @@ import { colors, buttonSize } from '../../theme/variables'
 const Card = styled.div`
     width: 30%;
     background: ${colors.secondary};
+    margin-bottom: 40px;
 `
 
 const CardHeader = styled.div`
