@@ -10,8 +10,8 @@ import { colors } from '../../theme/variables'
 
 const CardHolder = styled.div`
     max-width: 100%;
-    min-height: 36vh;
-    margin-top: 22px;
+    ${'' /* min-height: 36vh; */}
+    ${'' /* margin-top: 22px; */}
     background: linear-gradient(to bottom, #474F54, #1F262B);
     color: #fff;
 `
@@ -27,6 +27,8 @@ const ContainerTitle = styled.div`
     max-height: 28px;
     display: flex;
     align-items: center;
+    margin-bottom: 40px;
+
     h2 {
         font-size: 1.4rem;
         padding-left: 1.2rem;

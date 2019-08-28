@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../../theme/variables'
 
 const FavoritesContainer = styled.div`
-    width: 98%;
+    width: 95%;
     padding: .5rem .5rem;
     margin: 0 auto;
     margin-top: 20px;
