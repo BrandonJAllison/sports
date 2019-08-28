@@ -19,6 +19,13 @@ const Stats = props => {
         setSelectedOption(null)
         setPlayerSelectedOption(null)
     }
+    const displayBetSlip = () =>{
+        const container =  document.getElementById('wrap')
+         if (container.className.length !== 0 ){
+            container.classList.toggle('wrapper')
+         }
+      
+    }
 
     const stat = <FontAwesomeIcon icon={faChartLine} />
     const player = <FontAwesomeIcon icon={faUser} />
@@ -109,6 +116,7 @@ const Stats = props => {
                             playerCount: 1
                         })
                         clearOptions()
+                        displayBetSlip()
                     }
                     }>Send To Betslip</StyledButton>
             </Flex>

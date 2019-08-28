@@ -1,9 +1,10 @@
 import React from 'react'
 import PropBets from './PropBets/PropBets'
 import BetSlip from './betSlip'
-
 import styled from 'styled-components'
 import { colors, buttonSize } from '../theme/variables'
+import './pagecontent.css';
+
 
 const PageContentContainer = styled.div`
   max-width: 1500px;
@@ -41,19 +42,18 @@ const BetBuilder = styled.div`
 
 const PageContent = (props) => {
 
-    return (
-        <PageContentContainer>
-            <Sidebar>
-                <h2>This is a mock sidebar.</h2>
-            </Sidebar>
-            <Content>
-                <h2>This is where the main page content will live.</h2>
-            </Content>
-            <BetBuilder>
-                <PropBets />
-            </BetBuilder>
-        </PageContentContainer>
-    )
+  return (
+
+    <PageContentContainer>
+      <Content>
+        <h2>This is where the main page content will live.</h2>
+      </Content>
+      <BetBuilder>
+        <PropBets />
+      </BetBuilder>
+    </PageContentContainer>
+
+  )
 }
 
 export default PageContent
