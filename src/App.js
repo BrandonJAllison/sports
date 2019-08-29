@@ -14,6 +14,7 @@ import GlobalStyle from './theme/globalStyle';
 import { colors, buttonSize } from './theme/variables.js'
 import './index.css'
 
+
 import './theme/index.js'
 
 const PageContainer = styled.div`
