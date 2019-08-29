@@ -1,19 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import thunk from 'redux-thunk'
-import { Provider } from 'react-redux'
-
 import { applyMiddleware, createStore } from 'redux'
-import App from './App'
-import './index.css'
-import reducer from './reducers'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Auth0Provider } from "./utils/authZero"
+
 import config from "./auth_config.json"
+import reducer from './reducers'
+import App from './App'
+import './index.css'
 
 // A function that routes the user to the right place
 // after login
+
 const onRedirectCallback = appState => {
     window.history.replaceState(
         {},
@@ -27,8 +27,8 @@ const onRedirectCallback = appState => {
 const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-    <Router>
-        <Provider store={store}>
+    <Provider store={store}>
+        <Router>
             <Auth0Provider
                 domain={config.domain}
                 client_id={config.clientId}
@@ -37,7 +37,7 @@ ReactDOM.render(
             >
                 <App />
             </Auth0Provider>
-        </Provider>
-    </Router>,
+        </Router>
+    </Provider>,
     document.getElementById('root')
 )
