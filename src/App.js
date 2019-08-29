@@ -70,7 +70,7 @@ function App() {
       <SideBar />
       <PageContainer>
         <GlobalStyle />
-
+        <div></div>
         <NavContainer>
 
           <NavRow>
